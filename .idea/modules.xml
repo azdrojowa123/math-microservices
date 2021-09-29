@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend/frontend.iml" filepath="$PROJECT_DIR$/frontend/frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/math-microservices.iml" filepath="$PROJECT_DIR$/math-microservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/survival-curve-calc/survival-curve-calc.iml" filepath="$PROJECT_DIR$/backend/survival-curve-calc/survival-curve-calc.iml" />
+    </modules>
+  </component>
+</project>

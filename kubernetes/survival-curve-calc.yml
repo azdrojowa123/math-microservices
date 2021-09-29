@@ -1,0 +1,35 @@
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: survival-curve-service
+  labels:
+    app: survival-curve-service
+spec:
+  selector:
+    app: survival-curve
+  ports:
+    - port: 8080 # The port that the service is running on in the cluster
+      nodePort: 30001 # Port accessible outside cluster
+      name: http
+  type: NodePort # type of the service. LoadBalancer indicates that our service will be external.
+---
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: survival-curve
+spec:
+  selector:
+    matchLabels:
+      app: survival-curve
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: survival-curve
+    spec:
+      containers:
+        - image: azdrojowa123/survival-curve:latest
+          imagePullPolicy: IfNotPresent
+          name: survival-curve
+          ports:
+            - containerPort: 8080 # The port that the container is running on in the cluster
