@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     form: {
         display: 'flex',
         flexFlow: 'column',
-        height: '5%'
+        height: '30%'
     }
 }));
 
@@ -53,9 +53,9 @@ export function SurvivalCurveCalc() {
     return (
         <>
             <Box m={20}>
-                <div className={classes.form}>
+
                 <AddingTestingPersonForm adding={addingNewPerson}/>
-                </div>
+
                 <TableContainer component={Paper}>
                     <Table aria-label="customized table">
                         <TableHead>

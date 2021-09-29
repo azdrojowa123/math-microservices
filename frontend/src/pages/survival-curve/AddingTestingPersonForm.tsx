@@ -1,5 +1,6 @@
-import { Button, makeStyles, MenuItem, TextField } from '@material-ui/core';
+import {Box, Button, Grid, makeStyles, MenuItem, TextField} from '@material-ui/core';
 import { ChangeEvent, useState } from 'react';
+
 
 const useStyles = makeStyles(theme => ({
     wrapper: {
@@ -17,12 +18,13 @@ const useStyles = makeStyles(theme => ({
         '&:hover': {
             backgroundColor: '#A8AEAE',
         },
-        width: '20%', /* 60% of body width (100vw) */
-        height: '40%'
+        marginTop: '10px',
+        width: '40vh',
+        height: '3vh'
     },
     form: {
         display: 'flex',
-        height: '15vh'
+        width: '40vh',
     }
 }));
 
@@ -48,35 +50,42 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
 
     return (
         <>
-            <div className={classes.form}>
-                <TextField
-                    id="standard-select-currency"
-                    select
-                    label="Czas trwania"
-                    onChange={event => {setDuration(Number(event.target.value))}}
-                    helperText="Please select your currency"
-                >
-                    {durationArray.map((option) => (
-                        <MenuItem key={option} value={option}>
-                            {option}
-                        </MenuItem>
-                    ))}
-                </TextField>
-                <TextField
-                    id="standard-select-currency"
-                    select
-                    label="Wystąpienie"
-                    onChange={event => {setOccurrence(event.target.value.toString() == '1')}}
-                    helperText="Please select your currency"
-                >
-                    {occurrenceArray.map((option) => (
-                        <MenuItem key={option} value={option}>
-                            {option}
-                        </MenuItem>
-                    ))}
-                </TextField>
-                <Button className={classes.button} onClick={addTestingPerson} fullWidth>Zapisz</Button>
-            </div>
+            <Grid container direction={"row"} spacing={10}>
+                <Grid item>
+                    <TextField
+                        id="standard-select-currency"
+                        className={classes.form}
+                        select
+                        label="Czas trwania"
+                        onChange={event => {setDuration(Number(event.target.value))}}
+                        helperText="Please select your currency"
+                    >
+                        {durationArray.map((option) => (
+                            <MenuItem key={option} value={option}>
+                                {option}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                </Grid>
+                <Grid item>
+                    <TextField
+                        id="standard-select-currency"
+                        select
+                        label="Wystąpienie"
+                        onChange={event => {setOccurrence(event.target.value.toString() == '1')}}
+                        helperText="Please select your currency"
+                    >
+                        {occurrenceArray.map((option) => (
+                            <MenuItem key={option} value={option}>
+                                {option}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                </Grid>
+                <Grid item>
+                    <Button className={classes.button} onClick={addTestingPerson} fullWidth>Zapisz</Button>
+                </Grid>
+            </Grid>
         </>
     );
 }
