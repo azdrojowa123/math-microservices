@@ -37,9 +37,6 @@ const theme = responsiveFontSizes(createMuiTheme({
         warning: {
             main: '#FC7B09',//orange
         },
-        info: {
-            main: '#6B7D6A',//gray
-        },
         success: {
             main: '#09FE00',//green
         },

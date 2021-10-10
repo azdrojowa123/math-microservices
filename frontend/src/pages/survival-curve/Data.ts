@@ -154,3 +154,256 @@ export const olympicAchievements = [{
     silver: 11,
     bronze: 10
 }];
+
+export const survivalCurveData = [
+    {
+        duration: 12,
+        occurrence: false
+    },
+    {
+        duration: 10,
+        occurrence: true
+    },
+    {
+        duration: 12,
+        occurrence: false
+    },
+    {
+        duration: 12,
+        occurrence: false
+    },
+    {
+        duration: 6,
+        occurrence: false
+    },
+    {
+        duration: 3,
+        occurrence: true
+    },
+    {
+        duration: 2,
+        occurrence: true
+    },
+    {
+        duration: 9,
+        occurrence: true
+    },
+    {
+        duration: 12,
+        occurrence: false
+    },
+    {
+        duration: 12,
+        occurrence: false
+    },
+    {
+        duration: 4,
+        occurrence: false
+    },
+    {
+        duration: 11,
+        occurrence: true
+    },
+    {
+        duration: 10,
+        occurrence: false
+    },
+    {
+        duration: 12,
+        occurrence: false
+    },
+    {
+        duration: 12,
+        occurrence: true
+    },
+    {
+        duration: 12,
+        occurrence: false
+    },
+    {
+        duration: 1,
+        occurrence: true
+    },
+    {
+        duration: 12,
+        occurrence: false
+    },
+    {
+        duration: 12,
+        occurrence: false
+    },
+    {
+        duration: 7,
+        occurrence: true
+    }
+]
+
+export const survivalCurveNew = [
+    {
+        "duration": 12,
+        "occurrence": false
+    },
+    {
+        "duration": 10,
+        "occurrence": true
+    },
+    {
+        "duration": 12,
+        "occurrence": false
+    },
+    {
+        "duration": 12,
+        "occurrence": false
+    },
+    {
+        "duration": 6,
+        "occurrence": false
+    },
+    {
+        "duration": 3,
+        "occurrence": true
+    },
+    {
+        "duration": 2,
+        "occurrence": true
+    },
+    {
+        "duration": 9,
+        "occurrence": true
+    },
+    {
+        "duration": 12,
+        "occurrence": false
+    },
+    {
+        "duration": 12,
+        "occurrence": false
+    },
+    {
+        "duration": 4,
+        "occurrence": false
+    },
+    {
+        "duration": 11,
+        "occurrence": true
+    },
+    {
+        "duration": 10,
+        "occurrence": false
+    },
+    {
+        "duration": 12,
+        "occurrence": false
+    },
+    {
+        "duration": 12,
+        "occurrence": true
+    },
+    {
+        "duration": 12,
+        "occurrence": false
+    },
+    {
+        "duration": 1,
+        "occurrence": true
+    },
+    {
+        "duration": 12,
+        "occurrence": false
+    },
+    {
+        "duration": 12,
+        "occurrence": false
+    },
+    {
+        "duration": 7,
+        "occurrence": true
+    }
+]
+
+export const results = [
+    {
+        "periodNumber": 1,
+        "quantity": 20,
+        "failures": 1,
+        "survivalProbability": 0.95,
+        "estimatorKM": 0.95
+    },
+    {
+        "periodNumber": 2,
+        "quantity": 19,
+        "failures": 1,
+        "survivalProbability": 0.95,
+        "estimatorKM": 0.9
+    },
+    {
+        "periodNumber": 3,
+        "quantity": 18,
+        "failures": 1,
+        "survivalProbability": 0.94,
+        "estimatorKM": 0.85
+    },
+    {
+        "periodNumber": 4,
+        "quantity": 17,
+        "failures": 0,
+        "survivalProbability": 1.0,
+        "estimatorKM": 0.85
+    },
+    {
+        "periodNumber": 5,
+        "quantity": 16,
+        "failures": 0,
+        "survivalProbability": 1.0,
+        "estimatorKM": 0.85
+    },
+    {
+        "periodNumber": 6,
+        "quantity": 16,
+        "failures": 0,
+        "survivalProbability": 1.0,
+        "estimatorKM": 0.85
+    },
+    {
+        "periodNumber": 7,
+        "quantity": 15,
+        "failures": 1,
+        "survivalProbability": 0.93,
+        "estimatorKM": 0.79
+    },
+    {
+        "periodNumber": 8,
+        "quantity": 14,
+        "failures": 0,
+        "survivalProbability": 1.0,
+        "estimatorKM": 0.79
+    },
+    {
+        "periodNumber": 9,
+        "quantity": 14,
+        "failures": 1,
+        "survivalProbability": 0.93,
+        "estimatorKM": 0.73
+    },
+    {
+        "periodNumber": 10,
+        "quantity": 13,
+        "failures": 1,
+        "survivalProbability": 0.92,
+        "estimatorKM": 0.67
+    },
+    {
+        "periodNumber": 11,
+        "quantity": 11,
+        "failures": 1,
+        "survivalProbability": 0.91,
+        "estimatorKM": 0.61
+    },
+    {
+        "periodNumber": 12,
+        "quantity": 10,
+        "failures": 1,
+        "survivalProbability": 0.9,
+        "estimatorKM": 0.55
+    }
+]

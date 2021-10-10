@@ -1,8 +1,23 @@
-import { Box, Button, makeStyles, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import {
+    Box,
+    Button, IconButton,
+    makeStyles,
+    Paper,
+    Snackbar,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow
+} from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 import * as React from 'react';
-import { useState } from 'react';
-import { AddingTestingPersonForm } from './AddingTestingPersonForm';
+import {useState} from 'react';
+import {AddingTestingPersonForm} from './AddingTestingPersonForm';
 import StepLineChart from './StepLineChart';
+import survivalCurveService from "../../services/survivalCurveService";
+import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
 
 const useStyles = makeStyles(theme => ({
     wrapper: {
@@ -20,8 +35,9 @@ const useStyles = makeStyles(theme => ({
         '&:hover': {
             backgroundColor: '#A8AEAE',
         },
-        width: '20%', /* 60% of body width (100vw) */
-        height: '5%'
+        marginTop: '10px',
+        width: '20vh',
+        height: '3vh'
     },
     form: {
         display: 'flex',
@@ -30,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-interface TestingPerson {
+export interface TestingPerson {
     id: number,
     duration: number,
     occurrence: boolean
@@ -39,6 +55,15 @@ interface TestingPerson {
 export function SurvivalCurveCalc() {
 
     const [rows, setRows] = useState<TestingPerson[]>([]);
+    const [dataSource, setDataSource] = useState<[]>([]);
+    const [disableGenerateChart, setDisableGenerateChart] = useState<boolean>(true);
+    const service = survivalCurveService;
+    const [display, setDisplay] = useState<boolean>(false);
+    const [snackbarMsg, setSnackbarMsg] = useState<string>('');
+
+    const handleClose = () => {
+        setDisplay(false)
+    }
 
     const addingNewPerson = (duration: number, occurrence: boolean) => {
         setRows([...rows, {id: rows.length, duration: duration, occurrence: occurrence}]);
@@ -47,8 +72,20 @@ export function SurvivalCurveCalc() {
     const classes = useStyles();
 
     const generateChart = () => {
-
+        service.getSurvivalResults(12, rows).then(async res => {
+            if (res.ok) {
+                const data = await res.json()
+                setDataSource(data)
+            } else {
+                setSnackbarMsg("Some error occurred during connection to backend")
+                setDisplay(true)
+            }
+        }).catch( () => {
+            setSnackbarMsg("Connection to backend server refused")
+            setDisplay(true)
+        })
     };
+
 
     return (
         <>
@@ -76,8 +113,29 @@ export function SurvivalCurveCalc() {
                         </TableBody>
                     </Table>
                 </TableContainer>
-                <Button onClick={generateChart}>Wygeneruj wykres</Button>
-                <StepLineChart/>
+                <Button className={classes.button} onClick={generateChart}>Wygeneruj wykres</Button>
+                {
+                    display &&
+                    <Snackbar
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'right',
+                        }}
+                        open={display}
+                        autoHideDuration={6000}
+                        onClose={handleClose}
+                    >
+                        <SnackbarContentWrapper
+                            onClose={handleClose}
+                            variant="warning"
+                            message={snackbarMsg}
+                        />
+                    </Snackbar>
+                }
+                {
+                    dataSource.length !== 0 &&
+                    <StepLineChart data={dataSource}/>
+                }
             </Box>
         </>
     );

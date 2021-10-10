@@ -15,7 +15,6 @@ public class EstimatorCalcService {
 
   public List<PeriodResultKM> generateEstimatorResults(List<TestingPerson>testingPersonList, int periods){
     List<PeriodResultKM> resultsList = new ArrayList<>();
-    //PeriodResultKM[] resultsList = new PeriodResultKM[periods];
     IntStream.rangeClosed(1, periods).forEach(i->{
       PeriodResultKM periodResultKM = new PeriodResultKM(i);
       testingPersonList.stream()
