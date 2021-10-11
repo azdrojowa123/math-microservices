@@ -321,8 +321,10 @@ export const survivalCurveNew = [
     }
 ]
 
+
 export const results = [
     {
+
         "periodNumber": 1,
         "quantity": 20,
         "failures": 1,

@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve-calc/survival-curve-calc.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/survival-curve-calc.jmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/model/response/PeriodResultKM.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/model/response/PeriodResultKM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/Data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/StepLineChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/StepLineChart.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -51,31 +53,34 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2002064" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="C:\Users\azdro\OneDrive\Pulpit\math-microservices\math-microservices\frontend\node_modules\typescript\lib" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="ts.external.directory.path" value="C:\Users\azdro\OneDrive\Pulpit\math-microservices\frontend\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\tests" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\math-microservices\kubernetes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\azdrojowa\Desktop\math-microservices\frontend\src\pages\startingPages" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.run frontend">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.SurvivalCurveCalcApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -251,6 +256,7 @@
       <workItem from="1633861611979" duration="8750000" />
       <workItem from="1633885080602" duration="633000" />
       <workItem from="1633932667965" duration="2871000" />
+      <workItem from="1633936228125" duration="5206000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>

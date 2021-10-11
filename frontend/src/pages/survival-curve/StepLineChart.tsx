@@ -1,7 +1,16 @@
-import { ArgumentAxis, Chart, CommonSeriesSettings, Export, Format, Label, Legend, Point, Series } from 'devextreme-react/chart';
+import {
+    ArgumentAxis,
+    Chart,
+    CommonSeriesSettings,
+    Export,
+    Format,
+    Label,
+    Legend,
+    Point,
+    Series
+} from 'devextreme-react/chart';
 import * as React from 'react';
-import { Component } from 'react';
-import {olympicAchievements, results} from './Data';
+import {Component} from 'react';
 
 
 interface SurvivalCurveResult {
@@ -38,9 +47,10 @@ export default class StepLineChart extends Component<stepLineChartI> {
                         return <Series key={item.value} valueField={item.value} name={item.name} color={item.color} />;
                     })
                 }*/}
-                    <Series key={'estimatorKM'} valueField={'estimatorKM'} name={'Prawdopodobieństwo nie wystąpienia określonych działań nieporządanych'} color={'#FC7B09'}></Series>
+                    <Series key={'estimatorKM'} valueField={'estimatorKM'}
+                            name={'Prawdopodobieństwo nie wystąpienia określonych działań nieporządanych'}
+                            color={'#FC7B09'}/>
                     <ArgumentAxis>
-
                         <Label>
                             <Format type="decimal"/>
                         </Label>
