@@ -2,9 +2,6 @@ package com.calc.survivalcurve.model.response;
 
 import lombok.*;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,16 +15,6 @@ public class PeriodResultKM {
     private double survivalProbability;
     private double estimatorKM;
 
-    public static double rounds(double value) {
-        Double threeDecimalPlaces = BigDecimal.valueOf(value)
-                .setScale(3, RoundingMode.HALF_UP)
-                .doubleValue();
-        Double twoDecimalPlaces = BigDecimal.valueOf(threeDecimalPlaces)
-                .setScale(2, RoundingMode.HALF_UP)
-                .doubleValue();
-        return twoDecimalPlaces;
-    }
-
     public void incrementQuantity() {
         this.quantity++;
     }
@@ -37,10 +24,11 @@ public class PeriodResultKM {
     }
 
     public void calculateSurvivalProbability() {
-        this.survivalProbability = rounds((((double) (this.quantity - this.failures) / this.quantity) * 100.0) / 100.0);
+        this.survivalProbability = Math.round((((double) (this.quantity - this.failures) / this.quantity) * 100.0) / 100.0);
     }
 
     public void calculateEstimatorKM(PeriodResultKM previous) {
-        this.estimatorKM = rounds(previous.getEstimatorKM() * this.getSurvivalProbability());
+        //this.estimatorKM = rounds(previous.getEstimatorKM() * this.getSurvivalProbability());
+        this.estimatorKM = Math.round(previous.getEstimatorKM() * this.getSurvivalProbability() * 100.0) / 100.0;
     }
 }

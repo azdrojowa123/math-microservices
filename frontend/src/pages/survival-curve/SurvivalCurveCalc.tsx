@@ -1,6 +1,6 @@
 import {
     Box,
-    Button, IconButton,
+    Button,
     makeStyles,
     Paper,
     Snackbar,
@@ -11,7 +11,6 @@ import {
     TableHead,
     TableRow
 } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
 import * as React from 'react';
 import {useState} from 'react';
 import {AddingTestingPersonForm} from './AddingTestingPersonForm';
@@ -19,6 +18,7 @@ import StepLineChart from './StepLineChart';
 import survivalCurveService from "../../services/survivalCurveService";
 import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
 import {ResultsTable} from "./ResultsTable";
+import {CsvReader} from "./CsvReader";
 
 const useStyles = makeStyles(theme => ({
     wrapper: {
@@ -90,9 +90,8 @@ export function SurvivalCurveCalc() {
     return (
         <>
             <Box m={20}>
-
                 <AddingTestingPersonForm adding={addingNewPerson}/>
-
+                <CsvReader/>
                 <TableContainer component={Paper}>
                     <Table aria-label="customized table">
                         <TableHead>

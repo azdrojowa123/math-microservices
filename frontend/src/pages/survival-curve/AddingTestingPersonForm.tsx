@@ -1,5 +1,5 @@
-import {Box, Button, Grid, InputAdornment, makeStyles, MenuItem, TextField} from '@material-ui/core';
-import {ChangeEvent, useEffect, useState} from 'react';
+import {Button, Grid, makeStyles, MenuItem, TextField} from '@material-ui/core';
+import {useEffect, useState} from 'react';
 
 
 const useStyles = makeStyles(theme => ({
@@ -74,13 +74,12 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
                 </Grid>
                 <Grid item>
                     <TextField
-                        id="standard-select-currency"
+                        id="outlined-start-adornment"
                         label="Jednostka czasu"
                         select
                         onChange={event => {
                             seTimeUnit(event.target.value.toString())
                         }}
-                        helperText="Please select your currency"
                     >
                         {timeUnits.map((option) => (
                             <MenuItem key={option} value={option}>

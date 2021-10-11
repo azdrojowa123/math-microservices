@@ -1,10 +1,10 @@
-import { createBrowserHistory } from 'history';
+import {createBrowserHistory, Location, State} from 'history';
 import React from 'react';
-import { Route, Router, Switch } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { SurvivalCurveCalc } from '../src/pages/survival-curve/SurvivalCurveCalc';
-import { LandingPage } from '../src/pages/startingPages/LandingPage';
-import { MainPage } from '../src/pages/startingPages/MainPage';
+import {Route, Router, Switch} from 'react-router-dom';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import {SurvivalCurveCalc} from '../src/pages/survival-curve/SurvivalCurveCalc';
+import {LandingPage} from '../src/pages/startingPages/LandingPage';
+import {MainPage} from '../src/pages/startingPages/MainPage';
 import './page-transitions/slideTransition.css';
 
 
@@ -15,11 +15,13 @@ function App() {
     const history = createBrowserHistory();
     let prevDepth = calculatePathDepth(history.location);
 
-    function calculatePathDepth(location: any) {
+    function calculatePathDepth(location: Location<State>) {
         return location.pathname.split('/').filter((n: any) => n !== '').length;
     }
 
-    function getPathDepth(location: any) {
+    function getPathDepth(location: Location<State>) {
+        console.log("LOCATION")
+        console.log(location)
         let result: boolean = calculatePathDepth(location) - prevDepth >= 0;
         console.log("stara")
         console.log(prevDepth)
