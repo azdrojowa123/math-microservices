@@ -1,4 +1,4 @@
-import {Button, Grid, makeStyles, MenuItem, TextField} from '@material-ui/core';
+import {Box, Button, Grid, makeStyles, MenuItem, TextField, Typography} from '@material-ui/core';
 import {useEffect, useState} from 'react';
 
 
@@ -19,13 +19,14 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: '#A8AEAE',
         },
         marginTop: '10px',
+        marginBottom: '10px',
         width: '40vh',
         height: '3vh'
     },
     form: {
         display: 'flex',
-        width: '40vh',
-    }
+        width: '20vw',
+    },
 }));
 
 interface AddTestingPersonFormI {
@@ -62,9 +63,17 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
     return (
         <>
             <Grid container direction={"row"} spacing={10}>
+                <Grid item xs={10}>
+                    <Box borderRadius={8}>
+                        <Typography variant="h1" component="div">
+                            Jeżeli preferowaną opcją jest dodanie przypadków ręcznie, proszę o dodanie ich zgodnie z
+                            poniższym formularzem
+                        </Typography>
+                    </Box>
+                </Grid>
                 <Grid item>
                     <TextField
-                        id="standard-select-currency"
+                        id="outlined-name"
                         className={classes.form}
                         label="Całkowity czas trwania próby"
                         onChange={event => {
@@ -76,6 +85,7 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
                     <TextField
                         id="outlined-start-adornment"
                         label="Jednostka czasu"
+                        className={classes.form}
                         select
                         onChange={event => {
                             seTimeUnit(event.target.value.toString())
@@ -114,6 +124,7 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
                         <TextField
                             id="standard-select-currency"
                             select
+                            className={classes.form}
                             label="Wystąpienie"
                             onChange={event => {
                                 setOccurrence(event.target.value.toString() == '1')

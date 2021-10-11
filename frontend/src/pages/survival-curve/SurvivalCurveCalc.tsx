@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import * as React from 'react';
 import {useState} from 'react';
+import Divider from '@material-ui/core/Divider';
 import {AddingTestingPersonForm} from './AddingTestingPersonForm';
 import StepLineChart from './StepLineChart';
 import survivalCurveService from "../../services/survivalCurveService";
@@ -44,6 +45,9 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexFlow: 'column',
         height: '30%'
+    },
+    divider: {
+        marginBottom: '20px'
     }
 }));
 
@@ -57,7 +61,6 @@ export function SurvivalCurveCalc() {
 
     const [rows, setRows] = useState<TestingPerson[]>([]);
     const [dataSource, setDataSource] = useState<[]>([]);
-    const [disableGenerateChart, setDisableGenerateChart] = useState<boolean>(true);
     const service = survivalCurveService;
     const [display, setDisplay] = useState<boolean>(false);
     const [snackbarMsg, setSnackbarMsg] = useState<string>('');
@@ -90,8 +93,9 @@ export function SurvivalCurveCalc() {
     return (
         <>
             <Box m={20}>
-                <AddingTestingPersonForm adding={addingNewPerson}/>
                 <CsvReader/>
+                <Divider className={classes.divider}/>
+                <AddingTestingPersonForm adding={addingNewPerson}/>
                 <TableContainer component={Paper}>
                     <Table aria-label="customized table">
                         <TableHead>

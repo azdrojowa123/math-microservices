@@ -44,9 +44,13 @@
     "@devexpress/dx-react-chart": "^2.7.6",
     "@devexpress/dx-react-chart-material-ui": "^2.7.6",
     "@devexpress/dx-react-core": "^2.7.6",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/data-grid": "^4.0.0-alpha.37",
     "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.0.3",
+    "@mui/material": "^5.0.3",
     "@types/d3-shape": "^3.0.2",
     "@types/react-router-dom": "^5.3.1",
     "classnames": "^2.3.1",
@@ -58,6 +62,7 @@
     "history": "^5.0.1",
     "next-page-transitions": "^1.0.0-beta.2",
     "react-native-easy-grid": "^0.2.2",
+    "react-native-unordered-list": "^1.0.4",
     "react-router-dom": "^5.3.0",
     "react-transition-group": "^4.4.2"
   }

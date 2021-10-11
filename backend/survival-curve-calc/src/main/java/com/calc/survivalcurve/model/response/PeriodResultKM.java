@@ -28,7 +28,6 @@ public class PeriodResultKM {
     }
 
     public void calculateEstimatorKM(PeriodResultKM previous) {
-        //this.estimatorKM = rounds(previous.getEstimatorKM() * this.getSurvivalProbability());
         this.estimatorKM = Math.round(previous.getEstimatorKM() * this.getSurvivalProbability() * 100.0) / 100.0;
     }
 }

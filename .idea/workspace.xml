@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvReader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/UI-addons/InformationBox.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/model/response/PeriodResultKM.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/model/response/PeriodResultKM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/AddingTestingPersonForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/AddingTestingPersonForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvReader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvReader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,19 +77,6 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.run frontend">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="survival-curve [clean:install]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -257,7 +248,14 @@
       <workItem from="1633861611979" duration="8750000" />
       <workItem from="1633885080602" duration="633000" />
       <workItem from="1633932667965" duration="2871000" />
-      <workItem from="1633936228125" duration="12521000" />
+      <workItem from="1633936228125" duration="12863000" />
+      <workItem from="1633959312850" duration="4750000" />
+      <workItem from="1633974061855" duration="6282000" />
+      <workItem from="1633981471144" duration="6843000" />
+      <workItem from="1633988425920" duration="11000" />
+      <workItem from="1633988487075" duration="2000" />
+      <workItem from="1633988647326" duration="64000" />
+      <workItem from="1633988749269" duration="1530000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>
@@ -273,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633944430006</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: working">
+      <created>1633957426535</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633957426536</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +305,8 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="working deployment with hpa" />
     <MESSAGE value="feat: repair rounding in results" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: repair rounding in results" />
+    <MESSAGE value="feat: working" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: working" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

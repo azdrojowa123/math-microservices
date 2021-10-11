@@ -1,5 +1,5 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import {createMuiTheme, responsiveFontSizes} from '@material-ui/core/styles';
+import {ThemeProvider} from '@material-ui/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -15,7 +15,7 @@ const theme = responsiveFontSizes(createMuiTheme({
             'serif',
         ].join(','),
         h1: {
-            fontSize: 50,
+            fontSize: 17,
             fontFamily: 'Palatino',
         },
         h2: {
@@ -42,7 +42,6 @@ const theme = responsiveFontSizes(createMuiTheme({
         },
         text: {
             primary: '#000000',//black
-            secondary: '#FFFFFF',//white
         },
     },
 }));
