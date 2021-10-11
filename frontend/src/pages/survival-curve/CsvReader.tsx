@@ -54,17 +54,15 @@ export function CsvReader() {
     const processCSV = (str: string, delim = ',') => {
         const headers = str.slice(0, str.indexOf('\r\n')).split(delim);
         const rows = str.slice(str.indexOf('\r\n') + 2).split('\r\n').slice(0, -1);
-        const newArray = rows.map((row: any) => {
+        const resultArray = rows.map((row: any, index: number) => {
             const values = row.split(delim);
-            if (values.length !== 0) {
-                const singleObject: any = {}
-                headers.forEach((value: string, index: number) => {
-                    singleObject[value] = values[index]
-                })
-                return singleObject
+            return {
+                id: index,
+                duration: values[0],
+                occurrence: values[1]
             }
-        })
-        console.log(newArray)
+        });
+        console.log(resultArray)
     }
 
     return (
@@ -73,19 +71,25 @@ export function CsvReader() {
                 <Grid item>
                     <Box borderRadius={8}>
                         <Typography variant="h1" component="div">
-                            Wymagania dotyczące importowania pliku CSV
+                            Requirements for importing a CSV file
                         </Typography>
                         <List>
                             <ListItem>
                                 <ListItemIcon>
                                     <KeyboardArrowRightSharpIcon/>
                                 </ListItemIcon>
-                                <ListItemText primary="Pierwsza kolumna w pliku odpowiada czasowi odbytej próby"/>
+                                <ListItemText
+                                    primary="The first column in the file corresponds to the time of the attempt"/>
                                 <ListItemIcon>
                                     <KeyboardArrowRightSharpIcon/>
                                 </ListItemIcon>
                                 <ListItemText
-                                    primary="Druga kolumna, przyjmuje wartość 0 lub 1 w zależności czy próba jest ucięta(0)/zakończona powodzeniem(0)/zakończona niepowodzeniem(1)"/>
+                                    primary="The second column takes a value of 0 or 1 depending on whether the sample is cut (0) / successful (0) / failed (1)"/>
+                                <ListItemIcon>
+                                    <KeyboardArrowRightSharpIcon/>
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Column headers do not matter, the order of the respective columns counts"/>
                             </ListItem>
                         </List>
                     </Box>

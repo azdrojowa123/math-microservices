@@ -66,8 +66,8 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
                 <Grid item xs={10}>
                     <Box borderRadius={8}>
                         <Typography variant="h1" component="div">
-                            Jeżeli preferowaną opcją jest dodanie przypadków ręcznie, proszę o dodanie ich zgodnie z
-                            poniższym formularzem
+                            If adding cases manually is your preferred option, please add them in pursuance of
+                            the form below
                         </Typography>
                     </Box>
                 </Grid>
