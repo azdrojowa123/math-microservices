@@ -18,6 +18,7 @@ import {AddingTestingPersonForm} from './AddingTestingPersonForm';
 import StepLineChart from './StepLineChart';
 import survivalCurveService from "../../services/survivalCurveService";
 import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
+import {ResultsTable} from "./ResultsTable";
 
 const useStyles = makeStyles(theme => ({
     wrapper: {
@@ -74,13 +75,12 @@ export function SurvivalCurveCalc() {
     const generateChart = () => {
         service.getSurvivalResults(12, rows).then(async res => {
             if (res.ok) {
-                const data = await res.json()
-                setDataSource(data)
+                setDataSource(await res.json())
             } else {
                 setSnackbarMsg("Some error occurred during connection to backend")
                 setDisplay(true)
             }
-        }).catch( () => {
+        }).catch(() => {
             setSnackbarMsg("Connection to backend server refused")
             setDisplay(true)
         })
@@ -134,7 +134,10 @@ export function SurvivalCurveCalc() {
                 }
                 {
                     dataSource.length !== 0 &&
-                    <StepLineChart data={dataSource}/>
+                    <>
+                        <StepLineChart data={dataSource}/>
+                        <ResultsTable data={dataSource}/>
+                    </>
                 }
             </Box>
         </>
