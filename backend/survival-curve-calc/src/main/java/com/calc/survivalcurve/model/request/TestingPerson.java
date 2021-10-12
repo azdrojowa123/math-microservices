@@ -11,9 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TestingPerson {
 
-  private int duration;
-  private boolean occurrence;
-
+    private int duration;
+    private boolean occurrence;
 
 
 }

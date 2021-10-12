@@ -1,0 +1,15 @@
+version: '3'
+services:
+  discovery:
+    image: azdrojowa123/eureka-server:latest
+    ports:
+      - 8761:8761
+  csv-data:
+    image: azdrojowa123/csv-validate:latest
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery:8761/eureka
+    restart: on-failure
+    depends_on:
+      - discovery
+    ports:
+      - 8081:8081

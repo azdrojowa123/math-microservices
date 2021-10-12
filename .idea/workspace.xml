@@ -5,9 +5,123 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_12_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_12_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_12_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_12_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_12_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_6_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_19_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_inject_guice_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_eureka_eureka_client_1_10_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_eureka_eureka_core_1_10_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_netflix_commons_netflix_eventbus_0_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_netflix_commons_netflix_infix_0_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_servo_servo_core_0_12_21.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_stoyanr_evictor_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_contribs_jersey_apache_client4_1_19_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_contribs_jersey_apache_client4_1_19_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_client_1_19_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_core_1_19_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_core_1_19_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_server_1_19_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_servlet_1_19_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_thoughtworks_xstream_xstream_1_4_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_configuration_commons_configuration_1_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_jxpath_commons_jxpath_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_x_stream_mxparser_1_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_core_1_7_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_addons_reactor_extra_3_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_ws_rs_jsr311_api_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr_runtime_3_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_stringtemplate_3_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_14.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_53.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_53.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_53.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcpkix_jdk15on_1_68.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_68.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jettison_jettison_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_woodstox_stax2_api_4_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_31.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_latencyutils_LatencyUtils_2_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_cache_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_freemarker_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_3_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_3_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_loadbalancer_3_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_3_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_server_3_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_3_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_loadbalancer_3_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_3_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_server_3_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_5_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_rsa_1_0_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xmlpull_xmlpull_1_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/csv-validate/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/csv-validate/src/main/java/com/calc/csvvalidate/CsvValidationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/csv-validate/src/main/java/com/calc/csvvalidate/ValidationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/eureka-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/AddingTestingPersonForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/AddingTestingPersonForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvReader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvReader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/SurvivalCurveCalcApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/SurvivalCurveCalcApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/controllers/DataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/controllers/DataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/model/request/TestingPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/model/request/TestingPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/services/EstimatorCalcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/java/com/calc/survivalcurve/services/EstimatorCalcService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve-calc/src/test/java/com/calc/survivalcurve/SurvivalCurveCalcApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve-calc/src/test/java/com/calc/survivalcurve/SurvivalCurveCalcApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +131,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -35,7 +149,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1y042DMijlktMiuxUFDKjwf5e6V" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,12 +163,13 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../math-microservices-old" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/csv-validate/src" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2002064" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -61,14 +178,29 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\csv-validate\src" />
+      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\csv-validate\src\main\java\com\calc\csvvalidate" />
+      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\eureka-server" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\tests" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\math-microservices\kubernetes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\csv-validate" />
       <recent name="C:\Users\azdrojowa\Desktop\math-microservices\frontend\src\pages\startingPages" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.run frontend">
+  <component name="RunManager" selected="Spring Boot.CsvValidateApplication (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="survival-curve [clean:install]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -119,6 +251,27 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="CsvValidateApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="csv-validate" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.calc.csvvalidate.CsvValidateApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CsvValidateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="survival-curve-csv-validate" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.calc.csvvalidate.CsvValidateApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.web.eurekaserver.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SurvivalCurveCalcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="survival-curve-calc" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.calc.survivalcurve.SurvivalCurveCalcApplication" />
@@ -126,55 +279,81 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="survival-curve-calc/Dockerfile (1)" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+    <configuration name="csv-validate/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
-          <option name="imageTag" value="survival-curve-calc" />
+          <option name="imageTag" value="csv-validate" />
           <option name="buildCliOptions" value="" />
-          <option name="buildOnly" value="true" />
           <option name="command" value="" />
-          <option name="containerName" value="survival-curve-calc" />
+          <option name="containerName" value="csv-validate-service" />
           <option name="entrypoint" value="" />
           <option name="portBindings">
             <list>
               <DockerPortBindingImpl>
-                <option name="containerPort" value="8080" />
-                <option name="hostPort" value="8080" />
+                <option name="containerPort" value="8081" />
+                <option name="hostPort" value="8081" />
               </DockerPortBindingImpl>
             </list>
           </option>
           <option name="commandLineOptions" value="" />
-          <option name="sourceFilePath" value="backend/survival-curve-calc/Dockerfile" />
+          <option name="sourceFilePath" value="backend/csv-validate/Dockerfile" />
         </settings>
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="survival-curve-calc/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+    <configuration name="eureka-server/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
-          <option name="imageTag" value="survival-curve-backend" />
-          <option name="buildArgs">
-            <list>
-              <DockerEnvVarImpl>
-                <option name="name" value="-t" />
-                <option name="value" value="survival-curve-calc" />
-              </DockerEnvVarImpl>
-            </list>
-          </option>
+          <option name="imageTag" value="eureka-server" />
           <option name="buildCliOptions" value="" />
+          <option name="buildOnly" value="true" />
           <option name="command" value="" />
-          <option name="containerName" value="survival-curve-backend" />
+          <option name="containerName" value="" />
           <option name="entrypoint" value="" />
           <option name="portBindings">
             <list>
               <DockerPortBindingImpl>
-                <option name="containerPort" value="8080" />
-                <option name="hostPort" value="8080" />
+                <option name="containerPort" value="8761" />
+                <option name="hostPort" value="8761" />
               </DockerPortBindingImpl>
             </list>
           </option>
           <option name="commandLineOptions" value="" />
-          <option name="sourceFilePath" value="backend/survival-curve-calc/Dockerfile" />
+          <option name="sourceFilePath" value="backend/eureka-server/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="kubernetes/docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="kubernetes/docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="kubernetes/docker-compose.yaml.csv-data: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="csv-data" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="kubernetes/docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="kubernetes/docker-compose.yaml.discovery: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="discovery" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="kubernetes/docker-compose.yaml" />
         </settings>
       </deployment>
       <method v="2" />
@@ -190,17 +369,26 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.survival-curve-calc/Dockerfile" />
-      <item itemvalue="Docker.survival-curve-calc/Dockerfile (1)" />
       <item itemvalue="Maven.survival-curve [clean:install]" />
       <item itemvalue="Maven.survival-curve-calc [clean]" />
       <item itemvalue="npm.run frontend" />
       <item itemvalue="Spring Boot.SurvivalCurveCalcApplication" />
+      <item itemvalue="Spring Boot.CsvValidateApplication" />
+      <item itemvalue="Spring Boot.EurekaServerApplication" />
+      <item itemvalue="Docker.eureka-server/Dockerfile" />
+      <item itemvalue="Spring Boot.CsvValidateApplication (1)" />
+      <item itemvalue="Docker.csv-validate/Dockerfile" />
+      <item itemvalue="Docker.kubernetes/docker-compose.yaml: Compose Deployment" />
+      <item itemvalue="Docker.kubernetes/docker-compose.yaml.discovery: Compose Deployment" />
+      <item itemvalue="Docker.kubernetes/docker-compose.yaml.csv-data: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.survival-curve-calc/Dockerfile (1)" />
-        <item itemvalue="Docker.survival-curve-calc/Dockerfile" />
+        <item itemvalue="Docker.kubernetes/docker-compose.yaml.csv-data: Compose Deployment" />
+        <item itemvalue="Docker.csv-validate/Dockerfile" />
+        <item itemvalue="Docker.kubernetes/docker-compose.yaml.discovery: Compose Deployment" />
+        <item itemvalue="Docker.kubernetes/docker-compose.yaml: Compose Deployment" />
+        <item itemvalue="Docker.eureka-server/Dockerfile" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +435,8 @@
       <workItem from="1633988425920" duration="11000" />
       <workItem from="1633988487075" duration="2000" />
       <workItem from="1633988647326" duration="64000" />
-      <workItem from="1633988749269" duration="2354000" />
+      <workItem from="1633988749269" duration="2827000" />
+      <workItem from="1634052331272" duration="12427000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>
@@ -277,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633990469597</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: adding another values returning from CSV">
+      <created>1633991211117</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1633991211117</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +502,8 @@
     <MESSAGE value="feat: repair rounding in results" />
     <MESSAGE value="feat: working" />
     <MESSAGE value="many features" />
-    <option name="LAST_COMMIT_MESSAGE" value="many features" />
+    <MESSAGE value="feat: adding another values returning from CSV" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: adding another values returning from CSV" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

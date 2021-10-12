@@ -4,6 +4,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/backend/survival-curve-calc/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/csv-validate/pom.xml" />
       </list>
     </option>
   </component>
