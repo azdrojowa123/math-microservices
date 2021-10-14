@@ -13,6 +13,21 @@ spec:
       name: http
   type: NodePort # type of the service. LoadBalancer indicates that our service will be external.
 ---
+apiVersion: v1 # Kubernetes API version
+kind: Service
+metadata: # Metadata of the resource kind we are creating
+  name: csv-validate-service
+  labels:
+    app: csv-validate-service
+spec:
+  selector:
+    app: csv-validate
+  ports:
+    - port: 8081 # The port that the service is running on in the cluster
+      nodePort: 30002 # Port accessible outside cluster
+      name: http
+  type: NodePort # type of the service. LoadBalancer indicates that our service will be external.
+---
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
@@ -40,6 +55,27 @@ spec:
             limits:
               memory: "160Mi"
               cpu: "500m"
+---
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: csv-validate
+spec:
+  selector:
+    matchLabels:
+      app: csv-validate
+  replicas: 1 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: csv-validate
+    spec:
+      containers:
+        - image: azdrojowa123/csv-validate:latest
+          imagePullPolicy: IfNotPresent
+          name: csv-validate
+          ports:
+            - containerPort: 8081 # The port that the container is running on in the cluster
 
 ---
 apiVersion: autoscaling/v2beta1

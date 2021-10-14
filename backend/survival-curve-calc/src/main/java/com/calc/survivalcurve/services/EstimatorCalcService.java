@@ -1,7 +1,7 @@
 package com.calc.survivalcurve.services;
 
-import com.calc.survivalcurve.model.request.TestingPerson;
-import com.calc.survivalcurve.model.response.PeriodResultKM;
+import com.calc.survivalcurvedata.dto.request.TestingPerson;
+import com.calc.survivalcurvedata.dto.response.PeriodResultKM;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

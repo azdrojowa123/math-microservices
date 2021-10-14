@@ -1,8 +1,8 @@
 package com.calc.survivalcurve.controllers;
 
-import com.calc.survivalcurve.model.request.TestingPerson;
-import com.calc.survivalcurve.model.response.PeriodResultKM;
 import com.calc.survivalcurve.services.EstimatorCalcService;
+import com.calc.survivalcurvedata.dto.request.TestingPerson;
+import com.calc.survivalcurvedata.dto.response.PeriodResultKM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
