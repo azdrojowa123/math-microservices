@@ -87,6 +87,7 @@ export function SurvivalCurveCalc() {
             setSnackbarMsg("Connection to backend server refused")
             setDisplay(true)
         })
+        return true;
     };
 
 
@@ -117,8 +118,6 @@ export function SurvivalCurveCalc() {
                     </Table>
                 </TableContainer>
                 <Button className={classes.button} onClick={generateChart}>Wygeneruj wykres</Button>
-                {
-                    display &&
                     <Snackbar
                         anchorOrigin={{
                             vertical: 'bottom',
@@ -134,7 +133,7 @@ export function SurvivalCurveCalc() {
                             message={snackbarMsg}
                         />
                     </Snackbar>
-                }
+
                 {
                     dataSource.length !== 0 &&
                     <>

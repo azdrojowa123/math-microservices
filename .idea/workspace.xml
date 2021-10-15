@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/csv-validate/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/csv-validate/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/csv-validate/src/main/java/com/calc/csvvalidate/config/Resilience4JConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/csv-validate/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/csv-validate/src/main/java/com/calc/csvvalidate/CsvValidationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/csv-validate/src/main/java/com/calc/csvvalidate/CsvValidationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/logo192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/logo512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csvData/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvData/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvReader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvReader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/survivalCurveService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/survivalCurveService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,14 +81,16 @@
       <recent name="C:\Users\azdrojowa\Desktop\math-microservices\frontend\src\pages\startingPages" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.CsvValidateApplication (1)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="npm.run frontend">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -338,7 +343,8 @@
       <workItem from="1634142881849" duration="8782000" />
       <workItem from="1634190617277" duration="2272000" />
       <workItem from="1634223838891" duration="41000" />
-      <workItem from="1634241178022" duration="3256000" />
+      <workItem from="1634241178022" duration="3775000" />
+      <workItem from="1634309014770" duration="6095000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>
@@ -396,7 +402,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634193083869</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feature: add new request mappings">
+      <created>1634244944475</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1634244944475</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix">
+      <created>1634244965394</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1634244965394</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +448,9 @@
     <MESSAGE value="feat: adding another values returning from CSV" />
     <MESSAGE value="some work" />
     <MESSAGE value="fix: working" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: working" />
+    <MESSAGE value="feature: add new request mappings" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

@@ -1,4 +1,3 @@
-import {useEffect, useState} from 'react';
 import {TestingPerson} from "../pages/survival-curve/SurvivalCurveCalc";
 import {survivalCurveData} from "../pages/survival-curve/Data";
 
@@ -12,9 +11,17 @@ function handleErrors (response:any){
 
 const survivalCurveService = {
 
-
-
     getSurvivalResults: (periods: number, data: TestingPerson[]) => {
+        return fetch(`http://localhost:8080/estimator/${periods}`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8', // Your headers
+            },
+            body: JSON.stringify(survivalCurveData)
+        }).then(handleErrors)
+    },
+    checkCSVData: (periods: number, data: TestingPerson[]) => {
         return fetch(`http://localhost:8080/estimator/${periods}`, {
             method: 'POST',
             mode: 'cors',

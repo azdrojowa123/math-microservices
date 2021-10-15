@@ -1,4 +1,5 @@
-import {ChangeEvent, useState} from "react";
+import * as React from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import {
     Box,
     Button,
@@ -9,9 +10,13 @@ import {
     ListItemIcon,
     ListItemText,
     makeStyles,
+    Snackbar,
+    TextField,
     Typography
 } from "@material-ui/core";
 import KeyboardArrowRightSharpIcon from "@mui/icons-material/KeyboardArrowRightSharp";
+import survivalCurveService from "../../services/survivalCurveService";
+import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -25,44 +30,81 @@ const useStyles = makeStyles(theme => ({
         marginBottom: '10px',
         width: '20vh',
         height: '5vh'
-    }
+    },
+    form: {
+        display: 'flex',
+        width: '10vw',
+    },
 }));
 
 export function CsvReader() {
-    const [csvFile, setCsvFile] = useState<File>();
+    const [csvFile, setCsvFile] = useState<{ duration: number | string, occurrence: number | string }[]>();
     const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
     const classes = useStyles();
+    const [display, setDisplay] = useState<boolean>(false);
+    const [periods, setPeriods] = useState<number>();
+    const [snackbarMsg, setSnackbarMsg] = useState<string>('');
+    const service = survivalCurveService;
+
+    useEffect(() => {
+        if (periods !== undefined && periods !== 0 && csvFile !== undefined) {
+            setDisableSubmit(false);
+        }
+    })
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setCsvFile(event.target.files?.[0])
-        setDisableSubmit(false);
-    }
-
-    const submit = () => {
-        const file = csvFile;
+        const file = event.target.files?.[0]
         const reader = new FileReader();
-
+        const delim = ',';
         reader.onload = function (e) {
             const text = e.target?.result as string;
-            processCSV(text);
+            const rows = text.slice(text.indexOf('\r\n') + 2).split('\r\n').slice(0, -1);
+            if (!checkIfResultsNumbers(rows, delim)) {
+                setSnackbarMsg('Data in in columns are not numeric values')
+                setDisplay(true);
+                setCsvFile(undefined);
+            } else {
+                const resultArray = rows.map((row: any) => {
+                    const values = row.split(delim);
+                    return {
+                        duration: Number(values[0]),
+                        occurrence: Number(values[1])
+                    }
+                });
+                setCsvFile(resultArray);
+            }
         }
         if (file != undefined) {
             reader.readAsText(file);
         }
     }
 
-    const processCSV = (str: string, delim = ',') => {
-        const headers = str.slice(0, str.indexOf('\r\n')).split(delim);
-        const rows = str.slice(str.indexOf('\r\n') + 2).split('\r\n').slice(0, -1);
-        const resultArray = rows.map((row: any, index: number) => {
-            const values = row.split(delim);
-            return {
-                id: index,
-                duration: values[0],
-                occurrence: values[1]
+    const checkCSVData = () => {
+    }
+
+    const submit = () => {
+
+    }
+
+    const handleClose = () => {
+        setDisplay(false)
+    }
+
+    function isNumber(value: string | number) {
+        return ((value != null) &&
+            (value !== '') &&
+            !isNaN(Number(value.toString())));
+    }
+
+    function checkIfResultsNumbers(resultFromFile: string[], delim: string): boolean {
+        let isNumeric = true;
+        resultFromFile.forEach(value => {
+            const values = value.split(delim);
+            if (!isNumber(values[0]) || !isNumber(values[1])) {
+                isNumeric = false;
             }
-        });
-        console.log(resultArray)
+        })
+        return isNumeric;
     }
 
     return (
@@ -94,6 +136,17 @@ export function CsvReader() {
                         </List>
                     </Box>
                 </Grid>
+                <Box width="100%"/>
+                <Grid item>
+                    <TextField
+                        id="outlined-name"
+                        className={classes.form}
+                        label="Całkow"
+                        onChange={event => {
+                            setPeriods(Number(event.target.value))
+                        }}
+                    />
+                </Grid>
                 <Grid item>
                     <Input
                         type='file'
@@ -107,11 +160,33 @@ export function CsvReader() {
                 <Grid item>
                     <Button className={classes.button}
                             disabled={disableSubmit}
+                            onClick={checkCSVData}>
+                        Check CSV File
+                    </Button>
+                </Grid>
+                <Grid item>
+                    <Button className={classes.button}
+                            disabled={disableSubmit}
                             onClick={submit}>
-                        Załaduj dane z pliku CSV
+                        Load CSV File
                     </Button>
                 </Grid>
             </Grid>
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                }}
+                open={display}
+                autoHideDuration={6000}
+                onClose={handleClose}
+            >
+                <SnackbarContentWrapper
+                    onClose={handleClose}
+                    variant="warning"
+                    message={snackbarMsg}
+                />
+            </Snackbar>
         </>
 
     )
