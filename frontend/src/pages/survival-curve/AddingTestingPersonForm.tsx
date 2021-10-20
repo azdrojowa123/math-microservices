@@ -31,28 +31,24 @@ const useStyles = makeStyles(theme => ({
 
 interface AddTestingPersonFormI {
     adding: (duration: number, occurrence: boolean) => void;
+    periods: number;
 }
 
 export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
 
-    const {adding} = props;
+    const {adding, periods} = props;
 
     const occurrenceArray = Array.from(Array(2).keys());
     const timeUnits = ["Miesiąc", "Dzień", "Rok"]
     const classes = useStyles();
     const [durationArray, setDurationArray] = useState<number[]>();
     const [duration, setDuration] = useState<number>();
-    const [canAdding, setCanAdding] = useState<boolean>(false);
     const [timeUnit, seTimeUnit] = useState<string>();
-    const [entireDuration, setEntireDuration] = useState<number>();
     const [occurrence, setOccurrence] = useState<boolean>();
 
     useEffect(() => {
-        if (timeUnit !== undefined && entireDuration !== undefined) {
-            setDurationArray(Array.from(Array(entireDuration).keys()))
-            setCanAdding(true)
-        }
-    })
+        setDurationArray(Array.from({length: periods}, (_, i) => i + 1))
+    },[])
 
     const addTestingPerson = () => {
         if (duration !== undefined && occurrence !== undefined) {
@@ -73,20 +69,11 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
                 </Grid>
                 <Grid item>
                     <TextField
-                        id="outlined-name"
-                        className={classes.form}
-                        label="Całkowity czas trwania próby"
-                        onChange={event => {
-                            setEntireDuration(Number(event.target.value))
-                        }}
-                    />
-                </Grid>
-                <Grid item>
-                    <TextField
                         id="outlined-start-adornment"
-                        label="Jednostka czasu"
+                        label="Time unit"
                         className={classes.form}
                         select
+                        defaultValue={""}
                         onChange={event => {
                             seTimeUnit(event.target.value.toString())
                         }}
@@ -101,14 +88,15 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
             </Grid>
 
             {
-                canAdding && durationArray !== undefined &&
+                !timeUnit !== undefined && durationArray !== undefined &&
                 <Grid container direction={"row"} spacing={10}>
                     <Grid item>
                         <TextField
                             id="standard-select-currency"
                             className={classes.form}
                             select
-                            label="Czas trwania"
+                            label="Duration time"
+                            defaultValue={''}
                             onChange={event => {
                                 setDuration(Number(event.target.value))
                             }}
@@ -125,7 +113,8 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
                             id="standard-select-currency"
                             select
                             className={classes.form}
-                            label="Wystąpienie"
+                            label="Occurence"
+                            defaultValue={''}
                             onChange={event => {
                                 setOccurrence(event.target.value.toString() == '1')
                             }}
@@ -138,7 +127,7 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
                         </TextField>
                     </Grid>
                     <Grid item>
-                        <Button className={classes.button} onClick={addTestingPerson} fullWidth>Dodaj przypadek</Button>
+                        <Button className={classes.button} onClick={addTestingPerson} fullWidth>Add case</Button>
                     </Grid>
                 </Grid>
             }

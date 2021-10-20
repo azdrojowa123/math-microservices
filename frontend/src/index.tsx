@@ -6,16 +6,17 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-const theme = responsiveFontSizes(createMuiTheme({
+const theme = createMuiTheme({
     spacing: 3,
     typography: {
+        fontSize: 18,
         fontFamily: [
             'Palatino',
             'URW Palladio L',
             'serif',
         ].join(','),
         h1: {
-            fontSize: 17,
+            fontSize: 18,
             fontFamily: 'Palatino',
         },
         h2: {
@@ -44,7 +45,7 @@ const theme = responsiveFontSizes(createMuiTheme({
             primary: '#000000',//black
         },
     },
-}));
+});
 
 
 ReactDOM.render(

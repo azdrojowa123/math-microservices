@@ -13,11 +13,11 @@ export function ResultsTable(props: resultsTableI){
                 <Table aria-label="customized table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="right">Numer okresu</TableCell>
-                            <TableCell align="right">Ilość obserwacji</TableCell>
-                            <TableCell align="right">Ilość niepowodzeń</TableCell>
-                            <TableCell align="right">Prawdopodobieństwo przeżycia</TableCell>
-                            <TableCell align="right">Estymator Kaplana-Meiera</TableCell>
+                            <TableCell align="right">Period number</TableCell>
+                            <TableCell align="right">Number of observations</TableCell>
+                            <TableCell align="right">Number of failures</TableCell>
+                            <TableCell align="right">Survival probability</TableCell>
+                            <TableCell align="right">Kaplan-Meier estimator</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

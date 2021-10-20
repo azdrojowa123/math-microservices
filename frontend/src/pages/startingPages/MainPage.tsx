@@ -42,7 +42,7 @@ export function MainPage() {
         <>
             <div className={classes.wrapper}>
                 <Button className={classes.button} onClick={() => {history.push("/calc/survival-curve");}}>survival curve</Button>
-                <Button className={classes.button}>Go to app !</Button>
+                <Button className={classes.button} onClick={() => {history.push("/calc/logistic-regression");}}>logistic regression</Button>
                 <Button className={classes.button}>Go to app !</Button>
             </div>
         </>

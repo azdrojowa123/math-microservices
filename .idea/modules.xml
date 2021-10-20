@@ -3,11 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/backend/csv-validate/csv-validate.iml" filepath="$PROJECT_DIR$/backend/csv-validate/csv-validate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/survival-curve/csv-validate/csv-validate.iml" filepath="$PROJECT_DIR$/backend/survival-curve/csv-validate/csv-validate.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontend/frontend.iml" filepath="$PROJECT_DIR$/frontend/frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/logistic-regression-calc.iml" filepath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/logistic-regression-calc.iml" />
       <module fileurl="file://$PROJECT_DIR$/math-microservices.iml" filepath="$PROJECT_DIR$/math-microservices.iml" />
-      <module fileurl="file://$PROJECT_DIR$/backend/survival-curve-calc/survival-curve-calc.iml" filepath="$PROJECT_DIR$/backend/survival-curve-calc/survival-curve-calc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/backend/survival-curve-data/survival-curve-data.iml" filepath="$PROJECT_DIR$/backend/survival-curve-data/survival-curve-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/survival-curve-calc.iml" filepath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/survival-curve-calc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/survival-curve/survival-curve-data/survival-curve-data.iml" filepath="$PROJECT_DIR$/backend/survival-curve/survival-curve-data/survival-curve-data.iml" />
     </modules>
   </component>
 </project>

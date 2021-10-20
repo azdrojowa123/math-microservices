@@ -37,12 +37,16 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export function CsvReader() {
-    const [csvFile, setCsvFile] = useState<{ duration: number | string, occurrence: number | string }[]>();
+interface CsvReaderI {
+    submitData: (data: any[]) => void;
+    periods: number;
+}
+
+export function CsvReader(props: CsvReaderI) {
+    const {submitData, periods} = props;
+    const [csvFile, setCsvFile] = useState<any[]>();
     const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
     const classes = useStyles();
-    const [display, setDisplay] = useState<boolean>(false);
-    const [periods, setPeriods] = useState<number>();
     const [snackbarMsg, setSnackbarMsg] = useState<string>('');
     const service = survivalCurveService;
 
@@ -56,22 +60,23 @@ export function CsvReader() {
         const file = event.target.files?.[0]
         const reader = new FileReader();
         const delim = ',';
+        const dataSet: any[] = []
         reader.onload = function (e) {
             const text = e.target?.result as string;
             const rows = text.slice(text.indexOf('\r\n') + 2).split('\r\n').slice(0, -1);
             if (!checkIfResultsNumbers(rows, delim)) {
                 setSnackbarMsg('Data in in columns are not numeric values')
-                setDisplay(true);
                 setCsvFile(undefined);
             } else {
-                const resultArray = rows.map((row: any) => {
-                    const values = row.split(delim);
-                    return {
-                        duration: Number(values[0]),
-                        occurrence: Number(values[1])
-                    }
-                });
-                setCsvFile(resultArray);
+                Promise.all(
+                    rows.map(async (row: any) => {
+                        const values = row.split(delim);
+                        console.log(Number(values[0]))
+                        dataSet.push([Number(values[0]), Number(values[1])])
+                    })
+                ).then(() => {
+                    setCsvFile(dataSet);
+                })
             }
         }
         if (file != undefined) {
@@ -80,14 +85,44 @@ export function CsvReader() {
     }
 
     const checkCSVData = () => {
+        if (periods !== undefined && csvFile !== undefined) {
+            service.checkCSVData(periods, csvFile).then(res => {
+                if (res.ok) {
+                    return res.json()
+                } else {
+                    return Promise.reject(res.statusText);
+                }
+            }).then(data => {
+                if (data == false) {
+                    setSnackbarMsg('Entered CSV data are not correct, please check if period number in data are not bigger than declared periods and if occurrence is 0/1')
+                } else {
+                    setSnackbarMsg('Your CSV is correct, you can click on generating chart')
+                }
+            }).catch(_ => {
+                setSnackbarMsg('Error occurred during connection to CSV validation server')
+            })
+        }
     }
 
     const submit = () => {
-
+        if (periods !== undefined && csvFile !== undefined) {
+            service.survivalResultsCSV(periods, csvFile).then(async res => {
+                if (res.ok) {
+                    submitData(await res.json())
+                } else {
+                    res.text().then((errorMsg: any) => {
+                        setSnackbarMsg(errorMsg)
+                    })
+                }
+            })
+            .catch(_ => {
+                setSnackbarMsg('Error occurred during connection to CSV validation serverY')
+            })
+        }
     }
 
     const handleClose = () => {
-        setDisplay(false)
+        setSnackbarMsg('')
     }
 
     function isNumber(value: string | number) {
@@ -132,21 +167,16 @@ export function CsvReader() {
                                 </ListItemIcon>
                                 <ListItemText
                                     primary="Column headers do not matter, the order of the respective columns counts"/>
+                                <ListItemIcon>
+                                    <KeyboardArrowRightSharpIcon/>
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Blank line must be appended to the end of the file"/>
                             </ListItem>
                         </List>
                     </Box>
                 </Grid>
                 <Box width="100%"/>
-                <Grid item>
-                    <TextField
-                        id="outlined-name"
-                        className={classes.form}
-                        label="Całkow"
-                        onChange={event => {
-                            setPeriods(Number(event.target.value))
-                        }}
-                    />
-                </Grid>
                 <Grid item>
                     <Input
                         type='file'
@@ -168,7 +198,7 @@ export function CsvReader() {
                     <Button className={classes.button}
                             disabled={disableSubmit}
                             onClick={submit}>
-                        Load CSV File
+                        Generate chart base on CSV
                     </Button>
                 </Grid>
             </Grid>
@@ -177,7 +207,7 @@ export function CsvReader() {
                     vertical: 'bottom',
                     horizontal: 'right',
                 }}
-                open={display}
+                open={snackbarMsg != ''}
                 autoHideDuration={6000}
                 onClose={handleClose}
             >

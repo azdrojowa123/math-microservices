@@ -1,25 +1,14 @@
-import {
-    Box,
-    Button,
-    makeStyles,
-    Paper,
-    Snackbar,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow
-} from '@material-ui/core';
+import {Box, Button, makeStyles, Snackbar, Table, TableHead, TableRow, TextField, Typography} from '@material-ui/core';
 import * as React from 'react';
 import {useState} from 'react';
 import Divider from '@material-ui/core/Divider';
-import {AddingTestingPersonForm} from './AddingTestingPersonForm';
 import StepLineChart from './StepLineChart';
 import survivalCurveService from "../../services/survivalCurveService";
 import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
 import {ResultsTable} from "./ResultsTable";
 import {CsvReader} from "./CsvReader";
+import {AddingTestingPersonForm} from "./AddingTestingPersonForm";
+import {Paper, TableBody, TableCell, TableContainer} from "@mui/material";
 
 const useStyles = makeStyles(theme => ({
     wrapper: {
@@ -44,7 +33,9 @@ const useStyles = makeStyles(theme => ({
     form: {
         display: 'flex',
         flexFlow: 'column',
-        height: '30%'
+        height: '30%',
+        width: '20vh',
+        marginBottom: '20px',
     },
     divider: {
         marginBottom: '20px'
@@ -60,13 +51,13 @@ export interface TestingPerson {
 export function SurvivalCurveCalc() {
 
     const [rows, setRows] = useState<TestingPerson[]>([]);
-    const [dataSource, setDataSource] = useState<[]>([]);
+    const [dataSource, setDataSource] = useState<any[]>([]);
+    const [periods, setPeriods] = useState<number>(0);
     const service = survivalCurveService;
-    const [display, setDisplay] = useState<boolean>(false);
     const [snackbarMsg, setSnackbarMsg] = useState<string>('');
 
     const handleClose = () => {
-        setDisplay(false)
+        setSnackbarMsg('')
     }
 
     const addingNewPerson = (duration: number, occurrence: boolean) => {
@@ -76,63 +67,86 @@ export function SurvivalCurveCalc() {
     const classes = useStyles();
 
     const generateChart = () => {
-        service.getSurvivalResults(12, rows).then(async res => {
+        service.survivalResults(periods, rows).then(async res => {
             if (res.ok) {
                 setDataSource(await res.json())
             } else {
                 setSnackbarMsg("Some error occurred during connection to backend")
-                setDisplay(true)
             }
         }).catch(() => {
             setSnackbarMsg("Connection to backend server refused")
-            setDisplay(true)
         })
-        return true;
     };
+
+    const submitDataSource = (data: any[]) => {
+        setDataSource(data);
+    }
 
 
     return (
         <>
             <Box m={20}>
-                <CsvReader/>
+                <Typography variant="h1" component="div">
+                    Before deciding which method of adding data you will use, please specify the total time duration.
+                </Typography>
+                <TextField
+                    id="outlined-name"
+                    className={classes.form}
+                    label="Total duration"
+                    onChange={event => {
+                        setPeriods(Number(event.target.value))
+                    }}
+                />
                 <Divider className={classes.divider}/>
-                <AddingTestingPersonForm adding={addingNewPerson}/>
-                <TableContainer component={Paper}>
-                    <Table aria-label="customized table">
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>ID</TableCell>
-                                <TableCell align="right">Czas odbytej próby</TableCell>
-                                <TableCell align="right">Wystąpienie zdarzenia</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {rows.map((row) => (
-                                <TableRow key={row.id}>
-                                    <TableCell component="th" scope="row">{row.id}</TableCell>
-                                    <TableCell align="right">{row.duration}</TableCell>
-                                    <TableCell align="right">{row.occurrence ? '1' : '0'}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <Button className={classes.button} onClick={generateChart}>Wygeneruj wykres</Button>
-                    <Snackbar
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        open={display}
-                        autoHideDuration={6000}
+                {
+                    periods !== 0 &&
+                    <>
+                        <CsvReader submitData={submitDataSource} periods={periods}/>
+                        <Divider className={classes.divider}/>
+                        <AddingTestingPersonForm
+                            adding={addingNewPerson}
+                            periods={periods}/>
+                        <TableContainer component={Paper}>
+                            <Table aria-label="customized table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>ID</TableCell>
+                                        <TableCell align="right">Time of the trial</TableCell>
+                                        <TableCell align="right">The occurrence of the trial</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {rows.map((row) => (
+                                        <TableRow key={row.id}>
+                                            <TableCell component="th" scope="row">{row.id}</TableCell>
+                                            <TableCell align="right">{row.duration}</TableCell>
+                                            <TableCell align="right">{row.occurrence ? '1' : '0'}</TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                        <Button className={classes.button} onClick={generateChart}>
+                            Generate chart
+                        </Button>
+                    </>
+                }
+
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                    }}
+                    open={snackbarMsg != ''}
+                    autoHideDuration={6000}
+                    onClose={handleClose}
+                >
+                    <SnackbarContentWrapper
                         onClose={handleClose}
-                    >
-                        <SnackbarContentWrapper
-                            onClose={handleClose}
-                            variant="warning"
-                            message={snackbarMsg}
-                        />
-                    </Snackbar>
+                        variant="warning"
+                        message={snackbarMsg}
+                    />
+                </Snackbar>
 
                 {
                     dataSource.length !== 0 &&
@@ -144,5 +158,4 @@ export function SurvivalCurveCalc() {
             </Box>
         </>
     );
-
 }

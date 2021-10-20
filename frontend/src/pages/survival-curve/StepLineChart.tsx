@@ -34,7 +34,7 @@ export default class StepLineChart extends Component<stepLineChartI> {
                 <Chart
                     id="container"
                     dataSource={this.props.data}
-                    title="Krzywa przeżycia Kaplana-Meiera"
+                    title="Kaplan-Meier survival curve"
                 >
                     <CommonSeriesSettings
                         type="stepline"
@@ -48,7 +48,7 @@ export default class StepLineChart extends Component<stepLineChartI> {
                     })
                 }*/}
                     <Series key={'estimatorKM'} valueField={'estimatorKM'}
-                            name={'Prawdopodobieństwo nie wystąpienia określonych działań nieporządanych'}
+                            name={'The likelihood of not having certain side effects'}
                             color={'#FC7B09'}/>
                     <ArgumentAxis>
                         <Label>
