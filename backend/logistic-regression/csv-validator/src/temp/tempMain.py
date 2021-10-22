@@ -1,10 +1,6 @@
-from pandas import CategoricalDtype
-from pydataset import data
 import pandas as pd
-import numpy as np
-from flask import Flask, jsonify
-from sklearn import preprocessing
-from sklearn.linear_model import LogisticRegression
+from flask import Flask
+from pandas import CategoricalDtype
 from sklearn.model_selection import train_test_split
 
 #  __name__ means this current file
