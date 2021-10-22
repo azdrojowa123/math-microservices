@@ -1,8 +1,8 @@
 from flask import Flask
+from flask_injector import FlaskInjector, request
+
 from routes.validation import validation_api
 from services.validation_service import ValidationService
-from flask_injector import FlaskInjector, request
-from injector import singleton
 
 
 def configure_di(binder):

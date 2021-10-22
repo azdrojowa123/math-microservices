@@ -6,7 +6,7 @@ import StepLineChart from './StepLineChart';
 import survivalCurveService from "../../services/survivalCurveService";
 import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
 import {ResultsTable} from "./ResultsTable";
-import {CsvReader} from "./CsvReader";
+import {CsvSurvivalCurve} from "./CsvSurvivalCurve";
 import {AddingTestingPersonForm} from "./AddingTestingPersonForm";
 import {Paper, TableBody, TableCell, TableContainer} from "@mui/material";
 
@@ -101,7 +101,7 @@ export function SurvivalCurveCalc() {
                 {
                     periods !== 0 &&
                     <>
-                        <CsvReader submitData={submitDataSource} periods={periods}/>
+                        <CsvSurvivalCurve submitData={submitDataSource} periods={periods}/>
                         <Divider className={classes.divider}/>
                         <AddingTestingPersonForm
                             adding={addingNewPerson}

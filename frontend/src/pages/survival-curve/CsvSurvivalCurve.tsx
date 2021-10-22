@@ -11,7 +11,6 @@ import {
     ListItemText,
     makeStyles,
     Snackbar,
-    TextField,
     Typography
 } from "@material-ui/core";
 import KeyboardArrowRightSharpIcon from "@mui/icons-material/KeyboardArrowRightSharp";
@@ -42,7 +41,7 @@ interface CsvReaderI {
     periods: number;
 }
 
-export function CsvReader(props: CsvReaderI) {
+export function CsvSurvivalCurve(props: CsvReaderI) {
     const {submitData, periods} = props;
     const [csvFile, setCsvFile] = useState<any[]>();
     const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
@@ -68,15 +67,11 @@ export function CsvReader(props: CsvReaderI) {
                 setSnackbarMsg('Data in in columns are not numeric values')
                 setCsvFile(undefined);
             } else {
-                Promise.all(
-                    rows.map(async (row: any) => {
-                        const values = row.split(delim);
-                        console.log(Number(values[0]))
-                        dataSet.push([Number(values[0]), Number(values[1])])
-                    })
-                ).then(() => {
-                    setCsvFile(dataSet);
+                rows.forEach((row: any) => {
+                    const values = row.split(delim);
+                    dataSet.push([Number(values[0]), Number(values[1])])
                 })
+                setCsvFile(dataSet);
             }
         }
         if (file != undefined) {
@@ -115,9 +110,9 @@ export function CsvReader(props: CsvReaderI) {
                     })
                 }
             })
-            .catch(_ => {
-                setSnackbarMsg('Error occurred during connection to CSV validation serverY')
-            })
+                .catch(_ => {
+                    setSnackbarMsg('Error occurred during connection to CSV validation serverY')
+                })
         }
     }
 
