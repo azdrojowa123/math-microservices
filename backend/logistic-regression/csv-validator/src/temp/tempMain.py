@@ -29,8 +29,6 @@ df["SMOKE"] = df["SMOKE"].astype(SMOKE_type).cat.codes
 df["SCC"] = df["SCC"].astype(SCC_type).cat.codes
 df["CALC"] = df["CALC"].astype(CALC_type).cat.codes
 df["MTRANS"] = df["MTRANS"].astype(MTRANS_type).cat.codes
-# d = dict(enumerate(df["Gender"].astype("category").cat.categories))
-# print(d)
 df["NObeyesdad"] = df["NObeyesdad"].astype(NObeyesdad_type).cat.codes
 
 X = df[["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC", "SMOKE",

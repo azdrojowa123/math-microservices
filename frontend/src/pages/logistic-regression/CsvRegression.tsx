@@ -43,6 +43,7 @@ interface CsvRegressionI {
 export function CsvRegression(props: CsvRegressionI) {
     const {submitData} = props;
     const [csvFile, setCsvFile] = useState<any[]>();
+    const [idMsg, setIdMsg] = useState<number>();
     const [disableValidation, setDisableValidation] = useState<boolean>(true);
     const classes = useStyles();
     const service = logisticRegressionService;
@@ -96,11 +97,38 @@ export function CsvRegression(props: CsvRegressionI) {
     }
 
     const submit = () => {
+
+        const checkStatus = function (id: string | number) {
+
+            const timer = setInterval(function () {
+                service.checkStatus(id).then(res => {
+                    res.json().then(r => {
+                        if (r['result'] == 'success') {
+                            setSnackbarMsg('CSV file is correct')
+                            clearInterval(timer)
+                        } else if (r['result'] == 'fail') {
+                            setSnackbarMsg('CSV file is not correct. Please consider to check if ')
+                            clearInterval(timer)
+                        } else {
+                            checkStatus(id)
+                        }
+                    })
+                })
+            }, 200);
+
+            setTimeout(function () {
+                clearInterval(timer);
+                setSnackbarMsg('Some problems occurred during validation, please try again later')
+            }, 30000)
+
+        };
+
+
         if (csvFile !== undefined) {
             service.checkCSVData(csvFile).then(res => {
-                console.log(res)
                 return res.json()
             }).then(p => {
+
                 console.log(p)
             })
         }

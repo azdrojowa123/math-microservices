@@ -7,7 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/backend/logistic-regression/csv-validator/csv-validator.iml" filepath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/csv-validator.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontend/frontend.iml" filepath="$PROJECT_DIR$/frontend/frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/math-microservices.iml" filepath="$PROJECT_DIR$/math-microservices.iml" />
-      <module fileurl="file://$PROJECT_DIR$/backend/logistic-regression/messages-sender/messages-sender.iml" filepath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/messages-sender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/logistic-regression/message-sender/message-sender.iml" filepath="$PROJECT_DIR$/backend/logistic-regression/message-sender/message-sender.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/survival-curve-calc.iml" filepath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/survival-curve-calc.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/survival-curve/survival-curve-data/survival-curve-data.iml" filepath="$PROJECT_DIR$/backend/survival-curve/survival-curve-data/survival-curve-data.iml" />
     </modules>
