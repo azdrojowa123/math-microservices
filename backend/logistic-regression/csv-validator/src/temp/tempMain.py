@@ -10,7 +10,7 @@ pd.set_option('display.max_rows', None)
 
 col_list = ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
             "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS", "NObeyesdad"]
-df = pd.read_csv('obesity.csv', usecols=col_list, index_col=False)
+df = pd.read_csv('../../../../../csvData/obesity.csv', usecols=col_list, index_col=False)
 gender_type = CategoricalDtype(categories=['Female', 'Male'], ordered=True)
 family_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
 FAVC_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)

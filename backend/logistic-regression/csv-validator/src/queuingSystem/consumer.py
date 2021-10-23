@@ -12,6 +12,8 @@ channel.queue_declare(queue='main')
 
 def callback(body):
     print('receive in main')
+    # zwalidować to body
+    # sprawdzić jaki ma cel i zmienić w bazie danych
     data = json.loads(body)
     print(data)
 

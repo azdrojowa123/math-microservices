@@ -1,5 +1,4 @@
 import {TestingPerson} from "../pages/survival-curve/SurvivalCurveCalc";
-import {survivalCurveData} from "../pages/survival-curve/Data";
 
 
 const survivalCurveService = {
@@ -10,6 +9,7 @@ const survivalCurveService = {
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
+                "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify(data)
         })

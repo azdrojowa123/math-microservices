@@ -6,6 +6,7 @@ import {SurvivalCurveCalc} from '../src/pages/survival-curve/SurvivalCurveCalc';
 import {LandingPage} from '../src/pages/startingPages/LandingPage';
 import {MainPage} from '../src/pages/startingPages/MainPage';
 import './page-transitions/slideTransition.css';
+import {LogisticRegressionCalc} from "./pages/logistic-regression/LogisticRegressionCalc";
 
 function App() {
 
@@ -36,6 +37,8 @@ function App() {
                             <Route path="/" exact component={LandingPage}/>
                             <Route path="/main-page" component={MainPage}/>
                             <Route path="/calc/survival-curve" component={SurvivalCurveCalc}/>
+                            <Route path="/calc/logistic-regression" component={LogisticRegressionCalc}/>
+
                         </Switch>
                     </CSSTransition>
                 </TransitionGroup>

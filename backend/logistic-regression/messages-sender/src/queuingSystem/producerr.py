@@ -18,7 +18,10 @@ csvDB = db['csv-validator']
 
 
 def publish(body):
-    # properties = pika.BasicProperties(method)
-    body['ID_msg'] = csvDB.find().count() + 1
+    id_msg = csvDB.find().count() + 1
+    properties = pika.BasicProperties(message_id=str(id_msg))
     print(body)
-    channel.basic_publish(exchange='', routing_key='csv-validate', body=json.dumps(body))
+    channel.basic_publish(exchange='', routing_key='csv-validate', body=json.dumps(body), properties=properties)
+    csvDB.insert_one({'_id': id_msg, 'aim': 'validation', 'result': 'process'})
+    # zwracamy na front ID zlecenia
+    return id_msg

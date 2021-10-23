@@ -5,24 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/csv-validator.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/src/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/src/queuingSystem/consumer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/queuingSystem/producerr.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/CsvRegression.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csvData/obesity_short.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/logisticRegressionService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/logistic-regression-calc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/messages-sender.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/src/routes/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/routes/validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/src/services/validation_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/services/validation_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/src/temp/obesity.csv" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/temp/obesity.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/src/temp/tempMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/temp/tempMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/src/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/src/queuingSystem/consumer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/src/temp/obesity.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvData/obesity.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/src/temp/tempMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/src/temp/tempMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/queuingSystem/producerr.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/queuingSystem/producerr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/routes/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/routes/validation_route.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/services/validation_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/services/validation_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csvData/data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/csvData/new.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/CsvRegression.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/CsvRegression.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/LogisticRegressionCalc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/LogisticRegressionCalc.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvReader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvSurvivalCurve.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/survivalCurveService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/survivalCurveService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +79,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
     <property name="jdk.selected.PYTHON_MODULE" value="Python 3.9" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/src/queuingSystem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/main.py" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -93,30 +91,28 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\csv-validator\src\temp" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\logistic-regression-calc\src\queuingSystem" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\logistic-regression-calc\src\services" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\logistic-regression-calc\src\temp" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\logistic-regression-calc\src" />
-      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\logistc-regression-calc\src\controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\csvData" />
+      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\csv-validator\src" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\logistic-regression-calc" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\logistic-regression-calc\src\app" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\survival-curve" />
-      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\csv-validate" />
-      <recent name="C:\Users\azdrojowa\Desktop\math-microservices\frontend\src\pages\startingPages" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.CsvValidateApplication (1)">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="npm.run frontend">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -245,12 +241,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\azdro\AppData\Local\Programs\Python\Python39\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/logistic-regression/message-sender/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/logistic-regression/message-sender/src/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -345,8 +341,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.messages-sender" />
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.csv-validator" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.__init__" />
         <item itemvalue="Docker.csv-validate/Dockerfile" />
       </list>
@@ -416,7 +412,8 @@
       <workItem from="1634912208291" duration="1051000" />
       <workItem from="1634913290116" duration="1736000" />
       <workItem from="1634925808649" duration="2005000" />
-      <workItem from="1634928607674" duration="6788000" />
+      <workItem from="1634928607674" duration="7286000" />
+      <workItem from="1634982823041" duration="6322000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>
@@ -495,7 +492,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634315464046</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix: add python modules, queueing system, repair CSVReader">
+      <created>1634939812919</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1634939812919</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: .">
+      <created>1634939845148</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1634939845148</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +542,9 @@
     <MESSAGE value="fix" />
     <MESSAGE value="fix: work on csv CsvReader.tsx component" />
     <MESSAGE value="feat: many features" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: many features" />
+    <MESSAGE value="fix: add python modules, queueing system, repair CSVReader" />
+    <MESSAGE value="fix: ." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: ." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -542,8 +555,10 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/math_microservices$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1634931660580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/csv-validator/src" />
+    <SUITE FILE_PATH="coverage/math_microservices$messages_sender.coverage" NAME="messages-sender Coverage Results" MODIFIED="1635014123095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/messages-sender/src" />
     <SUITE FILE_PATH="coverage/math_microservices$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1634745951646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/src" />
     <SUITE FILE_PATH="coverage/math_microservices$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1634931695838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/message-sender/src" />
     <SUITE FILE_PATH="coverage/math_microservices$main.coverage" NAME="main Coverage Results" MODIFIED="1634930379854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/src" />
+    <SUITE FILE_PATH="coverage/math_microservices$csv_validator.coverage" NAME="csv-validator Coverage Results" MODIFIED="1635012130573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/csv-validator/src" />
   </component>
 </project>

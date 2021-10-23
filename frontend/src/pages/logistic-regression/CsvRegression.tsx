@@ -15,6 +15,7 @@ import {
 } from "@material-ui/core";
 import KeyboardArrowRightSharpIcon from "@mui/icons-material/KeyboardArrowRightSharp";
 import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
+import logisticRegressionService from "../../services/logisticRegressionService";
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -42,11 +43,15 @@ interface CsvRegressionI {
 export function CsvRegression(props: CsvRegressionI) {
     const {submitData} = props;
     const [csvFile, setCsvFile] = useState<any[]>();
-    const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
+    const [disableValidation, setDisableValidation] = useState<boolean>(true);
     const classes = useStyles();
+    const service = logisticRegressionService;
     const [snackbarMsg, setSnackbarMsg] = useState<string>('');
 
     useEffect(() => {
+        if (csvFile !== undefined) {
+            setDisableValidation(false)
+        }
     })
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -66,21 +71,20 @@ export function CsvRegression(props: CsvRegressionI) {
                     Weight: values[3],
                     family_history_with_overweight: values[4],
                     FAVC: values[5],
-                    NCP: values[6],
-                    CAEC: values[7],
-                    SMOKE: values[8],
-                    CH2O: values[9],
-                    SCC: values[10],
-                    FAF: values[11],
-                    TUE: values[12],
-                    CALC: values[13],
-                    MTRANS: values[14],
-                    NObeyesdad: values[15],
+                    FCVC: values[6],
+                    NCP: values[7],
+                    CAEC: values[8],
+                    SMOKE: values[9],
+                    CH2O: values[10],
+                    SCC: values[11],
+                    FAF: values[12],
+                    TUE: values[13],
+                    CALC: values[14],
+                    MTRANS: values[15],
+                    NObeyesdad: values[16],
                 })
-
             });
-            setCsvFile(dataSet);
-
+            setCsvFile(dataSet)
         }
         if (file != undefined) {
             reader.readAsText(file);
@@ -92,7 +96,14 @@ export function CsvRegression(props: CsvRegressionI) {
     }
 
     const submit = () => {
-
+        if (csvFile !== undefined) {
+            service.checkCSVData(csvFile).then(res => {
+                console.log(res)
+                return res.json()
+            }).then(p => {
+                console.log(p)
+            })
+        }
     }
 
     const handleClose = () => {
@@ -137,14 +148,14 @@ export function CsvRegression(props: CsvRegressionI) {
             <Grid container direction={"row"} spacing={10}>
                 <Grid item>
                     <Button className={classes.button}
-                            disabled={disableSubmit}
+                            disabled={disableValidation}
                             onClick={checkCSVData}>
                         Check CSV File
                     </Button>
                 </Grid>
                 <Grid item>
                     <Button className={classes.button}
-                            disabled={disableSubmit}
+                            disabled={disableValidation}
                             onClick={submit}>
                         Generate chart base on CSV
                     </Button>

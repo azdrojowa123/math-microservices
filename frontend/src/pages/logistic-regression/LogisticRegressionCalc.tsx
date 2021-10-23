@@ -1,7 +1,18 @@
-export function LogisticRegressionCalc(){
-    return(
+import {CsvRegression} from "./CsvRegression";
+import {useState} from "react";
+
+export function LogisticRegressionCalc() {
+
+    const [dataSource, setDataSource] = useState<any[]>([]);
+
+    const submitDataSource = (data: any[]) => {
+        setDataSource(data);
+    }
+
+
+    return (
         <>
-        {/*tutaj będzie sprawdzenie jednych danych testowych do serwisu regression */}
+            <CsvRegression submitData={submitDataSource}></CsvRegression>
         </>
-    )
+    );
 }
