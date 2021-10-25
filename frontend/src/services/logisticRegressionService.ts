@@ -20,6 +20,17 @@ const logisticRegressionService = {
                 "Access-Control-Allow-Origin": "*"
             },
         })
+    },
+    logisticRegression: (data: any[]) => {
+        return fetch('http://localhost:5000/logistic-regression', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(data)
+        })
     }
 };
 

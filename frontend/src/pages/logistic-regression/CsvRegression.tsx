@@ -93,51 +93,52 @@ export function CsvRegression(props: CsvRegressionI) {
     }
 
     const checkCSVData = () => {
-
-    }
-
-    const submit = () => {
-
-        const checkStatus = function (id: string | number) {
-
-            const timer = setInterval(function () {
-                service.checkStatus(id).then(res => {
-                    res.json().then(r => {
-                        if (r['result'] == 'success') {
-                            setSnackbarMsg('CSV file is correct')
-                            clearInterval(timer)
-                        } else if (r['result'] == 'fail') {
-                            setSnackbarMsg('CSV file is not correct. Please consider to check if ')
-                            clearInterval(timer)
-                        } else {
-                            checkStatus(id)
-                        }
-                    })
-                })
-            }, 200);
-
-            setTimeout(function () {
-                clearInterval(timer);
-                setSnackbarMsg('Some problems occurred during validation, please try again later')
-            }, 30000)
-
-        };
-
-
         if (csvFile !== undefined) {
             service.checkCSVData(csvFile).then(res => {
                 return res.json()
-            }).then(p => {
-
-                console.log(p)
+            }).then(resObj => {
+                console.log(resObj['id_msg'])
+                const checkStatus = (id: string | number) => {
+                    console.log("ID " + id)
+                    service.checkStatus(id).then(res => {
+                        res.json().then(r => {
+                            console.log("R")
+                            console.log(r)
+                            if (r['result'] == 'success') {
+                                setSnackbarMsg('CSV file is correct')
+                                clearInterval(nre)
+                            } else if (r['result'] == 'fail') {
+                                clearInterval(nre)
+                                setSnackbarMsg('CSV file is not correct. Please consider to check if all requirements are met')
+                            } else {
+                                checkStatus(id)
+                            }
+                        })
+                    })
+                }
+                var nre = setInterval(checkStatus(resObj['id_msg']), 1000);
+                setTimeout(function () {
+                    clearInterval(nre);
+                    setSnackbarMsg('Some problems occurred during validation, please try again later')
+                }, 100000)
             })
         }
     }
 
+    const submit = () => {
+        if (csvFile !== undefined) {
+            service.logisticRegression(csvFile).then(res => {
+                res.json().then(p => {
+                    console.log(p)
+                })
+            })
+        }
+    };
+
+
     const handleClose = () => {
         setSnackbarMsg('')
     }
-
 
     return (
         <>

@@ -1,11 +1,11 @@
-# amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb
-
 import json
 
 import pandas as pd
 import pika
 import pymongo
 from pandas import CategoricalDtype
+
+from src.queuingSystem.publisher import publish
 
 params = pika.URLParameters('amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb')
 connection = pika.BlockingConnection(params)
@@ -18,11 +18,8 @@ db = client["logistic-regression"]
 csvDB = db['csv-validator']
 
 
-def validate(body):
+def transform_data(body):
     df = pd.DataFrame(body)
-    correct = True
-    col_list = ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
-                "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS", "NObeyesdad"]
     gender_type = CategoricalDtype(categories=['Female', 'Male'], ordered=True)
     family_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
     FAVC_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
@@ -46,9 +43,19 @@ def validate(body):
     df["MTRANS"] = df["MTRANS"].astype(MTRANS_type).cat.codes
     df["NObeyesdad"] = df["NObeyesdad"].astype(NObeyesdad_type).cat.codes
 
-    print(df)
+    return df
+
+
+def validate(body):
+    correct = True
+    col_list = ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
+                "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS", "NObeyesdad"]
+    formatted_df = transform_data(body)
+
     for col in col_list:
-        if df[col].any() < 0:
+        formatted_df[col] = formatted_df[col].astype(float)
+        if (formatted_df[col] < 0.0).any():
+            print("false in " + col)
             correct = False
 
     return correct
@@ -61,11 +68,12 @@ def callback(ch, method, properties, body):
     correct = validate(data)
     # sprawdzić jaki ma cel i zmienić w bazie danych
     task = csvDB.find_one({'_id': int(properties.message_id)})
-    if task['aim'] == 'validation':
-        if correct:
-            csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'success'}})
-        else:
-            csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail'}})
+    if correct:
+        csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'success', 'stage': 'validation'}})
+    else:
+        csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'validation'}})
+    if task['aim'] == 'regression':
+        publish(transform_data(data), int(properties.message_id))
 
 
 def started_consuming():

@@ -111,7 +111,7 @@ export function CsvSurvivalCurve(props: CsvReaderI) {
                 }
             })
                 .catch(_ => {
-                    setSnackbarMsg('Error occurred during connection to CSV validation serverY')
+                    setSnackbarMsg('Error occurred during connection to CSV validation server')
                 })
         }
     }
