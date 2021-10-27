@@ -5,12 +5,12 @@ import pika
 import pymongo
 from pandas import CategoricalDtype
 
-from src.queuingSystem.publisher import publish
+from queuingSystem.publisher import publish
 
 params = pika.URLParameters('amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb')
 connection = pika.BlockingConnection(params)
 channel = connection.channel()
-channel.queue_declare(queue='main')
+channel.queue_declare(queue='csv-validate')
 
 client = pymongo.MongoClient(
     "mongodb+srv://Aleksandra:root@math-microservices.mothy.mongodb.net/logistic-regression?retryWrites=true&w=majority")
@@ -72,7 +72,7 @@ def callback(ch, method, properties, body):
         csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'success', 'stage': 'validation'}})
     else:
         csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'validation'}})
-    if task['aim'] == 'regression':
+    if task['aim'] == 'regression' and correct:
         publish(transform_data(data), int(properties.message_id))
 
 

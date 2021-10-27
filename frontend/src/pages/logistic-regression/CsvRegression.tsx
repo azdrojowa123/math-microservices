@@ -1,8 +1,9 @@
 import * as React from "react";
-import {ChangeEvent, useEffect, useState} from "react";
+import {ChangeEvent, useEffect, useRef, useState} from "react";
 import {
     Box,
     Button,
+    CircularProgress,
     Grid,
     Input,
     List,
@@ -16,6 +17,7 @@ import {
 import KeyboardArrowRightSharpIcon from "@mui/icons-material/KeyboardArrowRightSharp";
 import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
 import logisticRegressionService from "../../services/logisticRegressionService";
+
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -43,13 +45,18 @@ interface CsvRegressionI {
 export function CsvRegression(props: CsvRegressionI) {
     const {submitData} = props;
     const [csvFile, setCsvFile] = useState<any[]>();
-    const [idMsg, setIdMsg] = useState<number>();
+    const [loadingRegression, setLoadingRegression] = useState<boolean>(false)
+    const [loadingValidation, setLoadingValidation] = useState<boolean>(false);
+    const refRegression = useRef(loadingRegression);
+    const refValidation = useRef(loadingValidation);
     const [disableValidation, setDisableValidation] = useState<boolean>(true);
     const classes = useStyles();
     const service = logisticRegressionService;
     const [snackbarMsg, setSnackbarMsg] = useState<string>('');
 
     useEffect(() => {
+        refRegression.current = loadingRegression
+        refValidation.current = loadingValidation
         if (csvFile !== undefined) {
             setDisableValidation(false)
         }
@@ -93,47 +100,88 @@ export function CsvRegression(props: CsvRegressionI) {
     }
 
     const checkCSVData = () => {
+        setLoadingValidation(true)
         if (csvFile !== undefined) {
             service.checkCSVData(csvFile).then(res => {
-                return res.json()
-            }).then(resObj => {
-                console.log(resObj['id_msg'])
-                const checkStatus = (id: string | number) => {
-                    console.log("ID " + id)
-                    service.checkStatus(id).then(res => {
-                        res.json().then(r => {
-                            console.log("R")
-                            console.log(r)
+                return res.json().then(resObj => {
+                    var nre = setInterval(() => {
+                        checkStatus(resObj['id_msg'])
+                    }, 4000);
+                    const checkStatus = async (id: string | number) => {
+                        console.log("ID " + id)
+                        let res = await service.checkStatus(id)
+                        let r = await res.json()
+                        if (refValidation.current) {
                             if (r['result'] == 'success') {
                                 setSnackbarMsg('CSV file is correct')
+                                setLoadingValidation(false)
                                 clearInterval(nre)
                             } else if (r['result'] == 'fail') {
                                 clearInterval(nre)
                                 setSnackbarMsg('CSV file is not correct. Please consider to check if all requirements are met')
-                            } else {
-                                checkStatus(id)
+                                setLoadingValidation(false)
                             }
-                        })
-                    })
-                }
-                var nre = setInterval(checkStatus(resObj['id_msg']), 1000);
-                setTimeout(function () {
-                    clearInterval(nre);
-                    setSnackbarMsg('Some problems occurred during validation, please try again later')
-                }, 100000)
+                        }
+                    }
+                    setTimeout(function () {
+                        if (refValidation.current) {
+                            clearInterval(nre);
+                            setSnackbarMsg('Some problems occurred during validation, please try again later')
+                        }
+                    }, 100000)
+                })
+            }).catch(_ => {
+                setSnackbarMsg('Connection with backend service cannot be established')
+                setLoadingRegression(false)
             })
         }
     }
 
     const submit = () => {
+        setLoadingRegression(true)
         if (csvFile !== undefined) {
-            service.logisticRegression(csvFile).then(res => {
-                res.json().then(p => {
-                    console.log(p)
+            service.logisticRegressionFit(csvFile).then(res => {
+                res.json().then(async resObj => {
+                    const nre = setInterval(() => {
+                        checkStatus(resObj['id_msg'])
+                    }, 5000);
+                    const checkStatus = async (id: string | number) => {
+                        console.log("ID " + id)
+                        let res = await service.checkStatus(id)
+                        let r = await res.json()
+                        console.log(r)
+                        if (refRegression.current) {
+                            if (r['result'] == 'fail') {
+                                if (r['stage'] == 'validation') {
+                                    setSnackbarMsg('Something is wrong with CSV validation')
+                                } else {
+                                    setSnackbarMsg('Logistic regression calculation failed')
+                                }
+                                setLoadingRegression(false)
+                                clearInterval(nre)
+                            } else if (r['result'] == 'success' && r['stage'] == 'regression') {
+                                setSnackbarMsg(`Logistic regression was successful. Your model's accuracy is ${r['accuracy']} `)
+                                clearInterval(nre)
+                                setLoadingRegression(false)
+                            } else if (r['result'] == 'success' && r['stage'] == 'validation') {
+                                setSnackbarMsg('CSV was validated properly validation')
+                            }
+                        }
+                    }
+                    setTimeout(() => {
+                        if (refRegression.current) {
+                            setSnackbarMsg('Some problems occurred during process, please try again later ')
+                            setLoadingRegression(false)
+                            clearInterval(nre)
+                        }
+                    }, 25000)
                 })
+            }).catch(_ => {
+                setSnackbarMsg('Connection with backend service cannot be established')
+                setLoadingRegression(false)
             })
         }
-    };
+    }
 
 
     const handleClose = () => {
@@ -144,25 +192,35 @@ export function CsvRegression(props: CsvRegressionI) {
         <>
             <Grid container direction={"row"} spacing={10}>
                 <Grid item>
-                    <Box borderRadius={8}>
-                        <Typography variant="h1" component="div">
-                            Requirements for importing a CSV file
-                        </Typography>
-                        <List>
-                            <ListItem>
-                                <ListItemIcon>
-                                    <KeyboardArrowRightSharpIcon/>
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary="X"/>
-                                <ListItemIcon>
-                                    <KeyboardArrowRightSharpIcon/>
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary="X"/>
-                            </ListItem>
-                        </List>
-                    </Box>
+                    <Typography variant="h1" component="div">
+                        Requirements for importing a CSV file
+                    </Typography>
+                    <List>
+                        <ListItem>
+                            <ListItemIcon>
+                                <KeyboardArrowRightSharpIcon/>
+                            </ListItemIcon>
+                            <ListItemText
+                                primary="Blank line must be appended to the end of the file"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <KeyboardArrowRightSharpIcon/>
+                            </ListItemIcon>
+                            <ListItemText
+                                primary="Specific headers must be placed: Gender, Age, Height, Weight, family_history_with_overweight, FAVC(frequently consuming of high caloric food), FCVC(Frequency of consumption of vegetables), NCP(number of main meals), CAEC(consumption of food between meals),
+                                    SMOKE, CH2O(water of daily), SCC(calories consumption monitoring), FAF(physical acitivity requency), TUE(time using technology devices), CALC, MTRANS(way of transport), NObeyesdad(obesity level)"/>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <KeyboardArrowRightSharpIcon/>
+                            </ListItemIcon>
+                            <ListItemText
+                                style={{fontSize: 5}}
+                                primary="Specific requirements for columns: Gender(Female/Male), Age(num.), Height(num.), Weight(num.), family_history_with_overweight(yes/no), FAVC(yes/no), FCVC(num.), NCP(num.), CAEC(no/Sometimes/Frequently/Always),
+                                    SMOKE(yes/no), CH2O(num.), SCC(yes/no), FAF(num.), TUE(num.), CALC(no/Sometimes/Frequently/Always), MTRANS(Automobile/Motorbike/Bike/Public_Transportation/Walking), NObeyesdad(Insufficient_Weight/Normal_Weight/Overweight_Level_I/Overweight_Level_II/Obesity_Type_I/Obesity_Type_II/Obesity_Type_III)"/>
+                        </ListItem>
+                    </List>
                 </Grid>
                 <Box width="100%"/>
                 <Grid item>
@@ -177,16 +235,17 @@ export function CsvRegression(props: CsvRegressionI) {
             <Grid container direction={"row"} spacing={10}>
                 <Grid item>
                     <Button className={classes.button}
-                            disabled={disableValidation}
+                            disabled={disableValidation || loadingValidation}
                             onClick={checkCSVData}>
+                        {loadingValidation && <CircularProgress size={16}/>}
                         Check CSV File
                     </Button>
                 </Grid>
                 <Grid item>
-                    <Button className={classes.button}
-                            disabled={disableValidation}
-                            onClick={submit}>
-                        Generate chart base on CSV
+                    <Button className={classes.button} onClick={submit}
+                            disabled={loadingRegression || disableValidation}>
+                        {loadingRegression && <CircularProgress size={16}/>}
+                        Upload logistic regression model
                     </Button>
                 </Grid>
             </Grid>

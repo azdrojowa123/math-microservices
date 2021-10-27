@@ -21,8 +21,19 @@ const logisticRegressionService = {
             },
         })
     },
-    logisticRegression: (data: any[]) => {
+    logisticRegressionFit: (data: any[]) => {
         return fetch('http://localhost:5000/logistic-regression', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(data)
+        })
+    },
+    logisticRegressionCalc: (data: any) => {
+        return fetch('http://localhost:5000/logistic-regression/calc/own-model', {
             method: 'POST',
             mode: 'cors',
             headers: {

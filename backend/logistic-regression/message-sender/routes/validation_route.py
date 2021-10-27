@@ -1,7 +1,8 @@
 from flask import Blueprint, request
 from flask_cors import cross_origin
 from injector import inject
-from queuingSystem.publisher import publish_validation, publish_regression
+
+from queuingSystem.publisher import publish_validation, publish_regression, publish_regression_calc
 from services.validation_service import ValidationService
 
 validation_api = Blueprint('validation', __name__)
@@ -32,5 +33,15 @@ def get_task(service: ValidationService, id):
 def make_regression(service: ValidationService):
     request_data = request.get_json()
     id_msg = publish_regression(request_data, service)
+    # zwrócić odpowiedź z poprawnym ID
+    return {'id_msg': id_msg}, 200
+
+
+@regression_api.route("/calc/own-model", methods=['POST'])
+@inject
+@cross_origin("*")
+def calc_regression(service: ValidationService):
+    request_data = request.get_json()
+    id_msg = publish_regression_calc(request_data, service)
     # zwrócić odpowiedź z poprawnym ID
     return {'id_msg': id_msg}, 200

@@ -1,6 +1,6 @@
 from flask import Flask
 
-from src.queuingSystem.consumer import started_consuming
+from queuingSystem.consumer import started_consuming
 
 
 def create_app():
