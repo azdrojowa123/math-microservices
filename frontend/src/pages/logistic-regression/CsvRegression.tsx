@@ -39,11 +39,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 interface CsvRegressionI {
-    submitData: (data: any[]) => void;
+    unlockCustomModel: () => void;
 }
 
 export function CsvRegression(props: CsvRegressionI) {
-    const {submitData} = props;
+
+    const {unlockCustomModel} = props
     const [csvFile, setCsvFile] = useState<any[]>();
     const [loadingRegression, setLoadingRegression] = useState<boolean>(false)
     const [loadingValidation, setLoadingValidation] = useState<boolean>(false);
@@ -161,6 +162,7 @@ export function CsvRegression(props: CsvRegressionI) {
                                 clearInterval(nre)
                             } else if (r['result'] == 'success' && r['stage'] == 'regression') {
                                 setSnackbarMsg(`Logistic regression was successful. Your model's accuracy is ${r['accuracy']} `)
+                                unlockCustomModel()
                                 clearInterval(nre)
                                 setLoadingRegression(false)
                             } else if (r['result'] == 'success' && r['stage'] == 'validation') {
@@ -209,7 +211,7 @@ export function CsvRegression(props: CsvRegressionI) {
                             </ListItemIcon>
                             <ListItemText
                                 primary="Specific headers must be placed: Gender, Age, Height, Weight, family_history_with_overweight, FAVC(frequently consuming of high caloric food), FCVC(Frequency of consumption of vegetables), NCP(number of main meals), CAEC(consumption of food between meals),
-                                    SMOKE, CH2O(water of daily), SCC(calories consumption monitoring), FAF(physical acitivity requency), TUE(time using technology devices), CALC, MTRANS(way of transport), NObeyesdad(obesity level)"/>
+                                    SMOKE, CH2O(water of daily), SCC(calories consumption monitoring), FAF(physical activity frequency), TUE(time using technology devices), CALC, MTRANS(way of transport), NObeyesdad(obesity level)"/>
                         </ListItem>
                         <ListItem>
                             <ListItemIcon>

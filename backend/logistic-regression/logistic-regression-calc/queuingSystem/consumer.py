@@ -42,7 +42,7 @@ def calculate_own():
     global conversion_NObeyesdad
     col_list = ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
                 "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS", "NObeyesdad"]
-    df = pd.read_csv('obesity.csv', usecols=col_list, index_col=False)
+    df = pd.read_csv('static/obesity.csv', usecols=col_list, index_col=False)
     gender_type = CategoricalDtype(categories=['Female', 'Male'], ordered=True)
     family_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
     FAVC_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
@@ -76,11 +76,8 @@ def calculate_own():
 
 
 def calc_regression(ch, method, properties, body):
+    global conversion_NObeyesdad
     data = json.loads(body)
-    # X_test_new = ['Female', 22, 1.7, 65, 'no', 'no', 5, 4, 'Sometimes', 'no', 2, 'yes', 3, 8, 'Frequently', 'Bike']
-    col_list_new = ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP",
-                    "CAEC",
-                    "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS"]
     df = pd.DataFrame.from_dict([data], orient='columns')
     print(df)
     gender_type = CategoricalDtype(categories=['Female', 'Male'], ordered=True)
@@ -103,9 +100,17 @@ def calc_regression(ch, method, properties, body):
     df["MTRANS"] = df["MTRANS"].astype(MTRANS_type).cat.codes
     if properties.headers['model'] == 'own':
         calculate_own()
-        y_pred = LogReg_own.predict(df)
-        print("PREDYKCJA " + y_pred)
-        print("PO ZAMIANIE " + conversion_NObeyesdad[y_pred])
+        try:
+            y_pred = LogReg_own.predict(df)
+            print("PREDYKCJA " + str(y_pred))
+            print("PO ZAMIANIE " + conversion_NObeyesdad[y_pred[0]])
+            csvDB.update_one({'_id': int(properties.message_id)}, {
+                '$set': {'result': 'success', 'stage': 'calc', 'estimation': conversion_NObeyesdad[y_pred[0]]}})
+        except:
+            csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'calc'}})
+    else:
+        conversion_NObeyesdad = properties.headers['conversion_dict']
+        # dorobić wyliczanie regresji z własnego modelu
 
 
 def callback_fit(ch, method, properties, body):

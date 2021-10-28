@@ -1,4 +1,4 @@
-import {createMuiTheme, responsiveFontSizes} from '@material-ui/core/styles';
+import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 const theme = createMuiTheme({
     spacing: 3,
     typography: {
-        fontSize: 18,
+        fontSize: 19,
         fontFamily: [
             'Palatino',
             'URW Palladio L',

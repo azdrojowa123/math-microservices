@@ -34,18 +34,18 @@ const useStyles = makeStyles(theme => ({
 export function LogisticRegressionCalc() {
 
     const classes = useStyles();
-    const [dataSource, setDataSource] = useState<any[]>([]);
+    const [disableCustomModelTest, setDisableCustomModelTest] = useState<boolean>(true);
 
-    const submitDataSource = (data: any[]) => {
-        setDataSource(data);
+    const unlockCustomModel = () => {
+        setDisableCustomModelTest(false);
     }
 
 
     return (
         <>
             <Box m={20}>
-                <CsvRegression submitData={submitDataSource}></CsvRegression>
-                <AddTestCase></AddTestCase>
+                <CsvRegression unlockCustomModel={unlockCustomModel}></CsvRegression>
+                <AddTestCase disableCustomModel={disableCustomModelTest}></AddTestCase>
             </Box>
         </>
     );

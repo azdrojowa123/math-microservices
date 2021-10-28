@@ -7,6 +7,6 @@ channel = connection.channel()
 channel.queue_declare(queue='logistic-regression')
 
 
-def publish(body, msg_id):
-    properties = pika.BasicProperties(message_id=str(msg_id))
+def publish(body, msg_id, conversion_NObeyesdad):
+    properties = pika.BasicProperties(message_id=str(msg_id), headers={'conversion_dict': conversion_NObeyesdad})
     channel.basic_publish(exchange='', routing_key='logistic-regression', body=body.to_json(), properties=properties)

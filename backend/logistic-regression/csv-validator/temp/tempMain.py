@@ -64,8 +64,9 @@ print("ZAMIANA" + dict(enumerate(df["NObeyesdad"].astype(NObeyesdad_type).cat.ca
 print(dict(NObeyesdad_type))
 # print(LogReg.score(X_test, y_test)) # stosunek prawdidłowych/wszystkich; dokładność modelu
 datas = {'MTRANS': 'Motorbike', 'CALC': 'Sometimes', 'TUE': 21, 'FAF': 21, 'SCC': 'no', 'CH20': 21, 'SMOKE': 'yes',
-         'CAEC': 'Sometimes', 'NCP': 21, 'FCVC': '21', 'FAVC': 'no', 'familyHistory': 'no', 'height': 21, 'weight': 21,
-         'age': 21, 'gender': 'Male'}
+         'CAEC': 'Sometimes', 'NCP': 21, 'FCVC': '21', 'FAVC': 'no', 'familyHistory': 'no', 'Height': 21, 'Weight': 21,
+         'Age': 21, 'Gender': 'Male'}
+
 # jdata = json.load(datas)
 df = pd.DataFrame.from_dict([datas], orient='columns')
 

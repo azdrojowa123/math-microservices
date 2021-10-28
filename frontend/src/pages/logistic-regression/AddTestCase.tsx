@@ -1,10 +1,22 @@
-import {Box, Button, FormHelperText, Grid, makeStyles, MenuItem, TextField, Typography} from "@material-ui/core";
+import {
+    Button,
+    CircularProgress,
+    FormHelperText,
+    Grid,
+    makeStyles,
+    MenuItem,
+    Snackbar,
+    TextField,
+    Typography
+} from "@material-ui/core";
 import * as React from "react";
-import {BaseSyntheticEvent, useState} from "react";
+import {BaseSyntheticEvent, useEffect, useRef, useState} from "react";
+import Box from '@mui/material/Box';
 import {SubmitHandler, useForm} from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
 import logisticRegressionService from "../../services/logisticRegressionService";
+import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
 
 const useStyles = makeStyles(theme => ({
     wrapper: {
@@ -36,9 +48,15 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export function AddTestCase() {
+interface AddTestCaseI {
+    disableCustomModel: boolean
+}
+
+export function AddTestCase(props: AddTestCaseI) {
 
     const classes = useStyles()
+    const {disableCustomModel} = props;
+    console.log("Custom model" + disableCustomModel)
     const service = logisticRegressionService
     const gender = ['Female', 'Male']
     const family_history_with_overweight = ['yes', 'no']
@@ -48,7 +66,11 @@ export function AddTestCase() {
     const SCC = ['yes', 'no']
     const CALC = ['NO', 'Sometimes', 'Frequently', 'Always']
     const MTRANS = ['Automobile', 'Motorbike', 'Bike', 'Public_Transportation', 'Walking']
-    const [disableOwnModel, setDisableOwnModel] = useState<boolean>(true)
+    const [loadingOwnModel, setLoadingOwnModel] = useState<boolean>(false)
+    const [loadingCustomModel, setLoadingCustomModel] = useState<boolean>(false)
+    const refCalcOwn = useRef(loadingOwnModel);
+    const [estimatedLevel, setEstimatedLevel] = useState<string>('')
+    const [snackbarMsg, setSnackbarMsg] = useState<string>('');
     const schema = yup.object().shape({
         Gender: yup.string().required(),
         Age: yup.number()
@@ -69,22 +91,22 @@ export function AddTestCase() {
         NCP: yup.number().required()
             .typeError('NCP must be a number')
             .required("NCP is required")
-            .min(0, "NCP cannot be less than 0"),
+            .min(0, "NCP value cannot be less than 0"),
         CAEC: yup.string().required(),
         SMOKE: yup.string().required(),
-        CH20: yup.number().required()
-            .typeError('CH20 must be a number')
-            .required("CH20 is required")
-            .min(0, "CH20 cannot be less than 0"),
+        CH2O: yup.number().required()
+            .typeError('CH2O must be a number')
+            .required("CH2O is required")
+            .min(0, "CH2O value cannot be less than 0"),
         SCC: yup.string().required(),
         FAF: yup.number().required()
             .typeError('FAF must be a number')
             .required("FAF is required")
-            .min(0, "FAF cannot be less than 0"),
+            .min(0, "FAF value cannot be less than 0"),
         TUE: yup.number().required()
             .typeError('TUE must be a number')
             .required("TUE is required")
-            .min(0, "TUE cannot be less than 0"),
+            .min(0, "TUE value cannot be less than 0"),
         CALC: yup.string().required(),
         MTRANS: yup.string().required(),
     });
@@ -93,15 +115,55 @@ export function AddTestCase() {
         resolver: yupResolver(schema),
     });
 
+    const handleClose = () => {
+        setSnackbarMsg('')
+    }
+
+    useEffect(() => {
+        refCalcOwn.current = loadingOwnModel
+    })
+
     const onSubmit: SubmitHandler<any> = (data, event: BaseSyntheticEvent | undefined) => {
         const submitEvent = event?.nativeEvent as SubmitEvent
         const buttonId = submitEvent.submitter?.id
-        console.log(data)
+        const orderedJSON = JSON.parse(JSON.stringify(data, ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
+            "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS"]));
+        orderedJSON['Height'] = orderedJSON['Height'] / 100
         if (buttonId == 'ourModel') {
-            //['Female', 22, 1.7, 65, 'no', 'no', 5, 4, 'Sometimes', 'no', 2, 'yes', 3, 8, 'Frequently', 'Bike']
-
-            service.logisticRegressionCalc(data).then(res => {
-                console.log(res)
+            setLoadingOwnModel(true)
+            service.logisticRegressionCalc(orderedJSON).then(res => {
+                return res.json().then(resObj => {
+                    var nre = setInterval(() => {
+                        checkStatus(resObj['id_msg'])
+                    }, 4000);
+                    const checkStatus = async (id: string | number) => {
+                        console.log("ID test case" + id)
+                        let res = await service.checkStatus(id)
+                        let r = await res.json()
+                        if (refCalcOwn.current) {
+                            if (r['result'] == 'success') {
+                                setSnackbarMsg('Logistic regression calculation finished')
+                                setEstimatedLevel(r['estimation'])
+                                setLoadingOwnModel(false)
+                                clearInterval(nre)
+                            } else if (r['result'] == 'fail') {
+                                clearInterval(nre)
+                                setSnackbarMsg('Logistic regression calculation failed, please try again later')
+                                setLoadingOwnModel(false)
+                            }
+                        }
+                    }
+                    setTimeout(function () {
+                        if (refCalcOwn.current) {
+                            clearInterval(nre);
+                            setSnackbarMsg('Some problems occurred during calculation. Probably it is problem with our server. Please try again later')
+                            setLoadingOwnModel(false)
+                        }
+                    }, 100000)
+                })
+            }).catch(_ => {
+                setSnackbarMsg('Connection with backend service cannot be established')
+                setLoadingOwnModel(false)
             })
         } else if (buttonId == 'customModel') {
 
@@ -118,7 +180,7 @@ export function AddTestCase() {
                 <Grid item xs={10}>
                     <Box borderRadius={8}>
                         <Typography variant="h1" component="div">
-                            Please complete test case with proper values;
+                            Please complete test case with proper values.
                         </Typography>
                     </Box>
                 </Grid>
@@ -132,9 +194,6 @@ export function AddTestCase() {
                             className={classes.form}
                             select
                             {...register("Gender")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                             {gender.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -142,7 +201,7 @@ export function AddTestCase() {
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <FormHelperText error>{errors.gender?.message}</FormHelperText>
+                        <FormHelperText error>{errors.Gender?.message}</FormHelperText>
                     </Grid>
                     <Grid item>
                         <TextField
@@ -151,12 +210,9 @@ export function AddTestCase() {
                             label="Age"
                             className={classes.form}
                             type="number"
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                         </TextField>
-                        <FormHelperText error>{errors.age?.message}</FormHelperText>
+                        <FormHelperText error>{errors.Age?.message}</FormHelperText>
                     </Grid>
                     <Grid item>
                         <TextField
@@ -165,12 +221,9 @@ export function AddTestCase() {
                             className={classes.form}
                             type="number"
                             {...register("Height")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                         </TextField>
-                        <FormHelperText error>{errors.height?.message}</FormHelperText>
+                        <FormHelperText error>{errors.Height?.message}</FormHelperText>
                     </Grid>
                     <Grid item>
                         <TextField
@@ -179,12 +232,9 @@ export function AddTestCase() {
                             {...register("Weight")}
                             className={classes.form}
                             type="number"
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                         </TextField>
-                        <FormHelperText error>{errors.weight?.message}</FormHelperText>
+                        <FormHelperText error>{errors.Weight?.message}</FormHelperText>
                     </Grid>
                     <Grid item>
                         <TextField
@@ -193,9 +243,6 @@ export function AddTestCase() {
                             className={classes.formLong}
                             select
                             {...register("family_history_with_overweight")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                             {family_history_with_overweight.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -203,7 +250,7 @@ export function AddTestCase() {
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <FormHelperText error>{errors.familyHistory?.message}</FormHelperText>
+                        <FormHelperText error>{errors.family_history_with_overweight?.message}</FormHelperText>
                     </Grid>
                     <Grid item>
                         <TextField
@@ -212,9 +259,6 @@ export function AddTestCase() {
                             className={classes.form}
                             select
                             {...register("FAVC")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                             {FAVC.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -231,9 +275,6 @@ export function AddTestCase() {
                             className={classes.form}
                             {...register("FCVC")}
                             type="number"
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                         </TextField>
                         <FormHelperText error>{errors.FCVC?.message}</FormHelperText>
@@ -247,9 +288,6 @@ export function AddTestCase() {
                             {...register("NCP")}
                             className={classes.form}
                             type="number"
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                         </TextField>
                         <FormHelperText error>{errors.NCP?.message}</FormHelperText>
@@ -261,9 +299,6 @@ export function AddTestCase() {
                             className={classes.form}
                             select
                             {...register("CAEC")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                             {CAEC.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -280,9 +315,6 @@ export function AddTestCase() {
                             className={classes.form}
                             select
                             {...register("SMOKE")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                             {SMOKE.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -295,16 +327,13 @@ export function AddTestCase() {
                     <Grid item>
                         <TextField
                             id="outlined-start-adornment"
-                            label="CH20"
+                            label="CH2O"
                             className={classes.form}
                             type="number"
-                            {...register("CH20")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
+                            {...register("CH2O")}
                         >
                         </TextField>
-                        <FormHelperText error>{errors.CH20?.message}</FormHelperText>
+                        <FormHelperText error>{errors.CH2O?.message}</FormHelperText>
                     </Grid>
                     <Grid item>
                         <TextField
@@ -313,9 +342,6 @@ export function AddTestCase() {
                             className={classes.form}
                             select
                             {...register("SCC")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                             {SCC.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -332,9 +358,6 @@ export function AddTestCase() {
                             className={classes.form}
                             type="number"
                             {...register("FAF")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                         </TextField>
                         <FormHelperText error>{errors.FAF?.message}</FormHelperText>
@@ -346,9 +369,6 @@ export function AddTestCase() {
                             className={classes.form}
                             {...register("TUE")}
                             type="number"
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                         </TextField>
                         <FormHelperText error>{errors.TUE?.message}</FormHelperText>
@@ -362,9 +382,6 @@ export function AddTestCase() {
                             className={classes.form}
                             select
                             {...register("CALC")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                             {CALC.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -381,9 +398,6 @@ export function AddTestCase() {
                             className={classes.form}
                             select
                             {...register("MTRANS")}
-                            onChange={event => {
-                                //seTimeUnit(event.target.value.toString())
-                            }}
                         >
                             {MTRANS.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -396,15 +410,56 @@ export function AddTestCase() {
                 </Grid>
                 <Grid container direction={"row"} spacing={10}>
                     <Grid item>
-                        <Button id="ourModel" type="submit" className={classes.button}>Calculate with our model</Button>
+                        <Button id="ourModel"
+                                type="submit"
+                                className={classes.button}
+                                disabled={loadingOwnModel}>
+                            {loadingOwnModel && <CircularProgress size={16}/>}
+                            Calculate with our model
+                        </Button>
                     </Grid>
                     <Grid item>
-                        <Button id="customModel" type="submit" className={classes.button} disabled={disableOwnModel}>Calculate
-                            with custom model</Button>
+                        <Button id="customModel"
+                                type="submit"
+                                className={classes.button}
+                                disabled={loadingCustomModel || disableCustomModel}>
+                            {loadingCustomModel && <CircularProgress size={16}/>}
+                            Calculate with custom model</Button>
                     </Grid>
                 </Grid>
             </form>
-
+            {
+                estimatedLevel !== '' &&
+                <Box
+                    sx={{
+                        boxShadow: 1,
+                        bgcolor: 'background.paper',
+                        marginLeft: '30px',
+                        margin: '20px',
+                        width: '20vw',
+                        height: '5vh',
+                    }}
+                >
+                    <Typography variant="h1">
+                        {`Estimated level of obesity based on eating habits and physical condition is ${estimatedLevel}`}
+                    </Typography>
+                </Box>
+            }
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                }}
+                open={snackbarMsg != ''}
+                autoHideDuration={6000}
+                onClose={handleClose}
+            >
+                <SnackbarContentWrapper
+                    onClose={handleClose}
+                    variant="warning"
+                    message={snackbarMsg}
+                />
+            </Snackbar>
         </>
     )
 }

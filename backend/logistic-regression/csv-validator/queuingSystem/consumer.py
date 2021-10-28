@@ -16,9 +16,11 @@ client = pymongo.MongoClient(
     "mongodb+srv://Aleksandra:root@math-microservices.mothy.mongodb.net/logistic-regression?retryWrites=true&w=majority")
 db = client["logistic-regression"]
 csvDB = db['csv-validator']
+conversion_NObeyesdad = {}
 
 
 def transform_data(body):
+    global conversion_NObeyesdad
     df = pd.DataFrame(body)
     gender_type = CategoricalDtype(categories=['Female', 'Male'], ordered=True)
     family_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
@@ -42,6 +44,8 @@ def transform_data(body):
     df["CALC"] = df["CALC"].astype(CALC_type).cat.codes
     df["MTRANS"] = df["MTRANS"].astype(MTRANS_type).cat.codes
     df["NObeyesdad"] = df["NObeyesdad"].astype(NObeyesdad_type).cat.codes
+
+    conversion_NObeyesdad = dict(enumerate(df["NObeyesdad"].astype(NObeyesdad_type).cat.categories))
 
     return df
 
@@ -73,7 +77,7 @@ def callback(ch, method, properties, body):
     else:
         csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'validation'}})
     if task['aim'] == 'regression' and correct:
-        publish(transform_data(data), int(properties.message_id))
+        publish(transform_data(data), int(properties.message_id), conversion_NObeyesdad)
 
 
 def started_consuming():
