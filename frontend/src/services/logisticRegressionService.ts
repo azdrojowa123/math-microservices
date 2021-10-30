@@ -32,13 +32,14 @@ const logisticRegressionService = {
             body: JSON.stringify(data)
         })
     },
-    logisticRegressionCalc: (data: any) => {
-        return fetch('http://localhost:5000/logistic-regression/calc/own-model', {
+    logisticRegressionCalc: (data: any, model: string) => {
+        return fetch('http://localhost:5000/logistic-regression/calc', {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
-                "Access-Control-Allow-Origin": "*"
+                "Access-Control-Allow-Origin": "*",
+                "Model": model
             },
             body: JSON.stringify(data)
         })

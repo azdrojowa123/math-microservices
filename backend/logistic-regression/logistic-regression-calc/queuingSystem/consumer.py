@@ -109,8 +109,15 @@ def calc_regression(ch, method, properties, body):
         except:
             csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'calc'}})
     else:
-        conversion_NObeyesdad = properties.headers['conversion_dict']
-        # dorobić wyliczanie regresji z własnego modelu
+        try:
+            conversion_NObeyesdad = properties.headers['conversion_dict']
+            y_pred = LogReg_custom.predict(df)
+            print("PREDYKCJA " + str(y_pred))
+            print("PO ZAMIANIE " + conversion_NObeyesdad[y_pred[0]])
+            csvDB.update_one({'_id': int(properties.message_id)}, {
+                '$set': {'result': 'success', 'stage': 'calc', 'estimation': conversion_NObeyesdad[y_pred[0]]}})
+        except:
+            csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'calc'}})
 
 
 def callback_fit(ch, method, properties, body):

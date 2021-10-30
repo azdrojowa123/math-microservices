@@ -37,11 +37,12 @@ def make_regression(service: ValidationService):
     return {'id_msg': id_msg}, 200
 
 
-@regression_api.route("/calc/own-model", methods=['POST'])
+@regression_api.route("/calc", methods=['POST'])
 @inject
 @cross_origin("*")
 def calc_regression(service: ValidationService):
     request_data = request.get_json()
-    id_msg = publish_regression_calc(request_data, service)
+    headers = request.headers
+    id_msg = publish_regression_calc(request_data, service, headers['Model'])
     # zwrócić odpowiedź z poprawnym ID
     return {'id_msg': id_msg}, 200

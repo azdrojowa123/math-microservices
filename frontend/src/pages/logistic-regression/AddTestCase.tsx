@@ -131,7 +131,7 @@ export function AddTestCase(props: AddTestCaseI) {
         orderedJSON['Height'] = orderedJSON['Height'] / 100
         if (buttonId == 'ourModel') {
             setLoadingOwnModel(true)
-            service.logisticRegressionCalc(orderedJSON).then(res => {
+            service.logisticRegressionCalc(orderedJSON, 'own').then(res => {
                 return res.json().then(resObj => {
                     var nre = setInterval(() => {
                         checkStatus(resObj['id_msg'])
@@ -436,13 +436,20 @@ export function AddTestCase(props: AddTestCaseI) {
                         bgcolor: 'background.paper',
                         marginLeft: '30px',
                         margin: '20px',
-                        width: '20vw',
+                        width: '80vw',
                         height: '5vh',
+                        alignItems: 'center', // po środku wertykalnie
+                        justifyContent: 'center', // po środku horyzontalnie
+                        display: 'flex' //flex kontenery
                     }}
                 >
-                    <Typography variant="h1">
-                        {`Estimated level of obesity based on eating habits and physical condition is ${estimatedLevel}`}
+                    <Typography variant="h2" align={'center'} style={{margin: '5px'}}>
+                        {`Estimated level of obesity based on eating habits and physical condition is `}
                     </Typography>
+                    <Typography variant="h3">
+                        {` ${estimatedLevel}`}
+                    </Typography>
+
                 </Box>
             }
             <Snackbar

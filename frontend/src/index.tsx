@@ -16,13 +16,17 @@ const theme = createMuiTheme({
             'serif',
         ].join(','),
         h1: {
-            fontSize: 18,
+            fontSize: 20,
             fontFamily: 'Palatino',
         },
         h2: {
-            fontSize: 20,
-            fontFamily: 'URW Palladio L',
-            fontStyle: 'italic',
+            fontSize: 23,
+            fontFamily: 'Palatino',
+        },
+        h3: {
+            fontSize: 23,
+            fontFamily: 'Palatino',
+            fontStyle: 'italic'
         },
     },
     palette: {
