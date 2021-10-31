@@ -34,7 +34,11 @@ public class PeriodResultKM {
     }
 
     public void calculateSurvivalProbability() {
-        this.survivalProbability = rounds(((double) (this.quantity - this.failures) / this.quantity));
+        if (this.quantity == 0) {
+            this.survivalProbability = 0;
+        } else {
+            this.survivalProbability = rounds((double) (this.quantity - this.failures) / this.quantity);
+        }
     }
 
     public void calculateEstimatorKM(PeriodResultKM previous) {

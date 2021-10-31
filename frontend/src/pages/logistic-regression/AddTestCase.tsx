@@ -56,7 +56,6 @@ export function AddTestCase(props: AddTestCaseI) {
 
     const classes = useStyles()
     const {disableCustomModel} = props;
-    console.log("Custom model" + disableCustomModel)
     const service = logisticRegressionService
     const gender = ['Female', 'Male']
     const family_history_with_overweight = ['yes', 'no']
@@ -68,9 +67,10 @@ export function AddTestCase(props: AddTestCaseI) {
     const MTRANS = ['Automobile', 'Motorbike', 'Bike', 'Public_Transportation', 'Walking']
     const [loadingOwnModel, setLoadingOwnModel] = useState<boolean>(false)
     const [loadingCustomModel, setLoadingCustomModel] = useState<boolean>(false)
-    const refCalcOwn = useRef(loadingOwnModel);
+    const refCalcOwn = useRef(loadingOwnModel)
+    const refCalcCustom = useRef(loadingCustomModel)
     const [estimatedLevel, setEstimatedLevel] = useState<string>('')
-    const [snackbarMsg, setSnackbarMsg] = useState<string>('');
+    const [snackbarMsg, setSnackbarMsg] = useState<string>('')
     const schema = yup.object().shape({
         Gender: yup.string().required(),
         Age: yup.number()
@@ -109,7 +109,7 @@ export function AddTestCase(props: AddTestCaseI) {
             .min(0, "TUE value cannot be less than 0"),
         CALC: yup.string().required(),
         MTRANS: yup.string().required(),
-    });
+    })
 
     const {register, handleSubmit, formState: {errors}, reset} = useForm({
         resolver: yupResolver(schema),
@@ -121,11 +121,13 @@ export function AddTestCase(props: AddTestCaseI) {
 
     useEffect(() => {
         refCalcOwn.current = loadingOwnModel
+        refCalcCustom.current = loadingCustomModel
     })
 
     const onSubmit: SubmitHandler<any> = (data, event: BaseSyntheticEvent | undefined) => {
         const submitEvent = event?.nativeEvent as SubmitEvent
         const buttonId = submitEvent.submitter?.id
+        console.log(buttonId)
         const orderedJSON = JSON.parse(JSON.stringify(data, ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
             "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS"]));
         orderedJSON['Height'] = orderedJSON['Height'] / 100
@@ -166,7 +168,41 @@ export function AddTestCase(props: AddTestCaseI) {
                 setLoadingOwnModel(false)
             })
         } else if (buttonId == 'customModel') {
-
+            setLoadingCustomModel(true)
+            service.logisticRegressionCalc(orderedJSON, 'custom').then(res => {
+                return res.json().then(resObj => {
+                    var nre = setInterval(() => {
+                        checkStatus(resObj['id_msg'])
+                    }, 4000);
+                    const checkStatus = async (id: string | number) => {
+                        console.log("ID test case" + id)
+                        let res = await service.checkStatus(id)
+                        let r = await res.json()
+                        if (refCalcCustom.current) {
+                            if (r['result'] == 'success') {
+                                setSnackbarMsg('Logistic regression calculation finished')
+                                setEstimatedLevel(r['estimation'])
+                                setLoadingCustomModel(false)
+                                clearInterval(nre)
+                            } else if (r['result'] == 'fail') {
+                                clearInterval(nre)
+                                setSnackbarMsg('Logistic regression calculation failed, please try again later')
+                                setLoadingCustomModel(false)
+                            }
+                        }
+                    }
+                    setTimeout(function () {
+                        if (refCalcCustom.current) {
+                            clearInterval(nre);
+                            setSnackbarMsg('Some problems occurred during calculation. Probably it is problem with our server. Please try again later')
+                            setLoadingCustomModel(false)
+                        }
+                    }, 100000)
+                })
+            }).catch(_ => {
+                setSnackbarMsg('Connection with backend service cannot be established')
+                setLoadingCustomModel(false)
+            })
         } else {
 
         }
@@ -217,7 +253,7 @@ export function AddTestCase(props: AddTestCaseI) {
                     <Grid item>
                         <TextField
                             id="outlined-start-adornment"
-                            label="Height"
+                            label="Height [cm]"
                             className={classes.form}
                             type="number"
                             {...register("Height")}

@@ -6,6 +6,9 @@
         <option value="$PROJECT_DIR$/backend/survival-curve-calc/pom.xml" />
         <option value="$PROJECT_DIR$/backend/csv-validate/pom.xml" />
         <option value="$PROJECT_DIR$/backend/survival-curve-data/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/survival-curve/csv-validate/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/survival-curve/survival-curve-data/pom.xml" />
       </list>
     </option>
   </component>

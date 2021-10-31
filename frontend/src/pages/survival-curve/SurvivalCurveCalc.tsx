@@ -1,6 +1,6 @@
 import {Box, Button, makeStyles, Snackbar, Table, TableHead, TableRow, TextField, Typography} from '@material-ui/core';
 import * as React from 'react';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Divider from '@material-ui/core/Divider';
 import StepLineChart from './StepLineChart';
 import survivalCurveService from "../../services/survivalCurveService";
@@ -52,12 +52,24 @@ export function SurvivalCurveCalc() {
 
     const [rows, setRows] = useState<TestingPerson[]>([]);
     const [dataSource, setDataSource] = useState<any[]>([]);
+    const [disableChartButton, setDisableChartButton] = useState<boolean>(true)
+    const [enablePage, setEnablePage] = useState<boolean>(false)
     const [periods, setPeriods] = useState<number>(0);
     const service = survivalCurveService;
     const [snackbarMsg, setSnackbarMsg] = useState<string>('');
 
+    useEffect(() => {
+        if (rows.length !== 0 && periods !== 0) {
+            setDisableChartButton(false)
+        }
+    })
+
     const handleClose = () => {
         setSnackbarMsg('')
+    }
+
+    const savePeriods = () => {
+        setEnablePage(true)
     }
 
     const addingNewPerson = (duration: number, occurrence: boolean) => {
@@ -66,16 +78,30 @@ export function SurvivalCurveCalc() {
 
     const classes = useStyles();
 
+    const checkRows = () => {
+        const isMaximumCasePresent = rows.find((o) => o.duration === periods);
+        if (!isMaximumCasePresent) {
+            return false
+        } else {
+            return true
+        }
+    }
+
     const generateChart = () => {
-        service.survivalResults(periods, rows).then(async res => {
-            if (res.ok) {
-                setDataSource(await res.json())
-            } else {
-                setSnackbarMsg("Some error occurred during connection to backend")
-            }
-        }).catch(() => {
-            setSnackbarMsg("Connection to backend server refused")
-        })
+        if (checkRows()) {
+            service.survivalResults(periods, rows).then(async res => {
+                if (res.ok) {
+                    setDataSource(await res.json())
+                } else {
+                    setSnackbarMsg("Some error occurred during connection to backend")
+                }
+            }).catch(() => {
+                setSnackbarMsg("Connection to backend server refused")
+            })
+        } else {
+            setSnackbarMsg("Please enter test case with duration equals declared total duration")
+        }
+
     };
 
     const submitDataSource = (data: any[]) => {
@@ -97,9 +123,10 @@ export function SurvivalCurveCalc() {
                         setPeriods(Number(event.target.value))
                     }}
                 />
+                <Button className={classes.button} onClick={savePeriods} style={{marginBottom: '10px'}}>Save</Button>
                 <Divider className={classes.divider}/>
                 {
-                    periods !== 0 &&
+                    enablePage &&
                     <>
                         <CsvSurvivalCurve submitData={submitDataSource} periods={periods}/>
                         <Divider className={classes.divider}/>
@@ -126,7 +153,7 @@ export function SurvivalCurveCalc() {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                        <Button className={classes.button} onClick={generateChart}>
+                        <Button className={classes.button} onClick={generateChart} disabled={disableChartButton}>
                             Generate chart
                         </Button>
                     </>

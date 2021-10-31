@@ -28,7 +28,16 @@ def fit_regression(df, id):
         ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC", "SMOKE",
          "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS"]]
     Y = df[['NObeyesdad']]
-    X_train, X_test, y_train, y_test = train_test_split(X, Y.values.ravel(), test_size=0.5)
+    number_of_rows = len(df.index)
+    train_samples = 0
+    if number_of_rows < 50:
+        train_samples = 5
+    elif number_of_rows < 100:
+        train_samples = 10
+    else:
+        train_samples = 15
+    X_train, X_test, y_train, y_test = train_test_split(X, Y.values.ravel(), test_size=train_samples)
+    print('test size' + str(len(X_test.index)))
     LogReg_custom.fit(X_train, y_train)
     y_pred = LogReg_custom.predict(X_test)
     accuracy = round(LogReg_custom.score(X_test, y_test), 2)
@@ -76,7 +85,6 @@ def calculate_own():
 
 
 def calc_regression(ch, method, properties, body):
-    global conversion_NObeyesdad
     data = json.loads(body)
     df = pd.DataFrame.from_dict([data], orient='columns')
     print(df)
@@ -110,20 +118,22 @@ def calc_regression(ch, method, properties, body):
             csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'calc'}})
     else:
         try:
-            conversion_NObeyesdad = properties.headers['conversion_dict']
             y_pred = LogReg_custom.predict(df)
             print("PREDYKCJA " + str(y_pred))
-            print("PO ZAMIANIE " + conversion_NObeyesdad[y_pred[0]])
+            print("PO ZAMIANIE " + str(conversion_NObeyesdad[str(y_pred[0])]))
             csvDB.update_one({'_id': int(properties.message_id)}, {
-                '$set': {'result': 'success', 'stage': 'calc', 'estimation': conversion_NObeyesdad[y_pred[0]]}})
+                '$set': {'result': 'success', 'stage': 'calc',
+                         'estimation': str(conversion_NObeyesdad[str(y_pred[0])])}})
         except:
             csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'calc'}})
 
 
 def callback_fit(ch, method, properties, body):
+    global conversion_NObeyesdad
     print('receive in main')
     msg_id = int(properties.message_id)
     data = json.loads(body)
+    conversion_NObeyesdad = json.loads(properties.headers['conversion_dict'])
     df = pd.DataFrame(data)
     fit_regression(df, msg_id)
 

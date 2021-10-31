@@ -1,4 +1,5 @@
 package com.calc.csvvalidate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
@@ -8,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -28,7 +28,6 @@ public class CsvValidationController {
     public ResponseEntity calculateCsvData(@RequestBody ArrayList<Integer[]> csvData, @PathVariable(value = "periods") int periods) {
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("csv-circuit-breaker");
         if (validationService.validate(csvData, periods)) {
-            System.out.println("validate");
             return circuitBreaker.run(() -> survivalCurveClient.getSurvivalCurveResults(validationService.convertData(csvData), periods),
                     throwable -> ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("Connection to server responsible for computation of the survival curve is not available"));
         }

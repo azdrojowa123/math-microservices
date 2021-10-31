@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
@@ -13,10 +12,6 @@ public class CsvValidationService {
 
     public boolean validate(ArrayList<Integer[]> data, int periods) {
         AtomicBoolean correct = new AtomicBoolean(true);
-        System.out.println("in service");
-        data.forEach((k) -> {
-            System.out.println(k);
-        });
         data.forEach((k) -> {
             if (k[0] > periods || k[0] <= 0) {
                 correct.set(false);
