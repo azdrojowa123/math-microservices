@@ -24,10 +24,19 @@ const theme = createMuiTheme({
             fontFamily: 'Palatino',
         },
         h3: {
-            fontSize: 40,
+            fontSize: 50,
             fontFamily: 'Palatino',
-            fontStyle: 'italic'
+            fontStyle: 'italic',
+            fontVariant: 'small-caps',
+            textTransform: 'capitalize',
+            textDecoration: 'none solid rgb(68, 68, 68)'
         },
+        h4: {
+            fontSize: 25,
+            fontFamily: 'Palatino',
+            fontStyle: 'italic',
+            textDecoration: 'none solid rgb(68, 68, 68)'
+        }
     },
     palette: {
         background: {

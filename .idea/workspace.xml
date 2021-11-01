@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/logistic-regression/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/logistic-regression-calc.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/requirements.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/startingPages/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/startingPages/LandingPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/startingPages/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/startingPages/MainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/docker-compose.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -419,7 +411,7 @@
       <workItem from="1635611038283" duration="632000" />
       <workItem from="1635702969497" duration="5927000" />
       <workItem from="1635710923179" duration="7402000" />
-      <workItem from="1635756256293" duration="13283000" />
+      <workItem from="1635756256293" duration="16870000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>
@@ -554,7 +546,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635759207862</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix: update">
+      <created>1635770623265</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1635770623266</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
