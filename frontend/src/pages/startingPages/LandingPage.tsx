@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
         height: '5vh'
     },
     element: {
-        margin: '10px'
+        margin: '20px'
     }
 }));
 
@@ -38,7 +38,6 @@ export function LandingPage() {
 
     return (
         <>
-            {/*//<div className={classes.wrapper}>*/}
             <Grid
                 container
                 spacing={0}
@@ -48,7 +47,7 @@ export function LandingPage() {
                 style={{
                     minHeight: '100vh',
                     background: 'linear-gradient(45deg, #C9E7E7 30%, #E5ECEC 90%)',
-                    padding: '20px'
+                    padding: '30px'
                 }}
             >
                 <Grid item>

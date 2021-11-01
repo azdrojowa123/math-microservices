@@ -1,16 +1,18 @@
-import {Button, makeStyles} from '@material-ui/core';
+import {Button, Grid, makeStyles, Typography} from '@material-ui/core';
 import {useHistory} from "react-router-dom";
+import * as React from "react";
 
 
 const useStyles = makeStyles(theme => ({
     wrapper: {
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        height: '100vh', /*  height of this element is equal to 80% of the viewport height. */
-        display: 'flex',
-        align: 'center',
-        marginRight: '50px',
-        marginLeft: '50px'
+        /*        alignItems: 'center',
+                justifyContent: 'space-between',
+                height: '100vh', /!*  height of this element is equal to 80% of the viewport height. *!/
+                display: 'flex',
+                align: 'center',*/
+        background: 'linear-gradient(45deg, #C9E7E7 30%, #E5ECEC 90%)',
+        /*        marginRight: '50px',
+                marginLeft: '50px'*/
     },
     button: {
         textAlign: 'center',
@@ -19,8 +21,12 @@ const useStyles = makeStyles(theme => ({
         '&:hover': {
             backgroundColor: '#A8AEAE',
         },
-        width: '20%', /* 60% of body width (100vw) */
-        height: '5%'
+        margin: '20px',
+        width: '20vw',
+        height: '5vh'
+    },
+    element: {
+        margin: '30px'
     }
 }));
 
@@ -32,9 +38,32 @@ export function MainPage() {
     return (
         <>
             <div className={classes.wrapper}>
-                <Button className={classes.button} onClick={() => {history.push("/calc/survival-curve");}}>survival curve</Button>
-                <Button className={classes.button} onClick={() => {history.push("/calc/logistic-regression");}}>logistic regression</Button>
+                <Grid
+                    container
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    style={{minHeight: '100vh'}}
+                >
+                    <Grid item>
+                        <Typography variant="h3" component="div" className={classes.element}>
+                            Select calculation
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Button className={classes.button} onClick={() => {
+                            history.push("/calc/survival-curve");
+                        }}>survival curve</Button>
+                        <Button className={classes.button} onClick={() => {
+                            history.push("/calc/logistic-regression");
+                        }}>logistic regression</Button>
+                    </Grid>
+                </Grid>
             </div>
+
+
         </>
-    );
+    )
+
 }

@@ -1,7 +1,7 @@
 const logisticRegressionService = {
 
     checkCSVData: (data: any[]) => {
-        return fetch('http://localhost:5000/validation', {
+        return fetch('http://192.168.99.111:30100/validation', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -12,7 +12,7 @@ const logisticRegressionService = {
         })
     },
     checkStatus: (id: string | number) => {
-        return fetch(`http://localhost:5000/validation/status/${id}`, {
+        return fetch(`http://192.168.99.111:30100/validation/status/${id}`, {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -22,7 +22,7 @@ const logisticRegressionService = {
         })
     },
     logisticRegressionFit: (data: any[]) => {
-        return fetch('http://localhost:5000/logistic-regression', {
+        return fetch('http://192.168.99.111:30100/logistic-regression', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -33,7 +33,7 @@ const logisticRegressionService = {
         })
     },
     logisticRegressionCalc: (data: any, model: string) => {
-        return fetch('http://localhost:5000/logistic-regression/calc', {
+        return fetch('http://192.168.99.111:30100/logistic-regression/calc', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -45,5 +45,6 @@ const logisticRegressionService = {
         })
     }
 };
+
 
 export default logisticRegressionService;

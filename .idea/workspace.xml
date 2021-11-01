@@ -6,8 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/consumer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/services/validation_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/services/validation_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/startingPages/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/startingPages/LandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/startingPages/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/startingPages/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/logisticRegressionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/logisticRegressionService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/logistic-regression-calc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/logistic-regression-calc.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,16 +102,14 @@
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\csvData" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.run frontend">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Docker.message-sender/Dockerfile">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -240,8 +247,9 @@
     <configuration name="logistic-regression-calc/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
-          <option name="imageTag" value="" />
+          <option name="imageTag" value="logisti-regression-calc" />
           <option name="buildCliOptions" value="" />
+          <option name="buildOnly" value="true" />
           <option name="command" value="" />
           <option name="containerName" value="logistic-regression-calc" />
           <option name="entrypoint" value="" />
@@ -272,7 +280,6 @@
         <settings>
           <option name="imageTag" value="message-sender" />
           <option name="buildCliOptions" value="" />
-          <option name="buildOnly" value="true" />
           <option name="command" value="" />
           <option name="containerName" value="message-sender" />
           <option name="entrypoint" value="" />
@@ -302,6 +309,8 @@
     </configuration>
     <list>
       <item itemvalue="Docker.logistic-regression-calc/Dockerfile" />
+      <item itemvalue="Docker.message-sender/Dockerfile" />
+      <item itemvalue="Docker.logistic-regression/docker-compose.yaml: Compose Deployment" />
       <item itemvalue="Maven.survival-curve [clean:install]" />
       <item itemvalue="Maven.survival-curve-calc [clean]" />
       <item itemvalue="npm.run frontend" />
@@ -310,16 +319,14 @@
       <item itemvalue="Python.messages-sender" />
       <item itemvalue="Spring Boot.SurvivalCurveCalcApplication" />
       <item itemvalue="Spring Boot.CsvValidateApplication (1)" />
-      <item itemvalue="Docker.message-sender/Dockerfile" />
-      <item itemvalue="Docker.logistic-regression/docker-compose.yaml: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.logistic-regression/docker-compose.yaml: Compose Deployment" />
         <item itemvalue="Docker.message-sender/Dockerfile" />
+        <item itemvalue="Docker.logistic-regression-calc/Dockerfile" />
+        <item itemvalue="Docker.logistic-regression/docker-compose.yaml: Compose Deployment" />
         <item itemvalue="Python.messages-sender" />
         <item itemvalue="Python.csv-validator" />
-        <item itemvalue="Docker.logistic-regression-calc/Dockerfile" />
       </list>
     </recent_temporary>
   </component>
@@ -412,6 +419,8 @@
       <workItem from="1635702969497" duration="5927000" />
       <workItem from="1635710923179" duration="7402000" />
       <workItem from="1635756256293" duration="16870000" />
+      <workItem from="1635775229682" duration="664000" />
+      <workItem from="1635783134445" duration="16945000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>

@@ -5,3 +5,13 @@ services:
     ports:
       - "5001:5001"
     image: azdrojowa123/csv-validator-logistic-regression:latest
+  logistic-regession-calc:
+    build: logistic-regression-calc/
+    ports:
+      - "5002:5002"
+    image: azdrojowa123/logistic-regression-calc:latest
+  message-sender:
+    build: message-sender/
+    ports:
+      - "5000:5000"
+    image: azdrojowa123/message-sender:latest

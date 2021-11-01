@@ -27,6 +27,7 @@ const theme = createMuiTheme({
             fontSize: 50,
             fontFamily: 'Palatino',
             fontStyle: 'italic',
+            color: '#68636F',
             fontVariant: 'small-caps',
             textTransform: 'capitalize',
             textDecoration: 'none solid rgb(68, 68, 68)'
@@ -36,6 +37,12 @@ const theme = createMuiTheme({
             fontFamily: 'Palatino',
             fontStyle: 'italic',
             textDecoration: 'none solid rgb(68, 68, 68)'
+        },
+        h6: {
+            fontSize: 23,
+            fontFamily: 'Palatino',
+            fontStyle: 'italic'
+
         }
     },
     palette: {

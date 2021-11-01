@@ -482,7 +482,7 @@ export function AddTestCase(props: AddTestCaseI) {
                     <Typography variant="h2" align={'center'} style={{margin: '5px'}}>
                         {`Estimated level of obesity based on eating habits and physical condition is `}
                     </Typography>
-                    <Typography variant="h3">
+                    <Typography variant="h6">
                         {` ${estimatedLevel}`}
                     </Typography>
 
