@@ -1,0 +1,7 @@
+version: '3'
+services:
+  csv-validator:
+    build: csv-validator/
+    ports:
+      - "5001:5001"
+    image: azdrojowa123/csv-validator-logistic-regression:latest

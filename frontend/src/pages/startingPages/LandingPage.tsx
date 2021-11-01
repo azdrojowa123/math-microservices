@@ -1,5 +1,7 @@
-import { Button, makeStyles } from '@material-ui/core';
-import { useHistory } from "react-router-dom";
+import {Button, Grid, makeStyles, Typography} from '@material-ui/core';
+import {useHistory} from "react-router-dom";
+import Box from "@mui/material/Box";
+import * as React from "react";
 
 
 const useStyles = makeStyles(theme => ({
@@ -19,8 +21,8 @@ const useStyles = makeStyles(theme => ({
         '&:hover': {
             backgroundColor: '#A8AEAE',
         },
-        width: '20%', /* 60% of body width (100vw) */
-        height: '5%'
+        width: '200px',
+        height: '50px'
     }
 }));
 
@@ -29,14 +31,37 @@ export function LandingPage() {
     const classes = useStyles();
     const history = useHistory();
 
-    const routeChange = () =>{
+    const routeChange = () => {
         history.push('/main-page');
     }
 
     return (
         <>
             <div className={classes.wrapper}>
-                <Button className={classes.button} onClick={routeChange} fullWidth>Go to app  →</Button>
+                <Grid
+                    container
+                    spacing={10}
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    {/*      <Grid item>
+                        <Typography variant="h3">
+                            Welcome in application
+                        </Typography>
+                    </Grid>*/}
+                    <Grid item>
+                        <Typography variant="h2">
+                            At the time of application development (11.2021) calculations connected
+                            to survival curve and logistic regression are available. Please click button below to enter
+                            application.
+                        </Typography>
+                    </Grid>
+                    <Box width={'100%'}></Box>
+                    <Grid item>
+                        <Button className={classes.button} onClick={routeChange}>Enter app →</Button>
+                    </Grid>
+                </Grid>
             </div>
         </>
     );
