@@ -70,6 +70,7 @@ export function SurvivalCurveCalc() {
 
     const savePeriods = () => {
         setEnablePage(true)
+        setSnackbarMsg('Total duration is successfully saved')
     }
 
     const addingNewPerson = (duration: number, occurrence: boolean) => {

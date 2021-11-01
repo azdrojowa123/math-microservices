@@ -44,6 +44,7 @@ interface CsvReaderI {
 export function CsvSurvivalCurve(props: CsvReaderI) {
     const {submitData, periods} = props;
     const [csvFile, setCsvFile] = useState<any[]>();
+    const [disableCheck, setDisableCheck] = useState<boolean>(true);
     const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
     const classes = useStyles();
     const [snackbarMsg, setSnackbarMsg] = useState<string>('');
@@ -51,7 +52,7 @@ export function CsvSurvivalCurve(props: CsvReaderI) {
 
     useEffect(() => {
         if (periods !== undefined && periods !== 0 && csvFile !== undefined) {
-            setDisableSubmit(false);
+            setDisableCheck(false);
         }
     })
 
@@ -91,6 +92,7 @@ export function CsvSurvivalCurve(props: CsvReaderI) {
                 if (data == false) {
                     setSnackbarMsg('Entered CSV data are not correct, please check if period number in data are not bigger than declared periods and if occurrence is 0/1')
                 } else {
+                    setDisableSubmit(false)
                     setSnackbarMsg('Your CSV is correct, you can click on generating chart')
                 }
             }).catch(_ => {
@@ -184,7 +186,7 @@ export function CsvSurvivalCurve(props: CsvReaderI) {
             <Grid container direction={"row"} spacing={10}>
                 <Grid item>
                     <Button className={classes.button}
-                            disabled={disableSubmit}
+                            disabled={disableCheck}
                             onClick={checkCSVData}>
                         Check CSV File
                     </Button>

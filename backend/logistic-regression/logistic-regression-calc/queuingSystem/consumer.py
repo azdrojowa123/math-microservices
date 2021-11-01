@@ -119,8 +119,8 @@ def calc_regression(ch, method, properties, body):
     else:
         try:
             y_pred = LogReg_custom.predict(df)
-            print("PREDYKCJA " + str(y_pred))
-            print("PO ZAMIANIE " + str(conversion_NObeyesdad[str(y_pred[0])]))
+            # print("PREDYKCJA " + str(y_pred))
+            # print("PO ZAMIANIE " + str(conversion_NObeyesdad[str(y_pred[0])]))
             csvDB.update_one({'_id': int(properties.message_id)}, {
                 '$set': {'result': 'success', 'stage': 'calc',
                          'estimation': str(conversion_NObeyesdad[str(y_pred[0])])}})

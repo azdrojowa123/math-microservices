@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/publisher.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/publisher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/temp/tempMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/toDelete/tempMain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validate/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/src/main/java/com/calc/csvvalidate/CsvValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validate/src/main/java/com/calc/csvvalidate/CsvValidationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/java/com/calc/survivalcurve/services/EstimatorCalcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/java/com/calc/survivalcurve/services/EstimatorCalcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-data/src/main/java/com/calc/survivalcurvedata/SurvivalCurveDataApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-data/src/main/java/com/calc/survivalcurvedata/dto/response/PeriodResultKM.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/survival-curve-data/src/main/java/com/calc/survivalcurvedata/dto/response/PeriodResultKM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvSurvivalCurve.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvSurvivalCurve.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/Data.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/survival-curve-calc.jmx" beforeDir="false" afterPath="$PROJECT_DIR$/JMeterTests/survival-curve-calc.jmx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,13 +98,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SurvivalCurveCalcApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -243,13 +241,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SurvivalCurveDataApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="survival-curve-data" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.calc.survivalcurvedata.SurvivalCurveDataApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="csv-validate/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
@@ -316,7 +307,6 @@
       <item itemvalue="Python.messages-sender" />
       <item itemvalue="Spring Boot.SurvivalCurveCalcApplication" />
       <item itemvalue="Spring Boot.CsvValidateApplication (1)" />
-      <item itemvalue="Spring Boot.SurvivalCurveDataApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -415,6 +405,7 @@
       <workItem from="1635611038283" duration="632000" />
       <workItem from="1635702969497" duration="5927000" />
       <workItem from="1635710923179" duration="7402000" />
+      <workItem from="1635756256293" duration="2523000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>
