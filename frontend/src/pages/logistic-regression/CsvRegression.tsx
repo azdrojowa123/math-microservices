@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 interface CsvRegressionI {
-    unlockCustomModel: () => void;
+    unlockCustomModel: (id: string) => void;
 }
 
 export function CsvRegression(props: CsvRegressionI) {
@@ -107,16 +107,16 @@ export function CsvRegression(props: CsvRegressionI) {
                 return res.json().then(resObj => {
                     var nre = setInterval(() => {
                         checkStatus(resObj['id_msg'])
-                    }, 4000);
-                    const checkStatus = async (id: string | number) => {
+                    }, 5000);
+                    const checkStatus = async (id: string) => {
                         console.log("ID " + id)
                         let res = await service.checkStatus(id)
                         let r = await res.json()
                         if (refValidation.current) {
                             if (r['result'] == 'success') {
-                                setSnackbarMsg('CSV file is correct')
                                 setLoadingValidation(false)
                                 clearInterval(nre)
+                                setSnackbarMsg('CSV file is correct')
                             } else if (r['result'] == 'fail') {
                                 clearInterval(nre)
                                 setSnackbarMsg('CSV file is not correct. Please consider to check if all requirements are met')
@@ -146,11 +146,10 @@ export function CsvRegression(props: CsvRegressionI) {
                     const nre = setInterval(() => {
                         checkStatus(resObj['id_msg'])
                     }, 5000);
-                    const checkStatus = async (id: string | number) => {
+                    const checkStatus = async (id: string) => {
                         console.log("ID " + id)
                         let res = await service.checkStatus(id)
                         let r = await res.json()
-                        console.log(r)
                         if (refRegression.current) {
                             if (r['result'] == 'fail') {
                                 if (r['stage'] == 'validation') {
@@ -162,11 +161,9 @@ export function CsvRegression(props: CsvRegressionI) {
                                 clearInterval(nre)
                             } else if (r['result'] == 'success' && r['stage'] == 'regression') {
                                 setSnackbarMsg(`Logistic regression was successful. Your model's accuracy is ${r['accuracy']} `)
-                                unlockCustomModel()
+                                unlockCustomModel(id)
                                 clearInterval(nre)
                                 setLoadingRegression(false)
-                            } else if (r['result'] == 'success' && r['stage'] == 'validation') {
-                                setSnackbarMsg('CSV was validated properly validation')
                             }
                         }
                     }

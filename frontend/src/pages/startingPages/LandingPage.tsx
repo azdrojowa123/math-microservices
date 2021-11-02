@@ -1,5 +1,6 @@
 import {Button, Grid, makeStyles, Typography} from '@material-ui/core';
 import {useHistory} from "react-router-dom";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import * as React from "react";
 
 
@@ -10,12 +11,13 @@ const useStyles = makeStyles(theme => ({
         height: '100vh', /*  height of this element is equal to 80% of the viewport height. */
         display: 'flex',
         align: 'center',
-        background: 'linear-gradient(45deg, #C9E7E7 30%, #E5ECEC 90%)'
+        backgroundImage: `url(${"../static/image.jpg"})`,
+        //background: 'linear-gradient(45deg, #C9E7E7 30%, #E5ECEC 90%)'
     },
     button: {
         textAlign: 'center',
-        background: 'linear-gradient(45deg, #239890 30%, #47EEE3 90%)',
-        color: '#1a0000',
+        background: 'linear-gradient(45deg, #667275 30%, #d9d7d7 90%)',
+        color: '#f5fcfc',
         '&:hover': {
             backgroundColor: '#A8AEAE',
         },
@@ -62,9 +64,9 @@ export function LandingPage() {
                         application.
                     </Typography>
                 </Grid>
-                {/*<Box width={'100%'}></Box>*/}
                     <Grid item>
-                        <Button className={classes.button} onClick={routeChange}>Enter app →</Button>
+                        <Button variant='contained' className={classes.button} onClick={routeChange}
+                                endIcon={<ArrowForwardIcon/>}>Enter app</Button>
                     </Grid>
                 </Grid>
         </>

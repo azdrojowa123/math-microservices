@@ -52,10 +52,10 @@ export function MainPage() {
                         </Typography>
                     </Grid>
                     <Grid item>
-                        <Button className={classes.button} onClick={() => {
+                        <Button variant='contained' className={classes.button} onClick={() => {
                             history.push("/calc/survival-curve");
                         }}>survival curve</Button>
-                        <Button className={classes.button} onClick={() => {
+                        <Button variant='contained' className={classes.button} onClick={() => {
                             history.push("/calc/logistic-regression");
                         }}>logistic regression</Button>
                     </Grid>

@@ -31,6 +31,12 @@ spec:
         - image: azdrojowa123/message-sender:latest
           imagePullPolicy: Always
           name: message-sender
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: logistic-regression-secret
+                  key: DbPassword
           ports:
             - containerPort: 5000 # The port that the container is running on in the cluster
 ---
@@ -52,6 +58,12 @@ spec:
         - image: azdrojowa123/csv-validator-logistic-regression:latest
           imagePullPolicy: IfNotPresent
           name: csv-validator-lr
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: logistic-regression-secret
+                  key: DbPassword
           ports:
             - containerPort: 5001 # The port that the container is running on in the cluster
 ---
@@ -73,5 +85,19 @@ spec:
         - image: azdrojowa123/logistic-regression-calc:latest
           imagePullPolicy: IfNotPresent
           name: logistic-regression-calc
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: logistic-regression-secret
+                  key: DbPassword
           ports:
             - containerPort: 5002 # The port that the container is running on in the cluster
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: logistic-regression-secret
+type: Opaque
+data:
+  DbPassword: cm9vdA==

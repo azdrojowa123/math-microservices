@@ -1,4 +1,5 @@
 import json
+import os
 
 import pandas as pd
 import pika
@@ -15,12 +16,15 @@ channel_fit.queue_declare(queue='logistic-regression')
 channel_calc.queue_declare(queue='logistic-regression-calc')
 
 client = pymongo.MongoClient(
-    "mongodb://Aleksandra:root@math-microservices-shard-00-00.mothy.mongodb.net:27017,math-microservices-shard-00-01.mothy.mongodb.net:27017,math-microservices-shard-00-02.mothy.mongodb.net:27017/logistic-regression?ssl=true&replicaSet=atlas-1os8hy-shard-0&authSource=admin&retryWrites=true&w=majority")
+    'mongodb://Aleksandra:{password}@math-microservices-shard-00-00.mothy.mongodb.net:27017,math-microservices-shard-00-01.mothy.mongodb.net:27017,math-microservices-shard-00-02.mothy.mongodb.net:27017/logistic-regression?ssl=true&replicaSet=atlas-1os8hy-shard-0&authSource=admin&retryWrites=true&w=majority'.format(
+        password=os.environ.get('DB_PASSWORD')))
 db = client["logistic-regression"]
 csvDB = db['csv-validator']
 LogReg_custom = LogisticRegression(max_iter=10000, solver='saga')
 LogReg_own = LogisticRegression(max_iter=10000, solver='saga')
-conversion_NObeyesdad = {}
+
+
+# onversion_NObeyesdad = {}
 
 
 def fit_regression(df, id):
@@ -48,7 +52,7 @@ def fit_regression(df, id):
 
 
 def calculate_own():
-    global conversion_NObeyesdad
+    #global conversion_NObeyesdad
     col_list = ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
                 "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS", "NObeyesdad"]
     df = pd.read_csv('static/obesity.csv', usecols=col_list, index_col=False)
@@ -80,8 +84,8 @@ def calculate_own():
          "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS"]]
     Y = df[['NObeyesdad']]
     X_train, X_test, y_train, y_test = train_test_split(X, Y.values.ravel(), test_size=0.01)
-    conversion_NObeyesdad = dict(enumerate(df["NObeyesdad"].astype(NObeyesdad_type).cat.categories))
     LogReg_own.fit(X_train, y_train)
+    return dict(enumerate(df["NObeyesdad"].astype(NObeyesdad_type).cat.categories))
 
 
 def calc_regression(ch, method, properties, body):
@@ -97,7 +101,6 @@ def calc_regression(ch, method, properties, body):
     CALC_type = CategoricalDtype(categories=['no', 'Sometimes', 'Frequently', 'Always'], ordered=True)
     MTRANS_type = CategoricalDtype(categories=['Automobile', 'Motorbike', 'Bike', 'Public_Transportation', 'Walking'],
                                    ordered=True)
-    # df = pd.DataFrame(data=[X_test_new], columns=col_list_new)
     df["Gender"] = df["Gender"].astype(gender_type).cat.codes
     df["family_history_with_overweight"] = df["family_history_with_overweight"].astype(family_type).cat.codes
     df["FAVC"] = df["FAVC"].astype(FAVC_type).cat.codes
@@ -107,7 +110,7 @@ def calc_regression(ch, method, properties, body):
     df["CALC"] = df["CALC"].astype(CALC_type).cat.codes
     df["MTRANS"] = df["MTRANS"].astype(MTRANS_type).cat.codes
     if properties.headers['model'] == 'own':
-        calculate_own()
+        conversion_NObeyesdad = calculate_own()
         try:
             y_pred = LogReg_own.predict(df)
             print("PREDYKCJA " + str(y_pred))
@@ -117,10 +120,9 @@ def calc_regression(ch, method, properties, body):
         except:
             csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'calc'}})
     else:
+        conversion_NObeyesdad = csvDB.find_one({'_id': int(properties.headers['modelId'])})['conversionObj']
         try:
             y_pred = LogReg_custom.predict(df)
-            # print("PREDYKCJA " + str(y_pred))
-            # print("PO ZAMIANIE " + str(conversion_NObeyesdad[str(y_pred[0])]))
             csvDB.update_one({'_id': int(properties.message_id)}, {
                 '$set': {'result': 'success', 'stage': 'calc',
                          'estimation': str(conversion_NObeyesdad[str(y_pred[0])])}})
@@ -129,11 +131,9 @@ def calc_regression(ch, method, properties, body):
 
 
 def callback_fit(ch, method, properties, body):
-    global conversion_NObeyesdad
     print('receive in main')
     msg_id = int(properties.message_id)
     data = json.loads(body)
-    conversion_NObeyesdad = json.loads(properties.headers['conversion_dict'])
     df = pd.DataFrame(data)
     fit_regression(df, msg_id)
 

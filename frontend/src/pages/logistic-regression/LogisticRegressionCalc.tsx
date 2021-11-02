@@ -35,9 +35,11 @@ export function LogisticRegressionCalc() {
 
     const classes = useStyles();
     const [disableCustomModelTest, setDisableCustomModelTest] = useState<boolean>(true);
+    const [modelId, setModelId] = useState<string>()
 
-    const unlockCustomModel = () => {
+    const unlockCustomModel = (id: string) => {
         setDisableCustomModelTest(false);
+        setModelId(id)
     }
 
 
@@ -45,7 +47,7 @@ export function LogisticRegressionCalc() {
         <>
             <Box m={20}>
                 <CsvRegression unlockCustomModel={unlockCustomModel}></CsvRegression>
-                <AddTestCase disableCustomModel={disableCustomModelTest}></AddTestCase>
+                <AddTestCase disableCustomModel={disableCustomModelTest} modelId={modelId}></AddTestCase>
             </Box>
         </>
     );

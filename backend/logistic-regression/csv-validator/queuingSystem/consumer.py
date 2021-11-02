@@ -13,14 +13,15 @@ channel = connection.channel()
 channel.queue_declare(queue='csv-validate')
 
 client = pymongo.MongoClient(
-    "mongodb://Aleksandra:root@math-microservices-shard-00-00.mothy.mongodb.net:27017,math-microservices-shard-00-01.mothy.mongodb.net:27017,math-microservices-shard-00-02.mothy.mongodb.net:27017/logistic-regression?ssl=true&replicaSet=atlas-1os8hy-shard-0&authSource=admin&retryWrites=true&w=majority")
+    'mongodb://Aleksandra:{password}@math-microservices-shard-00-00.mothy.mongodb.net:27017,math-microservices-shard-00-01.mothy.mongodb.net:27017,math-microservices-shard-00-02.mothy.mongodb.net:27017/logistic-regression?ssl=true&replicaSet=atlas-1os8hy-shard-0&authSource=admin&retryWrites=true&w=majority'.format(
+        password=os.environ.get('DB_PASSWORD')))
 db = client["logistic-regression"]
 csvDB = db['csv-validator']
 conversion_NObeyesdad = {}
 
 
 def transform_data(body):
-    global conversion_NObeyesdad
+    # global conversion_NObeyesdad
     df = pd.DataFrame(body)
     gender_type = CategoricalDtype(categories=['Female', 'Male'], ordered=True)
     family_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
@@ -47,37 +48,40 @@ def transform_data(body):
 
     conversion_NObeyesdad = dict(enumerate(df["NObeyesdad"].astype(NObeyesdad_type).cat.categories))
 
-    return df
+    return {'df': df, 'conversion': conversion_NObeyesdad}
 
 
 def validate(body):
     correct = True
     col_list = ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
                 "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS", "NObeyesdad"]
-    formatted_df = transform_data(body)
+    formatted_obj = transform_data(body)
 
     for col in col_list:
-        formatted_df[col] = formatted_df[col].astype(float)
-        if (formatted_df[col] < 0.0).any():
+        formatted_obj['df'][col] = formatted_obj['df'][col].astype(float)
+        if (formatted_obj['df'][col] < 0.0).any():
             print("false in " + col)
             correct = False
 
-    return correct
+    return {'correct': correct, 'conversion': formatted_obj['conversion']}
 
 
 def callback(ch, method, properties, body):
     print('receive in main')
     # zwalidować to body
     data = json.loads(body)
-    correct = validate(data)
+    validate_obj = validate(data)
     # sprawdzić jaki ma cel i zmienić w bazie danych
     task = csvDB.find_one({'_id': int(properties.message_id)})
-    if correct:
-        csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'success', 'stage': 'validation'}})
+    temp = validate_obj['conversion'].items()
+    conversion_obj = {str(key): value for key, value in temp}
+    if validate_obj['correct']:
+        csvDB.update_one({'_id': int(properties.message_id)},
+                         {'$set': {'result': 'success', 'stage': 'validation', 'conversionObj': conversion_obj}})
     else:
         csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'validation'}})
-    if task['aim'] == 'regression' and correct:
-        publish(transform_data(data), int(properties.message_id), conversion_NObeyesdad)
+    if task['aim'] == 'regression' and validate_obj['correct']:
+        publish(transform_data(data)['df'], int(properties.message_id))
 
 
 def started_consuming():

@@ -49,13 +49,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 interface AddTestCaseI {
-    disableCustomModel: boolean
+    disableCustomModel: boolean,
+    modelId: string | undefined
 }
 
 export function AddTestCase(props: AddTestCaseI) {
 
     const classes = useStyles()
-    const {disableCustomModel} = props;
+    const {disableCustomModel, modelId} = props;
     const service = logisticRegressionService
     const gender = ['Female', 'Male']
     const family_history_with_overweight = ['yes', 'no']
@@ -133,7 +134,7 @@ export function AddTestCase(props: AddTestCaseI) {
         orderedJSON['Height'] = orderedJSON['Height'] / 100
         if (buttonId == 'ourModel') {
             setLoadingOwnModel(true)
-            service.logisticRegressionCalc(orderedJSON, 'own').then(res => {
+            service.logisticRegressionCalcOwn(orderedJSON, 'own').then(res => {
                 return res.json().then(resObj => {
                     var nre = setInterval(() => {
                         checkStatus(resObj['id_msg'])
@@ -167,9 +168,9 @@ export function AddTestCase(props: AddTestCaseI) {
                 setSnackbarMsg('Connection with backend service cannot be established')
                 setLoadingOwnModel(false)
             })
-        } else if (buttonId == 'customModel') {
+        } else if (buttonId == 'customModel' && modelId !== undefined) {
             setLoadingCustomModel(true)
-            service.logisticRegressionCalc(orderedJSON, 'custom').then(res => {
+            service.logisticRegressionCalcCustom(orderedJSON, 'custom', modelId).then(res => {
                 return res.json().then(resObj => {
                     var nre = setInterval(() => {
                         checkStatus(resObj['id_msg'])
