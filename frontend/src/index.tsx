@@ -24,7 +24,7 @@ const theme = createMuiTheme({
             fontFamily: 'Palatino',
         },
         h3: {
-            fontSize: 50,
+            fontSize: 60,
             fontFamily: 'Palatino',
             fontStyle: 'italic',
             color: '#68636F',

@@ -90,7 +90,7 @@ const logisticRegressionService = {
         })
     },
     logisticRegressionCalcOwn: (data: any, model: string) => {
-        return fetch('http://localhost:5000/logistic-regression/calc/own', {
+        return fetch('/api/logistic-regression/calc/own', {
             method: 'POST',
             mode: 'cors',
             headers: {

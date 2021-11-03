@@ -447,19 +447,23 @@ export function AddTestCase(props: AddTestCaseI) {
                 </Grid>
                 <Grid container direction={"row"} spacing={10}>
                     <Grid item>
-                        <Button id="ourModel"
-                                type="submit"
-                                className={classes.button}
-                                disabled={loadingOwnModel}>
+                        <Button
+                            variant='contained'
+                            id="ourModel"
+                            type="submit"
+                            className={classes.button}
+                            disabled={loadingOwnModel}>
                             {loadingOwnModel && <CircularProgress size={16}/>}
                             Calculate with our model
                         </Button>
                     </Grid>
                     <Grid item>
-                        <Button id="customModel"
-                                type="submit"
-                                className={classes.button}
-                                disabled={loadingCustomModel || disableCustomModel}>
+                        <Button
+                            variant='contained'
+                            id="customModel"
+                            type="submit"
+                            className={classes.button}
+                            disabled={loadingCustomModel || disableCustomModel}>
                             {loadingCustomModel && <CircularProgress size={16}/>}
                             Calculate with custom model</Button>
                     </Grid>

@@ -124,7 +124,8 @@ export function SurvivalCurveCalc() {
                         setPeriods(Number(event.target.value))
                     }}
                 />
-                <Button className={classes.button} onClick={savePeriods} style={{marginBottom: '10px'}}>Save</Button>
+                <Button variant='contained' className={classes.button} onClick={savePeriods}
+                        style={{marginBottom: '10px'}}>Save</Button>
                 <Divider className={classes.divider}/>
                 {
                     enablePage &&
@@ -154,7 +155,8 @@ export function SurvivalCurveCalc() {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                        <Button className={classes.button} onClick={generateChart} disabled={disableChartButton}>
+                        <Button variant='contained' className={classes.button} onClick={generateChart}
+                                disabled={disableChartButton}>
                             Generate chart
                         </Button>
                     </>

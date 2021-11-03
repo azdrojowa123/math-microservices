@@ -1,4 +1,5 @@
 import {Box, Button, Grid, makeStyles, MenuItem, TextField, Typography} from '@material-ui/core';
+import * as React from 'react';
 import {useEffect, useState} from 'react';
 
 
@@ -127,7 +128,8 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
                         </TextField>
                     </Grid>
                     <Grid item>
-                        <Button className={classes.button} onClick={addTestingPerson} fullWidth>Add case</Button>
+                        <Button variant='contained' className={classes.button} onClick={addTestingPerson} fullWidth>Add
+                            case</Button>
                     </Grid>
                 </Grid>
             }

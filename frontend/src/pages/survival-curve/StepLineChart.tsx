@@ -42,11 +42,6 @@ export default class StepLineChart extends Component<stepLineChartI> {
                     >
                         <Point visible={false}/>
                     </CommonSeriesSettings>
-                    {/*         {
-                    medalSources.map(function(item) {
-                        return <Series key={item.value} valueField={item.value} name={item.name} color={item.color} />;
-                    })
-                }*/}
                     <Series key={'estimatorKM'} valueField={'estimatorKM'}
                             name={'The likelihood of not having certain side effects'}
                             color={'#FC7B09'}/>

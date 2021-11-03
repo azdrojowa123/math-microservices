@@ -185,7 +185,7 @@ export function CsvSurvivalCurve(props: CsvReaderI) {
             </Grid>
             <Grid container direction={"row"} spacing={10}>
                 <Grid item>
-                    <Button className={classes.button}
+                    <Button className={classes.button} variant='contained'
                             disabled={disableCheck}
                             onClick={checkCSVData}>
                         Check CSV File
@@ -193,6 +193,7 @@ export function CsvSurvivalCurve(props: CsvReaderI) {
                 </Grid>
                 <Grid item>
                     <Button className={classes.button}
+                            variant='contained'
                             disabled={disableSubmit}
                             onClick={submit}>
                         Generate chart base on CSV

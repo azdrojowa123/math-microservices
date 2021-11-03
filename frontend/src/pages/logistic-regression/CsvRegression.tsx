@@ -234,7 +234,7 @@ export function CsvRegression(props: CsvRegressionI) {
             </Grid>
             <Grid container direction={"row"} spacing={10}>
                 <Grid item>
-                    <Button className={classes.button}
+                    <Button variant='contained' className={classes.button}
                             disabled={disableValidation || loadingValidation}
                             onClick={checkCSVData}>
                         {loadingValidation && <CircularProgress size={16}/>}
@@ -242,7 +242,7 @@ export function CsvRegression(props: CsvRegressionI) {
                     </Button>
                 </Grid>
                 <Grid item>
-                    <Button className={classes.button} onClick={submit}
+                    <Button variant='contained' className={classes.button} onClick={submit}
                             disabled={loadingRegression || disableValidation}>
                         {loadingRegression && <CircularProgress size={16}/>}
                         Upload logistic regression model

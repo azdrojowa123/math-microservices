@@ -39,6 +39,14 @@ spec:
                   key: DbPassword
           ports:
             - containerPort: 5000 # The port that the container is running on in the cluster
+          resources:
+            requests:
+              memory: "120Mi" # 1GiB=1024^3=1024MiB=1024Mi
+              cpu: "100m" # 1core = 1000 milicores = 1000 m
+            limits:
+              memory: "140Mi"
+              cpu: "150m"
+
 ---
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
@@ -101,3 +109,22 @@ metadata:
 type: Opaque
 data:
   DbPassword: cm9vdA==
+
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: message-sender-hpa
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: message-sender
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 70
