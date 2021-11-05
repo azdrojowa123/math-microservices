@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/backend/survival-curve/csv-validate/pom.xml" />
         <option value="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/pom.xml" />
         <option value="$PROJECT_DIR$/backend/survival-curve/survival-curve-data/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/pom.xml" />
       </list>
     </option>
   </component>

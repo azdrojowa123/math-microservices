@@ -101,7 +101,7 @@ export function CsvSurvivalCurve(props: CsvReaderI) {
         }
     }
 
-    const submit = () => {
+    const submit = async () => {
         if (periods !== undefined && csvFile !== undefined) {
             service.survivalResultsCSV(periods, csvFile).then(async res => {
                 if (res.ok) {
@@ -112,7 +112,8 @@ export function CsvSurvivalCurve(props: CsvReaderI) {
                     })
                 }
             })
-                .catch(_ => {
+                .catch(error => {
+                    console.log(error)
                     setSnackbarMsg('Error occurred during connection to CSV validation server')
                 })
         }

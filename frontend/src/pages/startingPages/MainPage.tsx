@@ -57,7 +57,7 @@ export function MainPage() {
                         }}>survival curve</Button>
                         <Button variant='contained' className={classes.button} onClick={() => {
                             history.push("/calc/logistic-regression");
-                        }}>logistic regression</Button>
+                        }}>Obesity level with logistic regression</Button>
                     </Grid>
                 </Grid>
             </div>

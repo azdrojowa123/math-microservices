@@ -16,12 +16,12 @@ spec:
 apiVersion: v1 # Kubernetes API version
 kind: Service
 metadata: # Metadata of the resource kind we are creating
-  name: csv-validate-service
+  name: csv-validator-service
   labels:
-    app: csv-validate-service
+    app: csv-validator-service
 spec:
   selector:
-    app: csv-validate
+    app: csv-validator-sc
   ports:
     - port: 8081 # The port that the service is running on in the cluster
       nodePort: 30002 # Port accessible outside cluster
@@ -43,8 +43,8 @@ spec:
         app: survival-curve
     spec:
       containers:
-        - image: azdrojowa123/survival-curve:latest
-          imagePullPolicy: IfNotPresent
+        - image: azdrojowa123/survival-curve-calc:latest
+          imagePullPolicy: Always
           name: survival-curve
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
@@ -59,21 +59,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: csv-validate
+  name: csv-validator-survival-curve
 spec:
-  selector:
-    matchLabels:
-      app: csv-validate
   replicas: 1 # Number of replicas that will be created for this deployment
-  template:
+  selector: # must be 1 pod with this label created
+    matchLabels:
+      app: csv-validator-sc
+  template: # how to create Pod
     metadata:
       labels:
-        app: csv-validate
+        app: csv-validator-sc
     spec:
       containers:
-        - image: azdrojowa123/csv-validate:latest
-          imagePullPolicy: IfNotPresent
-          name: csv-validate
+        - image: azdrojowa123/csv-validator-survival-curve:latest
+          imagePullPolicy: Always
+          name: csv-validator-sc
           ports:
             - containerPort: 8081 # The port that the container is running on in the cluster
 

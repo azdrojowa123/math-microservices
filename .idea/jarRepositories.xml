@@ -16,5 +16,10 @@
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="lib_id" />
+      <option name="name" value="lib_id" />
+      <option name="url" value="file://C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\survival-curve\survival-curve-calc/src/lib" />
+    </remote-repository>
   </component>
 </project>

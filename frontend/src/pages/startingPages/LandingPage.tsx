@@ -60,7 +60,8 @@ export function LandingPage() {
                 <Grid item>
                     <Typography variant="h4" component="div" className={classes.element}>
                         At the time of application development (11.2021) calculations connected
-                        to survival curve and logistic regression are available. Please click button below to enter
+                        to survival curve and obesity level based on logistic regression are available. Please click
+                        button below to enter
                         application.
                     </Typography>
                 </Grid>
