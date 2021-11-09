@@ -129,11 +129,11 @@ export function CsvRegression(props: CsvRegressionI) {
                             clearInterval(nre);
                             setSnackbarMsg('Some problems occurred during validation, please try again later')
                         }
-                    }, 100000)
+                    }, 200000)
                 })
             }).catch(_ => {
                 setSnackbarMsg('Connection with backend service cannot be established')
-                setLoadingRegression(false)
+                setLoadingValidation(false)
             })
         }
     }
@@ -142,7 +142,7 @@ export function CsvRegression(props: CsvRegressionI) {
         setLoadingRegression(true)
         if (csvFile !== undefined) {
             service.logisticRegressionFit(csvFile).then(res => {
-                res.json().then(async resObj => {
+                return res.json().then(async resObj => {
                     const nre = setInterval(() => {
                         checkStatus(resObj['id_msg'])
                     }, 5000);
@@ -173,7 +173,7 @@ export function CsvRegression(props: CsvRegressionI) {
                             setLoadingRegression(false)
                             clearInterval(nre)
                         }
-                    }, 25000)
+                    }, 200000)
                 })
             }).catch(_ => {
                 setSnackbarMsg('Connection with backend service cannot be established')

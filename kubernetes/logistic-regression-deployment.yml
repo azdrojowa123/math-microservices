@@ -41,8 +41,8 @@ spec:
             - containerPort: 5000 # The port that the container is running on in the cluster
           resources:
             requests:
-              memory: "120Mi" # 1GiB=1024^3=1024MiB=1024Mi
-              cpu: "100m" # 1core = 1000 milicores = 1000 m
+              memory: "80Mi" # 1GiB=1024^3=1024MiB=1024Mi
+              cpu: "90m" # 1core = 1000 milicores = 1000 m
             limits:
               memory: "140Mi"
               cpu: "150m"
@@ -127,4 +127,4 @@ spec:
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 70
+        targetAverageUtilization: 40

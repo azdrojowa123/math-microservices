@@ -162,7 +162,7 @@ export function AddTestCase(props: AddTestCaseI) {
                             setSnackbarMsg('Some problems occurred during calculation. Probably it is problem with our server. Please try again later')
                             setLoadingOwnModel(false)
                         }
-                    }, 100000)
+                    }, 200000)
                 })
             }).catch(_ => {
                 setSnackbarMsg('Connection with backend service cannot be established')
@@ -198,7 +198,7 @@ export function AddTestCase(props: AddTestCaseI) {
                             setSnackbarMsg('Some problems occurred during calculation. Probably it is problem with our server. Please try again later')
                             setLoadingCustomModel(false)
                         }
-                    }, 100000)
+                    }, 200000)
                 })
             }).catch(_ => {
                 setSnackbarMsg('Connection with backend service cannot be established')

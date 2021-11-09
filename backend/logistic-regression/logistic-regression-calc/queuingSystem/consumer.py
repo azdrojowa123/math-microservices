@@ -1,4 +1,5 @@
 import json
+import os
 
 import pandas as pd
 import pika
@@ -14,9 +15,10 @@ channel_calc = connection.channel()
 channel_fit.queue_declare(queue='logistic-regression')
 channel_calc.queue_declare(queue='logistic-regression-calc')
 
+
 client = pymongo.MongoClient(
     'mongodb://Aleksandra:{password}@math-microservices-shard-00-00.mothy.mongodb.net:27017,math-microservices-shard-00-01.mothy.mongodb.net:27017,math-microservices-shard-00-02.mothy.mongodb.net:27017/logistic-regression?ssl=true&replicaSet=atlas-1os8hy-shard-0&authSource=admin&retryWrites=true&w=majority'.format(
-        password='root'))
+        password=os.environ.get('DB_PASSWORD')))
 db = client["logistic-regression"]
 csvDB = db['csv-validator']
 LogReg_custom = LogisticRegression(max_iter=10000, solver='saga')

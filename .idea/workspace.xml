@@ -5,169 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/CsvValidateApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/CsvValidationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/CsvValidationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/SurvivalCurveClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/config/Resilience4JConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_12_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_12_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_12_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_12_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_12_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_12_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_5_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_contribs_jersey_apache_client4_1_19_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_client_1_19_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_core_1_19_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_core_10_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_slf4j_10_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_form_feign_form_3_8_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_form_feign_form_spring_3_8_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_ws_rs_jsr311_api_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_2_4_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_4_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_14.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_14_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_14_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_52.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_53.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_52.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_53.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_52.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_53.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_19_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcpkix_jdk15on_1_68.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_68.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_7_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_7_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_20.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_32.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_32.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_5_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_3_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_3_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_openfeign_core_3_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_3_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_openfeign_3_0_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_rsa_1_0_10_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_8_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_28.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/src/main/java/com/calc/csvvalidate/CsvValidateApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/src/main/java/com/calc/csvvalidate/CsvValidationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/src/main/java/com/calc/csvvalidate/CsvValidationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/src/main/java/com/calc/csvvalidate/SurvivalCurveClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/src/main/java/com/calc/csvvalidate/config/Resilience4JConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validate/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/java/com/calc/survivalcurve/controllers/DataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/java/com/calc/survivalcurve/controllers/DataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/java/com/calc/survivalcurve/services/EstimatorCalcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/java/com/calc/survivalcurve/services/EstimatorCalcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/test/java/com/calc/survivalcurve/SurvivalCurveCalcApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-data/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/survival-curve-data/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/consumer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/publisher.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/publisher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/queuingSystem/publisher.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/queuingSystem/publisher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/routes/validation_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/routes/validation_route.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/services/validation_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/services/validation_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csvData/working.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/frontend.conf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/startingPages/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/startingPages/LandingPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/startingPages/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/startingPages/MainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvSurvivalCurve.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/CsvSurvivalCurve.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/logisticRegressionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/logisticRegressionService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/survivalCurveService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/survivalCurveService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/survival-curve-deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/survival-curve-deployment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/CsvRegression.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/CsvRegression.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/logistic-regression-deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/logistic-regression-deployment.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,18 +103,7 @@
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\logistic-regression-calc" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.frontend/Dockerfile">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Docker.message-sender/Dockerfile">
     <configuration name="survival-curve [clean:install]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -360,28 +198,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="messages-sender" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\azdro\AppData\Local\Programs\Python\Python39\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/logistic-regression/message-sender" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/logistic-regression/message-sender/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="CsvValidateApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="csv-validator-survival-curve" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.calc.csvvalidate.CsvValidateApplication" />
@@ -424,6 +240,20 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="message-sender/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="azdrojowa123/message-sender" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="backend/logistic-regression/message-sender/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="survival-curve-calc/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
@@ -452,22 +282,22 @@
       <item itemvalue="Docker.frontend/Dockerfile" />
       <item itemvalue="Docker.survival-curve-calc/Dockerfile" />
       <item itemvalue="Docker.csv-validator-survival-curve/Dockerfile" />
+      <item itemvalue="Docker.message-sender/Dockerfile" />
       <item itemvalue="Maven.survival-curve [clean:install]" />
       <item itemvalue="Maven.survival-curve-calc [clean]" />
       <item itemvalue="npm.run frontend" />
       <item itemvalue="Python.logistic-regression-calc" />
       <item itemvalue="Python.csv-validator" />
-      <item itemvalue="Python.messages-sender" />
       <item itemvalue="Spring Boot.SurvivalCurveCalcApplication" />
       <item itemvalue="Spring Boot.CsvValidateApplication (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.csv-validator-survival-curve/Dockerfile" />
+        <item itemvalue="Docker.message-sender/Dockerfile" />
         <item itemvalue="Docker.frontend/Dockerfile" />
+        <item itemvalue="Docker.csv-validator-survival-curve/Dockerfile" />
         <item itemvalue="Docker.survival-curve-calc/Dockerfile" />
         <item itemvalue="Python.csv-validator" />
-        <item itemvalue="Python.messages-sender" />
       </list>
     </recent_temporary>
   </component>
@@ -575,7 +405,16 @@
       <workItem from="1636046942302" duration="1602000" />
       <workItem from="1636050512806" duration="1673000" />
       <workItem from="1636052215311" duration="15921000" />
-      <workItem from="1636098960495" duration="9561000" />
+      <workItem from="1636098960495" duration="10393000" />
+      <workItem from="1636203345961" duration="3331000" />
+      <workItem from="1636312299928" duration="8356000" />
+      <workItem from="1636396264274" duration="169000" />
+      <workItem from="1636405457961" duration="8730000" />
+      <workItem from="1636450539240" duration="6698000" />
+      <workItem from="1636463048732" duration="878000" />
+      <workItem from="1636472539728" duration="1328000" />
+      <workItem from="1636474019202" duration="6099000" />
+      <workItem from="1636480766992" duration="966000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>
@@ -738,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635981179152</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fix: update">
+      <created>1636132709658</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1636132709658</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -800,7 +646,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/java/com/calc/survivalcurve/controllers/DataController.java</url>
-          <line>22</line>
+          <line>21</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

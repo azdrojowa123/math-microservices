@@ -1,4 +1,5 @@
 import json
+import os
 
 import pandas as pd
 import pika
@@ -9,12 +10,12 @@ from queuingSystem.publisher import publish
 
 params = pika.URLParameters('amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb')
 connection = pika.BlockingConnection(params)
-channel = connection.channel()
-channel.queue_declare(queue='csv-validate')
+channel_validate = connection.channel()
+channel_validate.queue_declare(queue='csv-validate')
 
 client = pymongo.MongoClient(
     'mongodb://Aleksandra:{password}@math-microservices-shard-00-00.mothy.mongodb.net:27017,math-microservices-shard-00-01.mothy.mongodb.net:27017,math-microservices-shard-00-02.mothy.mongodb.net:27017/logistic-regression?ssl=true&replicaSet=atlas-1os8hy-shard-0&authSource=admin&retryWrites=true&w=majority'.format(
-        password='root'))
+        password=os.environ.get('DB_PASSWORD')))
 db = client["logistic-regression"]
 csvDB = db['csv-validator']
 conversion_NObeyesdad = {}
@@ -85,7 +86,7 @@ def callback(ch, method, properties, body):
 
 
 def started_consuming():
-    channel.basic_consume(queue='csv-validate', on_message_callback=callback, auto_ack=True)
+    channel_validate.basic_consume(queue='csv-validate', on_message_callback=callback, auto_ack=True)
     print('started consuming...')
-    channel.start_consuming()
-    channel.close()
+    channel_validate.start_consuming()
+    channel_validate.close()
