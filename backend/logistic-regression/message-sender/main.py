@@ -1,14 +1,14 @@
 import os
 
 from flask import Flask
-from flask_injector import FlaskInjector, request
+from flask_injector import FlaskInjector, singleton
 
 from routes.validation_route import validation_api, regression_api
 from services.validation_service import ValidationService
 
 
 def configure_di(binder):
-    binder.bind(ValidationService, to=ValidationService, scope=request)
+    binder.bind(ValidationService, to=ValidationService, scope=singleton)
 
 
 def create_app():

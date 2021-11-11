@@ -7,15 +7,14 @@
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/consumer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/publisher.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/publisher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/queuingSystem/publisher.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/queuingSystem/publisher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/routes/validation_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/routes/validation_route.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/services/validation_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/services/validation_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvData/working.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend.conf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/CsvRegression.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/CsvRegression.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/logisticRegressionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/logisticRegressionService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/logistic-regression-deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/logistic-regression-deployment.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +76,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
     <property name="jdk.selected.PYTHON_MODULE" value="Python 3.9" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/JMeterTests" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -89,11 +88,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\JMeterTests" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\survival-curve\survival-curve-calc\target" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\survival-curve\csv-validator-survival-curve\target" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\survival-curve\csv-validator-survival-curve" />
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\kubernetes" />
-      <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\frontend\src\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\survival-curve\survival-curve-calc\src\lib" />
@@ -103,7 +102,18 @@
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\logistic-regression-calc" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.message-sender/Dockerfile">
+  <component name="RunManager" selected="Docker.logistic-regression-calc/Dockerfile">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="survival-curve [clean:install]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -152,28 +162,6 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
-      <method v="2" />
-    </configuration>
-    <configuration name="csv-validator" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="csv-validator" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\azdro\AppData\Local\Programs\Python\Python39\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/logistic-regression/csv-validator" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/logistic-regression/csv-validator/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="logistic-regression-calc" type="PythonConfigurationType" factoryName="Python">
@@ -226,6 +214,20 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="csv-validator/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="azdrojowa123/csv-validator-logistic-regression" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="backend/logistic-regression/csv-validator/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="frontend/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
@@ -236,6 +238,20 @@
           <option name="entrypoint" value="" />
           <option name="commandLineOptions" value="" />
           <option name="sourceFilePath" value="frontend/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="logistic-regression-calc/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="azdrojowa123/logistic-regression-calc" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="backend/logistic-regression/logistic-regression-calc/Dockerfile" />
         </settings>
       </deployment>
       <method v="2" />
@@ -254,20 +270,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="survival-curve-calc/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="imageTag" value="azdrojowa123/survival-curve-calc" />
-          <option name="buildCliOptions" value="" />
-          <option name="command" value="" />
-          <option name="containerName" value="" />
-          <option name="entrypoint" value="" />
-          <option name="commandLineOptions" value="" />
-          <option name="sourceFilePath" value="backend/survival-curve/survival-curve-calc/Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="run frontend" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/frontend/package.json" />
       <command value="run" />
@@ -280,24 +282,24 @@
     </configuration>
     <list>
       <item itemvalue="Docker.frontend/Dockerfile" />
-      <item itemvalue="Docker.survival-curve-calc/Dockerfile" />
       <item itemvalue="Docker.csv-validator-survival-curve/Dockerfile" />
       <item itemvalue="Docker.message-sender/Dockerfile" />
+      <item itemvalue="Docker.csv-validator/Dockerfile" />
       <item itemvalue="Maven.survival-curve [clean:install]" />
       <item itemvalue="Maven.survival-curve-calc [clean]" />
       <item itemvalue="npm.run frontend" />
       <item itemvalue="Python.logistic-regression-calc" />
-      <item itemvalue="Python.csv-validator" />
       <item itemvalue="Spring Boot.SurvivalCurveCalcApplication" />
       <item itemvalue="Spring Boot.CsvValidateApplication (1)" />
+      <item itemvalue="Docker.logistic-regression-calc/Dockerfile" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.message-sender/Dockerfile" />
+        <item itemvalue="Docker.logistic-regression-calc/Dockerfile" />
         <item itemvalue="Docker.frontend/Dockerfile" />
+        <item itemvalue="Docker.csv-validator/Dockerfile" />
+        <item itemvalue="Docker.message-sender/Dockerfile" />
         <item itemvalue="Docker.csv-validator-survival-curve/Dockerfile" />
-        <item itemvalue="Docker.survival-curve-calc/Dockerfile" />
-        <item itemvalue="Python.csv-validator" />
       </list>
     </recent_temporary>
   </component>
@@ -414,7 +416,11 @@
       <workItem from="1636463048732" duration="878000" />
       <workItem from="1636472539728" duration="1328000" />
       <workItem from="1636474019202" duration="6099000" />
-      <workItem from="1636480766992" duration="966000" />
+      <workItem from="1636480766992" duration="1484000" />
+      <workItem from="1636495907926" duration="3827000" />
+      <workItem from="1636535003840" duration="14483000" />
+      <workItem from="1636571124048" duration="13535000" />
+      <workItem from="1636622755587" duration="3475000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>
@@ -584,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636132709658</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="feature: update">
+      <created>1636482228306</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1636482228306</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +639,8 @@
     <MESSAGE value="feature: many features" />
     <MESSAGE value="feature: update work" />
     <MESSAGE value="fix: update" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: update" />
+    <MESSAGE value="feature: update" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: update" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

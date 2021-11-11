@@ -18,7 +18,6 @@ import KeyboardArrowRightSharpIcon from "@mui/icons-material/KeyboardArrowRightS
 import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
 import logisticRegressionService from "../../services/logisticRegressionService";
 
-
 const useStyles = makeStyles(theme => ({
     button: {
         textAlign: 'center',
@@ -73,26 +72,11 @@ export function CsvRegression(props: CsvRegressionI) {
             const rows = text.slice(text.indexOf('\r\n') + 2).split('\r\n').slice(0, -1);
             rows.forEach((row: any, index: number) => {
                 const values = row.split(delim);
-                dataSet.push({
-                    Gender: values[0],
-                    Age: values[1],
-                    Height: values[2],
-                    Weight: values[3],
-                    family_history_with_overweight: values[4],
-                    FAVC: values[5],
-                    FCVC: values[6],
-                    NCP: values[7],
-                    CAEC: values[8],
-                    SMOKE: values[9],
-                    CH2O: values[10],
-                    SCC: values[11],
-                    FAF: values[12],
-                    TUE: values[13],
-                    CALC: values[14],
-                    MTRANS: values[15],
-                    NObeyesdad: values[16],
-                })
-            });
+                dataSet.push([
+                    values[0].trim(), values[1].trim(), values[2].trim(), values[3].trim(), values[4].trim(), values[5].trim(), values[6].trim(), values[7].trim(),
+                    values[8].trim(), values[9].trim(), values[10].trim(), values[11].trim(), values[12].trim(), values[13].trim(), values[14].trim(), values[15].trim(), values[16].trim()
+                ])
+            })
             setCsvFile(dataSet)
         }
         if (file != undefined) {

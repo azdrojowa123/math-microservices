@@ -92,7 +92,6 @@ def calculate_own():
 def calc_regression(ch, method, properties, body):
     data = json.loads(body)
     df = pd.DataFrame.from_dict([data], orient='columns')
-    print(df)
     gender_type = CategoricalDtype(categories=['Female', 'Male'], ordered=True)
     family_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
     FAVC_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
@@ -114,8 +113,7 @@ def calc_regression(ch, method, properties, body):
         conversion_NObeyesdad = calculate_own()
         try:
             y_pred = LogReg_own.predict(df)
-            print("PREDYKCJA " + str(y_pred))
-            print("PO ZAMIANIE " + conversion_NObeyesdad[y_pred[0]])
+            print("PO ZAMIANIE " + conversion_NObeyesdad[y_pred[0]], flush=True)
             csvDB.update_one({'_id': int(properties.message_id)}, {
                 '$set': {'result': 'success', 'stage': 'calc', 'estimation': conversion_NObeyesdad[y_pred[0]]}})
         except:
@@ -142,7 +140,7 @@ def callback_fit(ch, method, properties, body):
 def started_consuming():
     channel_fit.basic_consume(queue='logistic-regression', on_message_callback=callback_fit, auto_ack=True)
     channel_calc.basic_consume(queue='logistic-regression-calc', on_message_callback=calc_regression, auto_ack=True)
-    print('started consuming...')
+    print('started consuming...', flush=True)
     channel_fit.start_consuming()
     channel_calc.start_consuming()
     channel_fit.close()

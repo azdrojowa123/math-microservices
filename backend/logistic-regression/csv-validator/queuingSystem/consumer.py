@@ -23,7 +23,10 @@ conversion_NObeyesdad = {}
 
 def transform_data(body):
     # global conversion_NObeyesdad
-    df = pd.DataFrame(body)
+    df = pd.DataFrame(body,
+                      columns=["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC",
+                               "NCP", "CAEC",
+                               "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS", "NObeyesdad"])
     gender_type = CategoricalDtype(categories=['Female', 'Male'], ordered=True)
     family_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
     FAVC_type = CategoricalDtype(categories=['yes', 'no'], ordered=True)
@@ -57,12 +60,16 @@ def validate(body):
     col_list = ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
                 "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS", "NObeyesdad"]
     formatted_obj = transform_data(body)
-
     for col in col_list:
-        formatted_obj['df'][col] = formatted_obj['df'][col].astype(float)
-        if (formatted_obj['df'][col] < 0.0).any():
-            print("false in " + col)
+        try:
+            formatted_obj['df'][col] = formatted_obj['df'][col].astype(float)
+            if (formatted_obj['df'][col] < 0.0).any():
+                print("false in " + col)
+                correct = False
+                break
+        except:
             correct = False
+            break
 
     return {'correct': correct, 'conversion': formatted_obj['conversion']}
 
@@ -71,6 +78,7 @@ def callback(ch, method, properties, body):
     print('receive in main')
     # zwalidować to body
     data = json.loads(body)
+    print(data, flush=True)
     validate_obj = validate(data)
     # sprawdzić jaki ma cel i zmienić w bazie danych
     task = csvDB.find_one({'_id': int(properties.message_id)})

@@ -41,10 +41,8 @@ spec:
             - containerPort: 5000 # The port that the container is running on in the cluster
           resources:
             requests:
-              memory: "80Mi" # 1GiB=1024^3=1024MiB=1024Mi
               cpu: "90m" # 1core = 1000 milicores = 1000 m
             limits:
-              memory: "140Mi"
               cpu: "150m"
 
 ---
@@ -64,7 +62,7 @@ spec:
     spec:
       containers:
         - image: azdrojowa123/csv-validator-logistic-regression:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           name: csv-validator-lr
           env:
             - name: DB_PASSWORD
@@ -74,6 +72,11 @@ spec:
                   key: DbPassword
           ports:
             - containerPort: 5001 # The port that the container is running on in the cluster
+          resources:
+            requests:
+              cpu: "90m" # 1core = 1000 milicores = 1000 m
+            limits:
+              cpu: "150m"
 ---
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
@@ -91,7 +94,7 @@ spec:
     spec:
       containers:
         - image: azdrojowa123/logistic-regression-calc:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           name: logistic-regression-calc
           env:
             - name: DB_PASSWORD
@@ -101,6 +104,11 @@ spec:
                   key: DbPassword
           ports:
             - containerPort: 5002 # The port that the container is running on in the cluster
+          resources:
+            requests:
+              cpu: "90m" # 1core = 1000 milicores = 1000 m
+            limits:
+              cpu: "150m"
 ---
 apiVersion: v1
 kind: Secret
@@ -122,7 +130,45 @@ spec:
     kind: Deployment
     name: message-sender
   minReplicas: 1
-  maxReplicas: 10
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 40
+
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: logistic-regression-calc-hpa
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: logistic-regression-calc
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 40
+
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: csv-validator-lr-hpa
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: csv-validator-lr
+  minReplicas: 1
+  maxReplicas: 5
   metrics:
     - type: Resource
       resource:
