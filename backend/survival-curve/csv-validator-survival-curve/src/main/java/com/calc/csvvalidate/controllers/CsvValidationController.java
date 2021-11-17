@@ -1,5 +1,7 @@
-package com.calc.csvvalidate;
+package com.calc.csvvalidate.controllers;
 
+import com.calc.csvvalidate.config.SurvivalCurveClient;
+import com.calc.csvvalidate.services.CsvValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;

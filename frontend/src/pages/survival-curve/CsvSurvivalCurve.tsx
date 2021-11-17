@@ -15,7 +15,7 @@ import {
 } from "@material-ui/core";
 import KeyboardArrowRightSharpIcon from "@mui/icons-material/KeyboardArrowRightSharp";
 import survivalCurveService from "../../services/survivalCurveService";
-import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
+import {SnackbarContentWrapper} from "../SnackbarContentWrapper";
 
 const useStyles = makeStyles(theme => ({
     button: {

@@ -1,4 +1,4 @@
-package com.calc.csvvalidate;
+package com.calc.csvvalidate.services;
 
 import com.calc.survivalcurvedata.dto.request.TestingPerson;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.calc.csvvalidate;
+package com.calc.csvvalidate.config;
 
 import com.calc.survivalcurvedata.dto.request.TestingPerson;
 import com.calc.survivalcurvedata.dto.response.PeriodResultKM;

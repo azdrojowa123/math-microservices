@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 import Divider from '@material-ui/core/Divider';
 import StepLineChart from './StepLineChart';
 import survivalCurveService from "../../services/survivalCurveService";
-import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
+import {SnackbarContentWrapper} from "../SnackbarContentWrapper";
 import {ResultsTable} from "./ResultsTable";
 import {CsvSurvivalCurve} from "./CsvSurvivalCurve";
 import {AddingTestingPersonForm} from "./AddingTestingPersonForm";

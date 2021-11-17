@@ -2,16 +2,11 @@ import json
 import os
 
 import pandas as pd
-import pika
 import pymongo
+from bson import ObjectId
 from pandas import CategoricalDtype
 
-from queuingSystem.publisher import publish
-
-params = pika.URLParameters('amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb')
-connection = pika.BlockingConnection(params)
-channel_validate = connection.channel()
-channel_validate.queue_declare(queue='csv-validate')
+from queuingSystem.publisher import publish, connection
 
 client = pymongo.MongoClient(
     'mongodb://Aleksandra:{password}@math-microservices-shard-00-00.mothy.mongodb.net:27017,math-microservices-shard-00-01.mothy.mongodb.net:27017,math-microservices-shard-00-02.mothy.mongodb.net:27017/logistic-regression?ssl=true&replicaSet=atlas-1os8hy-shard-0&authSource=admin&retryWrites=true&w=majority'.format(
@@ -75,26 +70,28 @@ def validate(body):
 
 
 def callback(ch, method, properties, body):
-    print('receive in main')
     # zwalidować to body
     data = json.loads(body)
-    print(data, flush=True)
     validate_obj = validate(data)
-    # sprawdzić jaki ma cel i zmienić w bazie danych
-    task = csvDB.find_one({'_id': int(properties.message_id)})
     temp = validate_obj['conversion'].items()
     conversion_obj = {str(key): value for key, value in temp}
     if validate_obj['correct']:
-        csvDB.update_one({'_id': int(properties.message_id)},
+        csvDB.update_one({'_id': ObjectId(str(properties.message_id))},
                          {'$set': {'result': 'success', 'stage': 'validation', 'conversionObj': conversion_obj}})
     else:
-        csvDB.update_one({'_id': int(properties.message_id)}, {'$set': {'result': 'fail', 'stage': 'validation'}})
-    if task['aim'] == 'regression' and validate_obj['correct']:
-        publish(transform_data(data)['df'], int(properties.message_id))
+        csvDB.update_one({'_id': ObjectId(str(properties.message_id))},
+                         {'$set': {'result': 'fail', 'stage': 'validation'}})
+    if properties.headers['aim'] == 'regression' and validate_obj['correct']:
+        publish(transform_data(data)['df'], str(properties.message_id))
+    ch.basic_ack(delivery_tag=method.delivery_tag, multiple=False)
 
 
 def started_consuming():
-    channel_validate.basic_consume(queue='csv-validate', on_message_callback=callback, auto_ack=True)
-    print('started consuming...')
-    channel_validate.start_consuming()
-    channel_validate.close()
+    # params = pika.URLParameters('amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb?heartbeat=0')
+    channel = connection.channel()
+    channel.queue_declare(queue='csv-validate', durable=True)
+    channel.basic_qos(prefetch_count=1)
+    channel.basic_consume(queue='csv-validate', on_message_callback=callback, auto_ack=False)
+    channel.start_consuming()
+    channel.close()
+    connection.close()

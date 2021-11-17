@@ -19,9 +19,8 @@ public class DataController {
 
     @PostMapping(path = "/estimator/{periods}")
     public ResponseEntity<List<PeriodResultKM>> fetchOrganization(@RequestBody List<TestingPerson> testingPersonList, @PathVariable(value = "periods") int periods) {
-        for(int i = 0; i<testingPersonList.size(); i++){
-            System.out.println(testingPersonList.get(i).getDuration() + "  ");
-        }
         return new ResponseEntity(estimatorCalcService.generateEstimatorResults(testingPersonList, periods), HttpStatus.OK);
     }
 }
+
+

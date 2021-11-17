@@ -37,5 +37,7 @@ public class EstimatorCalcService {
         current.calculateEstimatorKM(previous);
         return resultsList;
     }
-
 }
+
+
+

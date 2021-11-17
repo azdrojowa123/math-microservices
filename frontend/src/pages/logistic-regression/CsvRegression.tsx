@@ -15,7 +15,7 @@ import {
     Typography
 } from "@material-ui/core";
 import KeyboardArrowRightSharpIcon from "@mui/icons-material/KeyboardArrowRightSharp";
-import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
+import {SnackbarContentWrapper} from "../SnackbarContentWrapper";
 import logisticRegressionService from "../../services/logisticRegressionService";
 
 const useStyles = makeStyles(theme => ({

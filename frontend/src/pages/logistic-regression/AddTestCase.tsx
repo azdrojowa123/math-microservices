@@ -16,7 +16,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
 import logisticRegressionService from "../../services/logisticRegressionService";
-import {SnackbarContentWrapper} from "../../UI-addons/SnackbarContentWrapper";
+import {SnackbarContentWrapper} from "../SnackbarContentWrapper";
 
 const useStyles = makeStyles(theme => ({
     wrapper: {
@@ -207,8 +207,6 @@ export function AddTestCase(props: AddTestCaseI) {
         } else {
 
         }
-        //reset();
-
     }
 
     return (
