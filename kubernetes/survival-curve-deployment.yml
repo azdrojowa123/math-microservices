@@ -42,19 +42,25 @@ spec:
       labels:
         app: survival-curve
     spec:
+      terminationGracePeriodSeconds: 5
       containers:
-        - image: azdrojowa123/survival-curve-calc:latest
-          imagePullPolicy: Always
+        - image: azdrojowa123/survival-curve-calc:2.8
+          imagePullPolicy: IfNotPresent
           name: survival-curve
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
+          startupProbe:
+            httpGet:
+              path: /readiness/probe
+              port: 8080
+            timeoutSeconds: 3
+            failureThreshold: 300
+            periodSeconds: 2
           resources:
             requests:
-              memory: "140Mi"
-              cpu: "250m"
+              cpu: "100m"
             limits:
-              memory: "160Mi"
-              cpu: "500m"
+              cpu: "300m"
 ---
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
@@ -70,12 +76,25 @@ spec:
       labels:
         app: csv-validator-sc
     spec:
+      terminationGracePeriodSeconds: 5
       containers:
-        - image: azdrojowa123/csv-validator-survival-curve:latest
-          imagePullPolicy: Always
+        - image: azdrojowa123/csv-validator-survival-curve:2.9
+          imagePullPolicy: IfNotPresent
           name: csv-validator-sc
           ports:
-            - containerPort: 8081 # The port that the container is running on in the cluster
+            - containerPort: 8081
+          startupProbe:
+            httpGet:
+              path: /readiness/probe
+              port: 8081
+            timeoutSeconds: 3
+            failureThreshold: 300
+            periodSeconds: 2
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "300m"
 
 ---
 apiVersion: autoscaling/v2beta1
@@ -89,9 +108,28 @@ spec:
     kind: Deployment
     name: survival-curve
   minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: 2
   metrics:
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 70
+        targetAverageUtilization: 35
+
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: csv-validator-survival-curve-hpa
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: csv-validator-survival-curve
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 40

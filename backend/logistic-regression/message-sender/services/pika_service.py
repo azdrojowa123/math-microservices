@@ -29,8 +29,9 @@ class PikaService:
         properties = pika.BasicProperties(message_id=str(created_id), headers={'aim': 'regression'}, delivery_mode=2)
         try:
             inserted_obj = service.csvDB.insert_one({'_id': created_id, 'aim': 'regression', 'result': 'process'})
-            conn = pika.BlockingConnection(pika.URLParameters(
-                'amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb?heartbeat=18'))
+            params = pika.URLParameters(
+                'amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb?heartbeat=18&connection_attempts=6&retry_delay=4&channel_max=500')
+            conn = pika.BlockingConnection(params)
             channel = conn.channel()
             channel.queue_declare(queue='csv-validate', durable=True)
             channel.basic_publish(exchange='', routing_key='csv-validate', body=json.dumps(body),

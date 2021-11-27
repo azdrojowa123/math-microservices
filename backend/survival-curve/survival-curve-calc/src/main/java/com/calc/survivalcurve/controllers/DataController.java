@@ -21,6 +21,11 @@ public class DataController {
     public ResponseEntity<List<PeriodResultKM>> fetchOrganization(@RequestBody List<TestingPerson> testingPersonList, @PathVariable(value = "periods") int periods) {
         return new ResponseEntity(estimatorCalcService.generateEstimatorResults(testingPersonList, periods), HttpStatus.OK);
     }
+
+    @GetMapping(path = "/readiness/probe")
+    public ResponseEntity readinessProbe() {
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }
 
 

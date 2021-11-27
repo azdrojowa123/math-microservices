@@ -4,9 +4,9 @@ services:
     build: csv-validator-survival-curve/
     ports:
       - "8081:8081"
-    image: azdrojowa123/csv-validator-survival-curve
+    image: azdrojowa123/csv-validator-survival-curve:2.8
   logistic-regession-calc:
     build: survival-curve-calc/
     ports:
       - "8080:8080"
-    image: azdrojowa123/survival-curve-calc
+    image: azdrojowa123/survival-curve-calc:2.8

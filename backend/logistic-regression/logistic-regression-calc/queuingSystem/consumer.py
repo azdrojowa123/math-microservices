@@ -1,5 +1,4 @@
 import json
-import json
 import os
 
 import pandas as pd
@@ -41,7 +40,7 @@ def fit_regression(df, id):
 
 
 def calculate_own():
-    global conversion_NObeyesdad
+    global conversion_NObeyesdad, LogReg_own
     col_list = ["Gender", "Age", "Height", "Weight", "family_history_with_overweight", "FAVC", "FCVC", "NCP", "CAEC",
                 "SMOKE", "CH2O", "SCC", "FAF", "TUE", "CALC", "MTRANS", "NObeyesdad"]
     df = pd.read_csv('static/obesity.csv', usecols=col_list, index_col=False)
@@ -78,7 +77,7 @@ def calculate_own():
 
 
 def calc_regression(ch, method, properties, body):
-    global conversion_NObeyesdad
+    global conversion_NObeyesdad, LogReg_own
     data = json.loads(body)
     df = pd.DataFrame.from_dict([data], orient='columns')
     gender_type = CategoricalDtype(categories=['Female', 'Male'], ordered=True)
@@ -101,8 +100,10 @@ def calc_regression(ch, method, properties, body):
     id = str(properties.message_id)
     if properties.headers['model'] == 'own':
         try:
+            print(conversion_NObeyesdad, flush=True)
+            print('po ', flush=True)
             y_pred = LogReg_own.predict(df)
-            print('predykcja own' + y_pred, flush=True)
+            print(y_pred, flush=True)
             csvDB.update_one({'_id': ObjectId(id)}, {
                 '$set': {'result': 'success', 'stage': 'calc', 'estimation': str(conversion_NObeyesdad[y_pred[0]])}})
         except:

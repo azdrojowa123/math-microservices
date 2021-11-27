@@ -2,11 +2,12 @@ import json
 import os
 
 import pandas as pd
+import pika
 import pymongo
 from bson import ObjectId
 from pandas import CategoricalDtype
 
-from queuingSystem.publisher import publish, connection
+from queuingSystem.publisher import publish
 
 client = pymongo.MongoClient(
     'mongodb://Aleksandra:{password}@math-microservices-shard-00-00.mothy.mongodb.net:27017,math-microservices-shard-00-01.mothy.mongodb.net:27017,math-microservices-shard-00-02.mothy.mongodb.net:27017/logistic-regression?ssl=true&replicaSet=atlas-1os8hy-shard-0&authSource=admin&retryWrites=true&w=majority'.format(
@@ -88,6 +89,8 @@ def callback(ch, method, properties, body):
 
 def started_consuming():
     # params = pika.URLParameters('amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb?heartbeat=0')
+    params = pika.URLParameters('amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb')
+    connection = pika.BlockingConnection(params)
     channel = connection.channel()
     channel.queue_declare(queue='csv-validate', durable=True)
     channel.basic_qos(prefetch_count=1)

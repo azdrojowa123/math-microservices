@@ -27,7 +27,7 @@ spec:
         app: message-sender
     spec:
       containers:
-        - image: azdrojowa123/message-sender:2.3
+        - image: azdrojowa123/message-sender:2.7
           imagePullPolicy: Always
           name: message-sender
           env:
@@ -42,6 +42,7 @@ spec:
             requests:
               cpu: "90m"
             limits:
+              memory: "200Mi"
               cpu: "150m"
 
 ---
@@ -60,7 +61,7 @@ spec:
         app: csv-validator-lr
     spec:
       containers:
-        - image: azdrojowa123/csv-validator-logistic-regression:2.3
+        - image: azdrojowa123/csv-validator-logistic-regression:2.7
           imagePullPolicy: Always
           name: csv-validator-lr
           env:
@@ -73,9 +74,10 @@ spec:
             - containerPort: 5001 # The port that the container is running on in the cluster
           resources:
             requests:
-              cpu: "90m" # 1core = 1000 milicores = 1000 m
+              cpu: "100m" # 1core = 1000 milicores = 1000 m
             limits:
-              cpu: "250m"
+              memory: "200Mi"
+              cpu: "200m"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -92,7 +94,7 @@ spec:
         app: logistic-regression-calc
     spec:
       containers:
-        - image: azdrojowa123/logistic-regression-calc:2.3
+        - image: azdrojowa123/logistic-regression-calc:2.7
           imagePullPolicy: Always
           name: logistic-regression-calc
           env:
@@ -105,9 +107,10 @@ spec:
             - containerPort: 5002
           resources:
             requests:
-              cpu: "90m"
+              cpu: "100m"
             limits:
-              cpu: "150m"
+              memory: "200Mi"
+              cpu: "200m"
 ---
 apiVersion: v1
 kind: Secret
@@ -129,12 +132,12 @@ spec:
     kind: Deployment
     name: message-sender
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 2
   metrics:
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 30
+        targetAverageUtilization: 40
 
 ---
 apiVersion: autoscaling/v2beta1
@@ -148,12 +151,12 @@ spec:
     kind: Deployment
     name: logistic-regression-calc
   minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: 2
   metrics:
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 30
+        targetAverageUtilization: 40
 
 ---
 apiVersion: autoscaling/v2beta1
@@ -167,9 +170,9 @@ spec:
     kind: Deployment
     name: csv-validator-logistic-regression
   minReplicas: 1
-  maxReplicas: 7
+  maxReplicas: 2
   metrics:
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 20
+        targetAverageUtilization: 35

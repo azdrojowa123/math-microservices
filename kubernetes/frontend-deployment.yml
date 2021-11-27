@@ -22,6 +22,7 @@ spec:
             requests:
               cpu: "90m"
             limits:
+              memory: "200Mi"
               cpu: "150m"
       restartPolicy: Always
 ---
@@ -51,7 +52,7 @@ spec:
     kind: Deployment
     name: frontend
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 2
   metrics:
     - type: Resource
       resource:
