@@ -19,7 +19,7 @@ def make_regression(service: ValidationService, service_pika: PikaService):
     if response != 'false':
         return {'id_msg': str(response)}, 200
     else:
-        return {'message': 'Some RabbitMQ errors occurred'}, 405
+        return {'message': 'Some RabbitMQ errors occurred'}, 503
 
 
 @validation_api.route("", methods=['POST'])
@@ -31,7 +31,7 @@ def make_validation(service: ValidationService, service_pika: PikaService):
     if response != 'false':
         return {'id_msg': str(response)}, 200
     else:
-        return {'message': 'Some RabbitMQ errors occurred'}, 405
+        return {'message': 'Some RabbitMQ errors occurred'}, 503
 
 
 @validation_api.route('/status/<id>', methods=['GET'])
@@ -53,7 +53,7 @@ def calc_regression(service: ValidationService, service_pika: PikaService):
     if response != 'false':
         return {'id_msg': str(response)}, 200
     else:
-        return {'message': 'Some RabbitMQ errors occurred'}, 405
+        return {'message': 'Some RabbitMQ errors occurred'}, 503
 
 
 @regression_api.route("/calc/custom", methods=['POST'])
@@ -66,4 +66,4 @@ def calc_regression_custom(service: ValidationService, service_pika: PikaService
     if response != 'false':
         return {'id_msg': str(response)}, 200
     else:
-        return {'message': 'Some RabbitMQ errors occurred'}, 405
+        return {'message': 'Some RabbitMQ errors occurred'}, 503

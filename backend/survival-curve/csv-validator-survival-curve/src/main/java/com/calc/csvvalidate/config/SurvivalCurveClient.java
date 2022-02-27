@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @FeignClient(name = "survival-curve-service", url = "http://survival-curve-service:8080")
-//@FeignClient(name = "survival-curve-service", url = "http://localhost:8080")
 public interface SurvivalCurveClient {
 
     @PostMapping("/estimator/{periods}")

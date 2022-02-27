@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     wrapper: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100vh', /*  height of this element is equal to 80% of the viewport height. */
+        height: '100vh',
         display: 'flex',
         align: 'center',
     },
@@ -479,7 +479,7 @@ export function AddTestCase(props: AddTestCaseI) {
                         height: '5vh',
                         alignItems: 'center', // po środku wertykalnie
                         justifyContent: 'center', // po środku horyzontalnie
-                        display: 'flex' //flex kontenery
+                        display: 'flex'
                     }}
                 >
                     <Typography variant="h2" align={'center'} style={{margin: '5px'}}>

@@ -12,7 +12,7 @@ class PikaService:
         try:
             inserted_obj = service.csvDB.insert_one({'_id': created_id, 'aim': 'validation', 'result': 'process'})
             conn = pika.BlockingConnection(pika.URLParameters(
-                'amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb?heartbeat=18'))
+                'PIKA_URL'))
             channel = conn.channel()
             channel.queue_declare(queue='csv-validate', durable=True)
             channel.basic_publish(exchange='', routing_key='csv-validate', body=json.dumps(body),
@@ -26,11 +26,12 @@ class PikaService:
 
     def publish_regression(self, body, service):
         created_id = ObjectId()
+        conn = None
         properties = pika.BasicProperties(message_id=str(created_id), headers={'aim': 'regression'}, delivery_mode=2)
         try:
             inserted_obj = service.csvDB.insert_one({'_id': created_id, 'aim': 'regression', 'result': 'process'})
             params = pika.URLParameters(
-                'amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb?heartbeat=18&connection_attempts=6&retry_delay=4&channel_max=500')
+                'PIKA_URL')
             conn = pika.BlockingConnection(params)
             channel = conn.channel()
             channel.queue_declare(queue='csv-validate', durable=True)
@@ -40,6 +41,8 @@ class PikaService:
             conn.close()
             return inserted_obj.inserted_id
         except:
+            if conn and conn.is_open:
+                conn.close()
             service.csvDB.delete_one({'_id': created_id})
             return 'false'
 
@@ -49,7 +52,7 @@ class PikaService:
         try:
             inserted_obj = service.csvDB.insert_one({'_id': created_id, 'aim': 'calc', 'result': 'process'})
             conn = pika.BlockingConnection(pika.URLParameters(
-                'amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb?heartbeat=18'))
+                'PIKA_URL'))
             channel = conn.channel()
             channel.queue_declare(queue='logistic-regression-calc', durable=True)
             channel.basic_publish(exchange='', routing_key='logistic-regression-calc', body=json.dumps(body),
@@ -67,7 +70,7 @@ class PikaService:
         try:
             inserted_obj = service.csvDB.insert_one({'_id': created_id, 'aim': 'calc', 'result': 'process'})
             conn = pika.BlockingConnection(pika.URLParameters(
-                'amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb?heartbeat=18'))
+                'PIKA_URL'))
             channel = conn.channel()
             channel.queue_declare(queue='logistic-regression-calc', durable=True)
             channel.basic_publish(exchange='', routing_key='logistic-regression-calc', body=json.dumps(body),

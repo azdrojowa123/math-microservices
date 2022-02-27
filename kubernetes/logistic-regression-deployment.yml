@@ -27,7 +27,7 @@ spec:
         app: message-sender
     spec:
       containers:
-        - image: azdrojowa123/message-sender:2.7
+        - image: azdrojowa123/message-sender:2.10
           imagePullPolicy: Always
           name: message-sender
           env:
@@ -61,7 +61,7 @@ spec:
         app: csv-validator-lr
     spec:
       containers:
-        - image: azdrojowa123/csv-validator-logistic-regression:2.7
+        - image: azdrojowa123/csv-validator-logistic-regression:2.10
           imagePullPolicy: Always
           name: csv-validator-lr
           env:
@@ -94,7 +94,7 @@ spec:
         app: logistic-regression-calc
     spec:
       containers:
-        - image: azdrojowa123/logistic-regression-calc:2.7
+        - image: azdrojowa123/logistic-regression-calc:2.10
           imagePullPolicy: Always
           name: logistic-regression-calc
           env:

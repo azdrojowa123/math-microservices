@@ -10,7 +10,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
 client = pymongo.MongoClient(
-    'mongodb://Aleksandra:{password}@math-microservices-shard-00-00.mothy.mongodb.net:27017,math-microservices-shard-00-01.mothy.mongodb.net:27017,math-microservices-shard-00-02.mothy.mongodb.net:27017/logistic-regression?ssl=true&replicaSet=atlas-1os8hy-shard-0&authSource=admin&retryWrites=true&w=majority'.format(
+    'MONGO_URL'.format(
         password=os.environ.get('DB_PASSWORD')))
 db = client["logistic-regression"]
 csvDB = db['csv-validator']
@@ -101,7 +101,6 @@ def calc_regression(ch, method, properties, body):
     if properties.headers['model'] == 'own':
         try:
             print(conversion_NObeyesdad, flush=True)
-            print('po ', flush=True)
             y_pred = LogReg_own.predict(df)
             print(y_pred, flush=True)
             csvDB.update_one({'_id': ObjectId(id)}, {
@@ -131,7 +130,7 @@ def callback_fit(ch, method, properties, body):
 
 def started_consuming():
     calculate_own()
-    params = pika.URLParameters('amqps://rxbzokdb:elwZVQHjIJpiaJa89zarp4g7zpE89gXS@beaver.rmq.cloudamqp.com/rxbzokdb')
+    params = pika.URLParameters('PIKA_URL')
     connection = pika.BlockingConnection(params)
     channel = connection.channel()
     channel.queue_declare(queue='logistic-regression', durable=True)

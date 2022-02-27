@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "sources": [
+    "webpack://src/page-transitions/slideTransition.css"
+  ],
+  "names": [],
+  "mappings": "AAAA,sBACI,uCAAkC,CAAlC,+BAEJ,CACA,kDACI,+BAA+B,CAA/B,uBAA+B,CAC/B,kBACJ,CAKA,4CACI,wCAAmC,CAAnC,gCACJ,CACA,oDACI,+BAA+B,CAA/B,uBAA+B,CAC/B,kBACJ,CACA,sBACI,uCAAkC,CAAlC,+BACJ",
+  "file": "main.b9c472ac.chunk.css",
+  "sourcesContent": [
+    ".pageSliderLeft-enter {\r\n    transform: translate3d(100%, 0, 0);\r\n\r\n}\r\n.pageSliderLeft-enter.pageSliderLeft-enter-active {\r\n    transform: translate3d(0, 0, 0);\r\n    transition: all 600ms; /* czas trwania */\r\n}\r\n.pageSliderLeft-exit {\r\n    transform: translate3d(-100%, 0, 0);\r\n}\r\n\r\n.pageSliderRight-enter {\r\n    transform: translate3d(-100%, 0, 0);\r\n}\r\n.pageSliderRight-enter.pageSliderRight-enter-active {\r\n    transform: translate3d(0, 0, 0);\r\n    transition: all 600ms;\r\n}\r\n.pageSliderRight-exit {\r\n    transform: translate3d(100%, 0, 0);\r\n}\r\n"
+  ]
+}

@@ -5,15 +5,6 @@ import * as React from "react";
 
 
 const useStyles = makeStyles(theme => ({
-    wrapper: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh', /*  height of this element is equal to 80% of the viewport height. */
-        display: 'flex',
-        align: 'center',
-        backgroundImage: `url(${"../static/image.jpg"})`,
-        //background: 'linear-gradient(45deg, #C9E7E7 30%, #E5ECEC 90%)'
-    },
     button: {
         textAlign: 'center',
         background: 'linear-gradient(45deg, #667275 30%, #d9d7d7 90%)',

@@ -29,7 +29,7 @@ public class CsvValidationController {
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("csv-circuit-breaker");
         if (validationService.validate(csvData, periods)) {
             return circuitBreaker.run(() -> ResponseEntity.status(HttpStatus.OK).body(survivalCurveClient.getSurvivalCurveResults(validationService.convertData(csvData), periods).getBody()),
-                    throwable -> ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("Connection to server responsible for computation of the survival curve is not available"
+                    throwable -> ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body("Connection to server responsible for computation of the survival curve is not available"
                     ));
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Entered CSV data are not correct, please enter data correctly and validate them before send to calculations");

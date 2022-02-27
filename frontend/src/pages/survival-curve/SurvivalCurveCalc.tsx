@@ -1,6 +1,6 @@
 import {Box, Button, makeStyles, Snackbar, Table, TableHead, TableRow, TextField, Typography} from '@material-ui/core';
 import * as React from 'react';
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Divider from '@material-ui/core/Divider';
 import StepLineChart from './StepLineChart';
 import survivalCurveService from "../../services/survivalCurveService";
@@ -55,6 +55,7 @@ export function SurvivalCurveCalc() {
     const [disableChartButton, setDisableChartButton] = useState<boolean>(true)
     const [enablePage, setEnablePage] = useState<boolean>(false)
     const [periods, setPeriods] = useState<number>(0);
+    let textInput = useRef<HTMLInputElement>();
     const service = survivalCurveService;
     const [snackbarMsg, setSnackbarMsg] = useState<string>('');
 
@@ -69,13 +70,21 @@ export function SurvivalCurveCalc() {
     }
 
     const savePeriods = () => {
-        setEnablePage(true)
-        setSnackbarMsg('Total duration is successfully saved')
+        if (textInput.current != undefined) {
+            setPeriods(Number(textInput.current.value))
+            setEnablePage(true)
+            setSnackbarMsg('Total duration is successfully saved')
+        }
+
     }
 
     const addingNewPerson = (duration: number, occurrence: boolean) => {
         setRows([...rows, {id: rows.length, duration: duration, occurrence: occurrence}]);
     };
+
+    const deletingAllPersons = () => {
+        setRows([])
+    }
 
     const classes = useStyles();
 
@@ -119,10 +128,8 @@ export function SurvivalCurveCalc() {
                 <TextField
                     id="outlined-name"
                     className={classes.form}
+                    inputRef={textInput}
                     label="Total duration"
-                    onChange={event => {
-                        setPeriods(Number(event.target.value))
-                    }}
                 />
                 <Button variant='contained' className={classes.button} onClick={savePeriods}
                         style={{marginBottom: '10px'}}>Save</Button>
@@ -134,6 +141,7 @@ export function SurvivalCurveCalc() {
                         <Divider className={classes.divider}/>
                         <AddingTestingPersonForm
                             adding={addingNewPerson}
+                            deleting={deletingAllPersons}
                             periods={periods}/>
                         <TableContainer component={Paper}>
                             <Table aria-label="customized table">

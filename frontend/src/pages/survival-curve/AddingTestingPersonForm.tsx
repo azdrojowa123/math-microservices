@@ -33,11 +33,12 @@ const useStyles = makeStyles(theme => ({
 interface AddTestingPersonFormI {
     adding: (duration: number, occurrence: boolean) => void;
     periods: number;
+    deleting: () => void;
 }
 
 export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
 
-    const {adding, periods} = props;
+    const {adding, periods, deleting} = props;
 
     const occurrenceArray = Array.from(Array(2).keys());
     const timeUnits = ["Miesiąc", "Dzień", "Rok"]
@@ -49,7 +50,8 @@ export function AddingTestingPersonForm(props: AddTestingPersonFormI) {
 
     useEffect(() => {
         setDurationArray(Array.from({length: periods}, (_, i) => i + 1))
-    },[])
+        deleting()
+    }, [periods])
 
     const addTestingPerson = () => {
         if (duration !== undefined && occurrence !== undefined) {

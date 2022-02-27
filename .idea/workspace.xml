@@ -5,25 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865eef04-d8cc-4fb0-af1a-ffd014115416" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/JMeterTests/tests.jmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/asset-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/css/main.b9c472ac.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/css/main.b9c472ac.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/js/2.3b739544.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/js/2.3b739544.chunk.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/js/2.3b739544.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/js/3.146e1379.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/js/3.146e1379.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/js/main.80c1bc63.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/js/main.80c1bc63.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/js/runtime-main.56424b67.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build/static/js/runtime-main.56424b67.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JMeterTests/frontend-test.jmx" beforeDir="false" afterPath="$PROJECT_DIR$/JMeterTests/frontend-test.jmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JMeterTests/survival-curve-calc.jmx" beforeDir="false" afterPath="$PROJECT_DIR$/JMeterTests/survival-curve-calc.jmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JMeterTests/frontend-test.jmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JMeterTests/survival-curve-calc.jmx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/consumer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/publisher.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/csv-validator/queuingSystem/publisher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/docker-compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/routes/validation_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/routes/validation_route.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logistic-regression/message-sender/services/pika_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logistic-regression/message-sender/services/pika_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/CsvValidateApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/CsvValidateApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/config/Resilience4JConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/config/Resilience4JConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/config/SurvivalCurveClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/config/SurvivalCurveClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/controllers/CsvValidationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/java/com/calc/csvvalidate/controllers/CsvValidationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/csv-validator-survival-curve/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/java/com/calc/survivalcurve/controllers/DataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/java/com/calc/survivalcurve/controllers/DataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/survival-curve/survival-curve-calc/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csvData/newData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvData/survival-curve-wrong.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csvData/obesity.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvData/obesity.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csvData/obesity_short.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/csvData/obesity_short_wrong.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csvData/obesity-wrong.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend.conf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/AddTestCase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/LogisticRegressionCalc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/logistic-regression/LogisticRegressionCalc.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/startingPages/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/startingPages/LandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/startingPages/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/startingPages/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/AddingTestingPersonForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/AddingTestingPersonForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/survival-curve/SurvivalCurveCalc.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/frontend-deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/frontend-deployment.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kubernetes/logistic-regression-deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/logistic-regression-deployment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/survival-curve-deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/survival-curve-deployment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/metrics-server-deployment.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +107,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
     <property name="jdk.selected.PYTHON_MODULE" value="Python 3.9" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/logistic-regression/message-sender" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../druki_teczka/płyta" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -111,18 +133,7 @@
       <recent name="C:\Users\azdro\OneDrive\Pulpit\math-microservices\backend\logistic-regression\message-sender" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="npm.run frontend">
     <configuration name="survival-curve [clean:install]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -173,6 +184,28 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="consumer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="logistic-regression-calc" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem/consumer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="logistic-regression-calc" type="PythonConfigurationType" factoryName="Python">
       <module name="survival-curve-data" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -187,6 +220,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="csv-validator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/logistic-regression/csv-validator" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/logistic-regression/csv-validator/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -231,47 +286,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="csv-validator-survival-curve/Dockerfile (2.3)" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+    <configuration name="frontend/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
-          <option name="imageTag" value="azdrojowa123/csv-validator-survival-curve:2.9" />
+          <option name="imageTag" value="azdrojowa123/frontend:2.2" />
           <option name="buildCliOptions" value="" />
           <option name="buildOnly" value="true" />
           <option name="command" value="" />
           <option name="containerName" value="" />
           <option name="entrypoint" value="" />
           <option name="commandLineOptions" value="" />
-          <option name="sourceFilePath" value="backend/survival-curve/csv-validator-survival-curve/Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="csv-validator/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="imageTag" value="azdrojowa123/csv-validator-logistic-regression:2.5" />
-          <option name="buildCliOptions" value="" />
-          <option name="buildOnly" value="true" />
-          <option name="command" value="" />
-          <option name="containerName" value="" />
-          <option name="entrypoint" value="" />
-          <option name="commandLineOptions" value="" />
-          <option name="sourceFilePath" value="backend/logistic-regression/csv-validator/Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="logistic-regression-calc/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="imageTag" value="azdrojowa123/logistic-regression-calc:2.5" />
-          <option name="buildCliOptions" value="" />
-          <option name="buildOnly" value="true" />
-          <option name="command" value="" />
-          <option name="containerName" value="" />
-          <option name="entrypoint" value="" />
-          <option name="commandLineOptions" value="" />
-          <option name="sourceFilePath" value="backend/logistic-regression/logistic-regression-calc/Dockerfile" />
+          <option name="sourceFilePath" value="frontend/Dockerfile" />
         </settings>
       </deployment>
       <method v="2" />
@@ -279,7 +304,7 @@
     <configuration name="message-sender/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
-          <option name="imageTag" value="azdrojowa123/message-sender:2.7" />
+          <option name="imageTag" value="azdrojowa123/message-sender:2.10" />
           <option name="buildCliOptions" value="" />
           <option name="buildOnly" value="true" />
           <option name="command" value="" />
@@ -303,24 +328,24 @@
     </configuration>
     <list>
       <item itemvalue="Docker.message-sender/Dockerfile" />
-      <item itemvalue="Docker.csv-validator/Dockerfile" />
-      <item itemvalue="Docker.csv-validator-survival-curve/Dockerfile (2.3)" />
-      <item itemvalue="Docker.logistic-regression-calc/Dockerfile" />
+      <item itemvalue="Docker.frontend/Dockerfile" />
       <item itemvalue="Maven.survival-curve [clean:install]" />
       <item itemvalue="Maven.survival-curve-calc [clean]" />
       <item itemvalue="npm.run frontend" />
       <item itemvalue="Python.logistic-regression-calc" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.main (1)" />
+      <item itemvalue="Python.consumer" />
       <item itemvalue="Spring Boot.SurvivalCurveCalcApplication" />
       <item itemvalue="Spring Boot.CsvValidateApplication (1)" />
-      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.frontend/Dockerfile" />
+        <item itemvalue="Python.consumer" />
+        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Docker.csv-validator/Dockerfile" />
         <item itemvalue="Docker.message-sender/Dockerfile" />
-        <item itemvalue="Docker.logistic-regression-calc/Dockerfile" />
-        <item itemvalue="Docker.csv-validator-survival-curve/Dockerfile (2.3)" />
       </list>
     </recent_temporary>
   </component>
@@ -487,7 +512,34 @@
       <workItem from="1637960719667" duration="115000" />
       <workItem from="1637963593651" duration="1116000" />
       <workItem from="1637971394753" duration="857000" />
-      <workItem from="1638037839835" duration="4648000" />
+      <workItem from="1638037839835" duration="4704000" />
+      <workItem from="1638110618064" duration="65000" />
+      <workItem from="1638179960297" duration="1862000" />
+      <workItem from="1638196385315" duration="672000" />
+      <workItem from="1638206287011" duration="301000" />
+      <workItem from="1638214558071" duration="166000" />
+      <workItem from="1638296683888" duration="781000" />
+      <workItem from="1638301757841" duration="2018000" />
+      <workItem from="1638307214257" duration="935000" />
+      <workItem from="1638311082985" duration="886000" />
+      <workItem from="1638315643255" duration="787000" />
+      <workItem from="1638320651816" duration="1264000" />
+      <workItem from="1638440225253" duration="612000" />
+      <workItem from="1638620337512" duration="551000" />
+      <workItem from="1638646470200" duration="2404000" />
+      <workItem from="1638659171734" duration="280000" />
+      <workItem from="1638710655757" duration="2764000" />
+      <workItem from="1638803936062" duration="345000" />
+      <workItem from="1638831025064" duration="1068000" />
+      <workItem from="1638905013614" duration="45000" />
+      <workItem from="1638915787043" duration="957000" />
+      <workItem from="1639037884733" duration="1844000" />
+      <workItem from="1639066601484" duration="38000" />
+      <workItem from="1639336722871" duration="6205000" />
+      <workItem from="1639671422445" duration="20000" />
+      <workItem from="1641503975213" duration="4363000" />
+      <workItem from="1641558258790" duration="1289000" />
+      <workItem from="1645951797767" duration="413000" />
     </task>
     <task id="LOCAL-00001" summary="working deployment with hpa">
       <created>1632940397900</created>
@@ -678,7 +730,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637178907155</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fix: update all bugs">
+      <created>1638056609624</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1638056609624</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -723,7 +782,8 @@
     <MESSAGE value="feature: update" />
     <MESSAGE value="fix: update" />
     <MESSAGE value="fix: update 2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: update 2.3" />
+    <MESSAGE value="fix: update all bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: update all bugs" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -734,11 +794,12 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/math_microservices$messages_sender.coverage" NAME="messages-sender Coverage Results" MODIFIED="1635946435327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/message-sender" />
-    <SUITE FILE_PATH="coverage/math_microservices$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1637172766641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/csv-validator" />
+    <SUITE FILE_PATH="coverage/math_microservices$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1638659209915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/csv-validator" />
     <SUITE FILE_PATH="coverage/math_microservices$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1634745951646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/src" />
     <SUITE FILE_PATH="coverage/math_microservices$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1634931695838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/message-sender/src" />
     <SUITE FILE_PATH="coverage/math_microservices$csv_validator.coverage" NAME="csv-validator Coverage Results" MODIFIED="1635946604574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/csv-validator" />
-    <SUITE FILE_PATH="coverage/math_microservices$main.coverage" NAME="main Coverage Results" MODIFIED="1638038735027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/message-sender" />
-    <SUITE FILE_PATH="coverage/math_microservices$logistic_regression_calc.coverage" NAME="logistic-regression-calc Coverage Results" MODIFIED="1635946442079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc" />
+    <SUITE FILE_PATH="coverage/math_microservices$main.coverage" NAME="main Coverage Results" MODIFIED="1638659196230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/message-sender" />
+    <SUITE FILE_PATH="coverage/math_microservices$logistic_regression_calc.coverage" NAME="logistic-regression-calc Coverage Results" MODIFIED="1638659245929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc" />
+    <SUITE FILE_PATH="coverage/math_microservices$consumer.coverage" NAME="consumer Coverage Results" MODIFIED="1638659219793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/logistic-regression/logistic-regression-calc/queuingSystem" />
   </component>
 </project>
